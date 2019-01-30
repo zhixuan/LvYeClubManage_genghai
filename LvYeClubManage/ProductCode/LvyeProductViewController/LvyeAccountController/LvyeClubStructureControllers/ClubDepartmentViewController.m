@@ -261,7 +261,12 @@
     
 }
 
-
+/**
+ *  @method
+ *
+ *  @brief ClubDepartmentSelectDelegate Method for protocol;
+ *
+ */
 - (void)userAddClubAddDepartmentOperationSuccessful{
     [self refreshListData];
 }

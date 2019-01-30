@@ -95,6 +95,7 @@
 
 - (void)layoutSubviews{
     if(self.dataSourceStyle == DataSourceForUserInfoStyle){
+        NSLog(@"DataSourceForUserInfoStyle is %lu",DataSourceForUserInfoStyle);
         CGFloat imageWidth = (KDepartmenUserTableCellHeight - KUserPhotoImageWidth)/2;
         [self.cellLeftImageView setFrame:CGRectMake(KUserPhotoForCellLeftInterval,imageWidth,
                                                     KUserPhotoImageWidth, KUserPhotoImageWidth)];
@@ -105,6 +106,7 @@
                                                  KDepartmenUserTableCellHeight)];
     }else if (self.dataSourceStyle == DataSourceForDepartmenStyle){
         
+        NSLog(@"DataSourceForDepartmenStyle is %lu",DataSourceForDepartmenStyle);
         [self.cellTitleLabel setFrame:CGRectMake(KUserPhotoForCellLeftInterval, 0.0f,
                                                  (KProjectScreenWidth-KBtnContentLeftWidth),
                                                  KDepartmenUserTableCellHeight)];

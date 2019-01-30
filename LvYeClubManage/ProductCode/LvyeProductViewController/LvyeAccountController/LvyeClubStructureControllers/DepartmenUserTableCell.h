@@ -13,8 +13,8 @@
 
 typedef NS_ENUM(NSUInteger,DataSourceStyle) {
     
-    DataSourceForUserInfoStyle = 1 << 1,
-    DataSourceForDepartmenStyle,
+    DataSourceForUserInfoStyle = 1 << 1,        /**< 10 员工信息*/
+    DataSourceForDepartmenStyle,                /**< 10 部门信息*/
 };
 
 @interface DepartmenUserTableCell : TableViewBasicCell
