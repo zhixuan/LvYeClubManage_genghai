@@ -94,13 +94,17 @@
 
 - (void)setContorViewFrame{
     
+    NSUUID *Cuuid = [UIDevice currentDevice].identifierForVendor;
+    NSLog(@"uuid 1 [%@]",Cuuid.UUIDString);
+    
     UIView *contentBGView = [[UIView alloc]init];
     [contentBGView setBackgroundColor:[UIColor whiteColor]];
     [contentBGView setFrame:CGRectMake(0.0f, KBtnBackGroundTop, KProjectScreenWidth, KBtnBackGroudViewHeight)];
     [self.bgScrollView addSubview:contentBGView];
     
-    
-    
+//    NSDate *dateNow = [NSDate new];
+//    NSArray *newArray = [[NSArray alloc]initWithObjects:@"12", nil];
+//    NSLog(@"%@",[newArray objectAtIndex:2]);
     UILabel *photoLabel = [[UILabel alloc]init];
     [photoLabel setBackgroundColor:[UIColor clearColor]];
     [photoLabel setFrame:CGRectMake(KBtnContentLeftWidth, 0.0f, 40.0f, KBtnForBtnCellNormalHeight*2.5f)];
@@ -117,6 +121,7 @@
     [contentBGView addSubview:photoBottomSeparate];
     
     
+
     
     
     UIImageView *photoImageView = [[UIImageView alloc]init];
@@ -132,7 +137,10 @@
 
     NSString *photoImageURLStr = [NSString stringWithFormat:@"%@%@",KEY_RESPONSE_LVYE_CLUB_IMAGE_URL,KLvyeClubCurrentUser.userPhotoImageURL];
 
-    [self.userPhotoImageView setImageWithURL:[NSURL URLWithString:photoImageURLStr] placeholderImage:KClueDefaultImage_ClubCurrentUserPhotoImage];
+//    [self.userPhotoImageView setImageWithURL:[NSURL URLWithString:photoImageURLStr] placeholderImage:KClueDefaultImage_ClubCurrentUserPhotoImage];
+//    [self.userPhotoImageView setImageWithURL:[NSURL URLWithString:photoImageURLStr] placeholderImage:KClueDefaultImage_ClubCurrentUserPhotoImage];
+    
+    [self.userPhotoImageView setImageWithURL:[NSURL URLWithString:photoImageURLStr] placeholderImage:KClueDefaultImage_ClubCurrentUserPhotoImage options:SDWebImageCacheMemoryOnly];
     
     ///用户名
     UIButtonCell *nameButton = [UIButtonCell buttonNormalWithType:UIButtonTypeCustom];
