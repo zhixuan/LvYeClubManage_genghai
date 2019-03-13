@@ -37,6 +37,7 @@
 		182EEDAB20F300D5000EBBAD /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 182EEDAA20F300D5000EBBAD /* libsqlite3.tbd */; };
 		182EEDAD20F300E4000EBBAD /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 182EEDAC20F300E4000EBBAD /* SystemConfiguration.framework */; };
 		182EEDB220F305E6000EBBAD /* UMCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 182EEDB120F305E6000EBBAD /* UMCommon.framework */; };
+		182F28DC21E47218008DA403 /* LvYeHTTPClient+ClubInsurances.m in Sources */ = {isa = PBXBuildFile; fileRef = 182F28DB21E47218008DA403 /* LvYeHTTPClient+ClubInsurances.m */; };
 		183198E02117E4A40038ECBB /* LvyeClubMoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183198DF2117E4A40038ECBB /* LvyeClubMoreViewController.m */; };
 		183198E32117E5DC0038ECBB /* LvyeClubSettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183198E22117E5DC0038ECBB /* LvyeClubSettingController.m */; };
 		1834286920F31F2100B78997 /* UMAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1834286820F31F2100B78997 /* UMAnalytics.framework */; };
@@ -150,6 +151,7 @@
 		18FC1A6B210571C200CBC6FC /* LvyeClubManageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FC1A6A210571C200CBC6FC /* LvyeClubManageController.m */; };
 		18FC1A6E210571D300CBC6FC /* LvyeClubOrderController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FC1A6D210571D300CBC6FC /* LvyeClubOrderController.m */; };
 		18FC1A722105CE1100CBC6FC /* LvyeProductSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FC1A712105CE1100CBC6FC /* LvyeProductSettings.m */; };
+		18FDB464223631C100361460 /* ClubOrderBaiscCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FDB463223631C100361460 /* ClubOrderBaiscCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -217,6 +219,8 @@
 		182EEDAA20F300D5000EBBAD /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		182EEDAC20F300E4000EBBAD /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		182EEDB120F305E6000EBBAD /* UMCommon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UMCommon.framework; sourceTree = "<group>"; };
+		182F28DA21E47218008DA403 /* LvYeHTTPClient+ClubInsurances.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LvYeHTTPClient+ClubInsurances.h"; sourceTree = "<group>"; };
+		182F28DB21E47218008DA403 /* LvYeHTTPClient+ClubInsurances.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "LvYeHTTPClient+ClubInsurances.m"; sourceTree = "<group>"; };
 		183198DE2117E4A40038ECBB /* LvyeClubMoreViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LvyeClubMoreViewController.h; sourceTree = "<group>"; };
 		183198DF2117E4A40038ECBB /* LvyeClubMoreViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LvyeClubMoreViewController.m; sourceTree = "<group>"; };
 		183198E12117E5DC0038ECBB /* LvyeClubSettingController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LvyeClubSettingController.h; sourceTree = "<group>"; };
@@ -431,6 +435,8 @@
 		18FC1A6D210571D300CBC6FC /* LvyeClubOrderController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LvyeClubOrderController.m; sourceTree = "<group>"; };
 		18FC1A702105CE1100CBC6FC /* LvyeProductSettings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LvyeProductSettings.h; sourceTree = "<group>"; };
 		18FC1A712105CE1100CBC6FC /* LvyeProductSettings.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LvyeProductSettings.m; sourceTree = "<group>"; };
+		18FDB462223631C100361460 /* ClubOrderBaiscCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClubOrderBaiscCell.h; sourceTree = "<group>"; };
+		18FDB463223631C100361460 /* ClubOrderBaiscCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClubOrderBaiscCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -622,6 +628,8 @@
 				18B3C4CD20F5E46C00EA93AC /* LvYeHTTPClient+ClubFinance.m */,
 				18C94F9E21086B580088D3EA /* LvYeHTTPClient+ClubManage.h */,
 				18C94F9F21086B580088D3EA /* LvYeHTTPClient+ClubManage.m */,
+				182F28DA21E47218008DA403 /* LvYeHTTPClient+ClubInsurances.h */,
+				182F28DB21E47218008DA403 /* LvYeHTTPClient+ClubInsurances.m */,
 			);
 			path = LvyeProductWebRequest;
 			sourceTree = "<group>";
@@ -1164,6 +1172,8 @@
 				18FC1A6D210571D300CBC6FC /* LvyeClubOrderController.m */,
 				183F34CD211BCE10005F0A8D /* LvyeClubOrderTableController.h */,
 				183F34CE211BCE10005F0A8D /* LvyeClubOrderTableController.m */,
+				18FDB462223631C100361460 /* ClubOrderBaiscCell.h */,
+				18FDB463223631C100361460 /* ClubOrderBaiscCell.m */,
 			);
 			path = LvyeClubOrderController;
 			sourceTree = "<group>";
@@ -1308,6 +1318,7 @@
 				18CBEBB32137EA2F0013AFC9 /* ClubTravellerUserInfo.m in Sources */,
 				18B3C4D820F5FA9900EA93AC /* BankInfo.m in Sources */,
 				1876A43D21241C67004B023E /* ClubBillRecordController.m in Sources */,
+				18FDB464223631C100361460 /* ClubOrderBaiscCell.m in Sources */,
 				188C366420FC8E0B00B569BF /* ClubUserInfo.m in Sources */,
 				182CF39F20F454A0004499AD /* AFXMLRequestOperation.m in Sources */,
 				1854A3B5211D347800CAF90C /* AppDelegate+ServiceInfo.m in Sources */,
@@ -1339,6 +1350,7 @@
 				1870300221217B7F00BABA96 /* SDWebImageDecoder.m in Sources */,
 				18BF30FF21256AFB004C9D70 /* ClubBankTableViewCell.m in Sources */,
 				18B3C4C820F5E39600EA93AC /* LvYeHTTPClient+CLubInfo.m in Sources */,
+				182F28DC21E47218008DA403 /* LvYeHTTPClient+ClubInsurances.m in Sources */,
 				184EA11821353C9800553AD3 /* TourBasicInfo.m in Sources */,
 				1819791020FD9332001C9DA6 /* LvyeBaseTabBarController.m in Sources */,
 				181BDC2120FED0530031668E /* UIFont+FontAwesome.m in Sources */,
