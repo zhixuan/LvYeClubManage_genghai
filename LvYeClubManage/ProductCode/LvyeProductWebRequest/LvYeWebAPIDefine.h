@@ -25,12 +25,15 @@
 
 
 
-/////测试操作
+/////正式环境
 #define KEY_LVYE_API_URL_TEST                   @"http://club.lvye.com:8999/"
 #define KEY_LVYE_WEB_RESPONSE_URL_TEST          @"http://club.lvye.com:8999/"
 
+
+
 ///正式环境数据内容
-#define KEY_LVYE_API_URL                        @"http://club.lvye.com:8999/"
+#define KEY_LVYE_API_URL                        @"http://192.168.106.68:8999/"
+//#define KEY_LVYE_API_URL                        @"http://club.lvye.com:8999/"
 #define KEY_LVYE_WEB_RESPONSE_URL               KEY_LVYE_API_URL
 
 
@@ -63,6 +66,11 @@
 #define KDataKeyUserPwd                         @"password"
 
 
+#define KDataKeyOrderNumber                     @"orderNumber"
+#define KDataKeyOrderNum                        @"orderNum"
+
+
+
 ////返回数据内容KEY
 #define KDataKeyData                            @"data"
 #define KDataKeyMsg                             @"message"
@@ -89,6 +97,14 @@
 #define KURLClubLeaderInsertURL                 @"clubLeader/leaderInsert"
 ///俱乐部领队编辑接口
 #define KURLClubLeaderEditURL                   @"clubLeader/leaderUpdate"
+
+
+#pragma mark -
+#pragma mark -  --俱乐部订单管理（俱乐部退款管理）--
+#pragma mark -
+#define KURLClubOrderList                       @"clubOrder/clubOrderList"
+#define KURLClubOrderItemOrderDetail            @"clubOrder/itemOrderInfo"
+
 
 
 #pragma mark -
