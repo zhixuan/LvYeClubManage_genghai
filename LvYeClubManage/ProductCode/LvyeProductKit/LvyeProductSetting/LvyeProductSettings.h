@@ -91,5 +91,18 @@
  */
 @property (nonatomic , strong)      NSDictionary        *clubFunctionManageModuleDictionary;
 
+/*!
+ * @property
+ * @brief 俱乐部订单状态
+ */
+@property (nonatomic , strong)      NSArray             *clubOrderPaymentStyleContentArray;
+
+
+/*!
+ * @property
+ * @brief 俱乐部活动状态集合（编辑中，审核中，）
+ */
+@property (nonatomic , strong)      NSDictionary        *clubTourInfoStyleContentDictionary;
+
 + (LvyeProductSettings *)shareLvyeProductSettings;
 @end
