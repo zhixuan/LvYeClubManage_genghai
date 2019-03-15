@@ -27,12 +27,12 @@
 //#endif
 
 
-//#ifndef __OPTIMIZE__
-//#define NSLog(fmt, ...) NSLog((@"%s " fmt), __PRETTY_FUNCTION__, ##__VA_ARGS__);
-//#else
-//#define NSLog(...) {}
-//#endif
-
+#ifndef __OPTIMIZE__
+#define NSLog(fmt, ...) NSLog((@"%s " fmt), __PRETTY_FUNCTION__, ##__VA_ARGS__);
+#else
+#define NSLog(...) {}
+#endif
+//
 //#define NSLog(...) {}
 
 #define KClueDefaultImage_ClubLeaderPhotoName               @"clubLeaderPhotoDefaultImage.png"

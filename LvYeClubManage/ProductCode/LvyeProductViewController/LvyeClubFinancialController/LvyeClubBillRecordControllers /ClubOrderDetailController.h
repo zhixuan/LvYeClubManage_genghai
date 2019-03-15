@@ -13,6 +13,11 @@
 @interface ClubOrderDetailController : LvyeBaseViewController
 
 
+/*!
+ * @property
+ * @brief 订单内容
+ */
+@property (nonatomic , strong)ClubOrderInfo           *itemOrderInfo;
 /**
  初始化订单详情界面
 

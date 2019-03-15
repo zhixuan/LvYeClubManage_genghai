@@ -47,6 +47,18 @@
     return userInfo;
 }
 
+#pragma mark -
+#pragma mark -  根据 JSON 数据解析用户信息，获取订单联系人信息
++ (ClubUserInfo *)initClubUserInfoForOrderLinkUserInfoWithUnserializedJSONDic:(NSDictionary *)dic{
+    ClubUserInfo *userInfo = [[ClubUserInfo alloc]init];
+    [userInfo setUserName:StringForKeyInUnserializedJSONDic(dic, @"user_name")];
+    [userInfo setUserEmail:StringForKeyInUnserializedJSONDic(dic, @"user_email")];
+    [userInfo setUserMobile:StringForKeyInUnserializedJSONDic(dic, @"user_phone")];
+    
+    NSLog(@"dic is %@",dic);
+    return userInfo;
+}
+
 - (NSDictionary *)parameterInitDictionaryWithUserAddClubAdministrator{
     
     NSDictionary *paramUser = @{@"userName":self.userName,

@@ -32,8 +32,8 @@
 
 
 ///正式环境数据内容
-#define KEY_LVYE_API_URL                        @"http://192.168.106.68:8999/"
-//#define KEY_LVYE_API_URL                        @"http://club.lvye.com:8999/"
+//#define KEY_LVYE_API_URL                        @"http://192.168.106.68:8999/"
+#define KEY_LVYE_API_URL                        @"http://club.lvye.com:8999/"
 #define KEY_LVYE_WEB_RESPONSE_URL               KEY_LVYE_API_URL
 
 

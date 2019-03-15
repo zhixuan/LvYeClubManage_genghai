@@ -77,7 +77,8 @@
 
 //适配宽高
 #define KLVYEAdapterSizeWidth    (KProjectScreenWidth/375.0)
-#define KLVYEAdapterSizeHeight    (KProjectScreenHeight/667.0)
+//#define KLVYEAdapterSizeHeight    (KProjectScreenHeight/667.0)
+#define KLVYEAdapterSizeHeight    (1.0)
 
 ///列表界面Cell中用户头像高度
 #define KUserPhotoImageHeight               (45.0f*KLVYEAdapterSizeWidth)

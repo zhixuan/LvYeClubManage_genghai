@@ -140,6 +140,7 @@
 		18DD56D7212D01CE008D1A2E /* NSString+TransformCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DD56D6212D01CE008D1A2E /* NSString+TransformCategory.m */; };
 		18E93DEC2101679D0025B94A /* VerificationCodeImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E93DEB2101679D0025B94A /* VerificationCodeImageView.m */; };
 		18E93DF02101D2C20025B94A /* UIView+ViewCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E93DEF2101D2C20025B94A /* UIView+ViewCategory.m */; };
+		18E965032238ACBC006ACC78 /* ClubOrderAuditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E965022238ACBC006ACC78 /* ClubOrderAuditViewController.m */; };
 		18EA13A3212BE4EE00FAB572 /* clubLeaderPhotoDefaultImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 18EA13A1212BE4EE00FAB572 /* clubLeaderPhotoDefaultImage.png */; };
 		18EA13A4212BE4EE00FAB572 /* clubLeaderPhotoDefaultImage111.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 18EA13A2212BE4EE00FAB572 /* clubLeaderPhotoDefaultImage111.jpg */; };
 		18EA13A6212BE62F00FAB572 /* clubCurrentUserPhotoImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 18EA13A5212BE62F00FAB572 /* clubCurrentUserPhotoImage.png */; };
@@ -416,6 +417,8 @@
 		18E93DEB2101679D0025B94A /* VerificationCodeImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VerificationCodeImageView.m; sourceTree = "<group>"; };
 		18E93DEE2101D2C20025B94A /* UIView+ViewCategory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+ViewCategory.h"; sourceTree = "<group>"; };
 		18E93DEF2101D2C20025B94A /* UIView+ViewCategory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+ViewCategory.m"; sourceTree = "<group>"; };
+		18E965012238ACBC006ACC78 /* ClubOrderAuditViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClubOrderAuditViewController.h; sourceTree = "<group>"; };
+		18E965022238ACBC006ACC78 /* ClubOrderAuditViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClubOrderAuditViewController.m; sourceTree = "<group>"; };
 		18EA13A1212BE4EE00FAB572 /* clubLeaderPhotoDefaultImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clubLeaderPhotoDefaultImage.png; sourceTree = "<group>"; };
 		18EA13A2212BE4EE00FAB572 /* clubLeaderPhotoDefaultImage111.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = clubLeaderPhotoDefaultImage111.jpg; sourceTree = "<group>"; };
 		18EA13A5212BE62F00FAB572 /* clubCurrentUserPhotoImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clubCurrentUserPhotoImage.png; sourceTree = "<group>"; };
@@ -971,6 +974,8 @@
 				1876A43C21241C67004B023E /* ClubBillRecordController.m */,
 				18A204A6213E0AC6007F439F /* ClubOrderDetailController.h */,
 				18A204A7213E0AC6007F439F /* ClubOrderDetailController.m */,
+				18E965012238ACBC006ACC78 /* ClubOrderAuditViewController.h */,
+				18E965022238ACBC006ACC78 /* ClubOrderAuditViewController.m */,
 				189B6771213D133300F6E9C5 /* ClubBillRecordCell.h */,
 				189B6772213D133300F6E9C5 /* ClubBillRecordCell.m */,
 			);
@@ -1307,6 +1312,7 @@
 			files = (
 				182CF39820F454A0004499AD /* AFImageRequestOperation.m in Sources */,
 				18645AF0211A822D00059B1C /* LvyeClubRefundController.m in Sources */,
+				18E965032238ACBC006ACC78 /* ClubOrderAuditViewController.m in Sources */,
 				18A16442212FDD5D00727C27 /* LGTextView.m in Sources */,
 				182CF39920F454A0004499AD /* AFPropertyListRequestOperation.m in Sources */,
 				1876A4352123F8E4004B023E /* ClubLeaderViewController.m in Sources */,

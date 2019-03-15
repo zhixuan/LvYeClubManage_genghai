@@ -7,6 +7,7 @@
 //
 
 #import "TourPriceInfo.h"
+#import "ClubUserInfo.h"
 
 @interface ClubOrderInfo : TourPriceInfo
 
@@ -139,6 +140,19 @@
 
 /*!
  * @property
+ * @brief 订单联系人信息
+ */
+@property (nonatomic , strong)      ClubUserInfo              *orderLinkUserInfo;
+
+
+/*!
+ * @property
+ * @brief 出行人信息
+ */
+@property (nonatomic , strong)      NSMutableArray          *orderTravellerArray;
+
+/*!
+ * @property
  * @brief 订单联系人电话
  */
 @property (nonatomic , copy)      NSString              *orderLinkUserMobile;
@@ -152,4 +166,22 @@
 
 
 + (instancetype)initWithClubOrderInfoWithUnserializedJSONDic:(NSDictionary *)dic;
+
+
+
+/**
+ 初始化活动管理中订单列表数据内容
+
+ @param dic  JSON 数据
+ @return 需要的数据对象
+ */
++ (instancetype)initWithClubItemOrderInfoCellAtOrderManagerWithUnserializedJSONDic:(NSDictionary *)dic;
+
+/**
+ 初始化活动订单详情数据内容
+
+ @param dic 待解析的 JSON 数据
+ @return 需要的数据对象
+ */
++ (instancetype)initWithOrderDetailInfoWithUnserializedJSONDic:(NSDictionary *)dic;
 @end

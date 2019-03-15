@@ -58,7 +58,7 @@
         [tourName setBackgroundColor:[UIColor clearColor]];
         [tourName setFont:[UIFont systemFontOfSize:(16*KLVYEAdapterSizeWidth)]];
         [tourName setTextColor:KContentTextColor];
-        [tourName setNumberOfLines:2];
+        [tourName setNumberOfLines:3];
         [tourName setLineBreakMode:NSLineBreakByTruncatingHead];
         self.cellContentLabel = tourName;
         [self.contentBackGroudView addSubview:self.cellContentLabel ];
@@ -227,13 +227,15 @@
     
     
     ///设置宽高限制。
-    CGSize boundingSize = CGSizeMake((KProjectScreenWidth - KBtnContentLeftWidth*2), MAXFLOAT);
+    CGSize boundingSize = CGSizeMake((KProjectScreenWidth - KBtnContentLeftWidth*1.5), MAXFLOAT);
     ///设置属性
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     [paragraphStyle setLineSpacing:KInforLeftIntervalWidth/2.5];
     NSDictionary *attDic =@{NSFontAttributeName: [UIFont systemFontOfSize:(16*KLVYEAdapterSizeWidth)],
                             NSParagraphStyleAttributeName:paragraphStyle,};
     CGRect contentRect =  [self.cellContentLabel.text boundingRectWithSize:boundingSize options:NSStringDrawingUsesFontLeading|NSStringDrawingUsesLineFragmentOrigin attributes:attDic context:nil];
+    
+//    NSLog(@"contentRect.size.height is %2f",contentRect.size.height);
     [self.cellContentLabel setFrame:CGRectMake(KInforLeftIntervalWidth, self.cellSeparatorView.bottom+10.0,
                                                (self.contentBackGroudView.width -KInforLeftIntervalWidth*1.5) , contentRect.size.height)];
     ///设置行高度
@@ -241,6 +243,10 @@
     [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [self.cellContentLabel.text length])];
     self.cellContentLabel.attributedText = attributedString;
     [self.cellContentLabel sizeToFit];
+    
+    
+    [self.contentBackGroudView setHeight:((KClubBillRecordCellHeight - KInforLeftIntervalWidth) + contentRect.size.height)];
+    [self.selectedBackgroundView setHeight:(KClubBillRecordCellHeight+contentRect.size.height)];
     
     
     [self.recordOutDateLabel setFrame:CGRectMake(KInforLeftIntervalWidth, self.cellContentLabel.bottom+3.0f,

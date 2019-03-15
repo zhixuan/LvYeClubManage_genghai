@@ -107,6 +107,14 @@
 + (ClubUserInfo *)initClubUserInfoForDepartmenUserWithUnserializedJSONDic:(NSDictionary *)dic;
 
 
+/**
+ 根据 JSON 数据解析用户信息，获取订单联系人信息
+ 
+ @param dic  JSON 数据
+ @return ClubUserInfo 对象
+ */
++ (ClubUserInfo *)initClubUserInfoForOrderLinkUserInfoWithUnserializedJSONDic:(NSDictionary *)dic;
+
 
 /**
  初始化创建俱乐部管理员参数信息
@@ -114,4 +122,6 @@
  @return NSDictionary
  */
 - (NSDictionary *)parameterInitDictionaryWithUserAddClubAdministrator;
+
+
 @end

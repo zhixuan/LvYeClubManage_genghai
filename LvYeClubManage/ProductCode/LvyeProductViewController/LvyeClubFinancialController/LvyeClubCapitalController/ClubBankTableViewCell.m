@@ -15,6 +15,12 @@
  */
 @property (nonatomic , weak)      UILabel               *bankStyleLabel;
 
+/*!
+ * @property
+ * @brief 银行卡背景图
+ */
+@property (nonatomic , weak)      UIView                *bankBackGroundView;
+
 @end
 
 @implementation ClubBankTableViewCell
@@ -29,7 +35,9 @@
         //设置选中Cell后的背景图
         UIView *selectedView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, KProjectScreenWidth, KClubBankTableViewCellHeight)];
         [selectedView setBackgroundColor:KTableViewCellSelectedColor];
+        [selectedView setBackgroundColor:[UIColor clearColor]];
         self.selectedBackgroundView = selectedView;
+        [self.selectedBackgroundView setBackgroundColor:[UIColor clearColor]];
         
         
         
@@ -40,13 +48,15 @@
         [bgView setFrame:CGRectMake(KBtnContentLeftWidth, KBtnContentLeftWidth,
                                     (KProjectScreenWidth - KBtnContentLeftWidth*2),
                                     (KClubBankTableViewCellHeight - KBtnContentLeftWidth))];
-        [self.contentView addSubview:bgView];
+        self.bankBackGroundView= bgView;
+        [self.contentView addSubview:self.bankBackGroundView];
         
         
         UILabel   *bankNameContent = [[UILabel alloc]init];
         [bankNameContent setBackgroundColor:[UIColor clearColor]];
         [bankNameContent setFont:[UIFont systemFontOfSize:22.0f]];
         [bankNameContent setTextColor:KContentTextColor];
+        [bankNameContent setTextColor:[UIColor whiteColor]];
         [bankNameContent setTextAlignment:NSTextAlignmentLeft];
         self.cellTitleLabel =bankNameContent;
         [bgView addSubview:self.cellTitleLabel];
@@ -55,6 +65,7 @@
         [bankStyleContent setBackgroundColor:[UIColor clearColor]];
         [bankStyleContent setFont:[UIFont systemFontOfSize:12.0f]];
         [bankStyleContent setTextColor:KContentTextColor];
+        [bankStyleContent setTextColor:[UIColor whiteColor]];
         [bankStyleContent setTextAlignment:NSTextAlignmentLeft];
         self.bankStyleLabel =bankStyleContent;
         [bgView addSubview:self.bankStyleLabel ];
@@ -80,7 +91,9 @@
     
     if (clubBank.clubBankAccounStyle == ClubBankPublicStyle) {
         [self.bankStyleLabel setText:@"对公账户"];
+        [self.bankBackGroundView setBackgroundColor:[UIColor colorWithRed:150.0f/255.0f green:0.0f/255.0f blue:0.0f/255.0f alpha:1.0f]];
     } else {
+        [self.bankBackGroundView setBackgroundColor:[UIColor colorWithRed:244.0f/255.0f green:0.0f/255.0f blue:0.0f/255.0f alpha:1.0f]];
         [self.bankStyleLabel setText:@"个人账户"];
     }
     [self layoutIfNeeded];

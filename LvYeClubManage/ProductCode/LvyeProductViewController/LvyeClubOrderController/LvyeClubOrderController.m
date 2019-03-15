@@ -65,8 +65,7 @@
         dispatch_async(dispatch_get_main_queue(), ^(void){
 
             if (response.code == WebAPIResponseCodeSuccess) {
-                NSLog(@"response.code is %ld",response.code);
-                NSLog(@"description is %@",response.responseObject);
+               
                 if([ObjForKeyInUnserializedJSONDic(response.responseObject, KDataKeyData) isKindOfClass:[NSArray class]]){
                     NSArray *dataArray =(NSArray *)ObjForKeyInUnserializedJSONDic(response.responseObject, KDataKeyData);
                     for (NSDictionary *moduleDic in dataArray) {

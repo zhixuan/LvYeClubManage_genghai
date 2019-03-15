@@ -24,6 +24,7 @@
         // Custom initialization
         self.enableCustomNavbarBackButton = YES;
         self.navButtonSize = KNavSize;
+        
     }
     return self;
 }
@@ -58,6 +59,17 @@
     [self.view addSubview:self.bgScrollView];
     
     
+    ///使其支持左滑操作，如果删除，则不再支持左滑取消操作；
+    if(HUISystemVersionAboveOrIs(kHUISystemVersion_8_0)){
+        self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;
+     }
+//    NSNumericSearch
+//     NSFoundationVersionNumber_iOS_7_1
+//    NSOrderedAscending
+    
+   
+//    [@"838" compare:<#(nonnull NSString *)#> options:<#(NSStringCompareOptions)#>];
+//    NSLog(@"[[ UIDevice currentDevice] systemVersion] %@",[[ UIDevice currentDevice] systemVersion]);
     UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                                            action:@selector(finishEditOperation) ];
     [self.bgScrollView addGestureRecognizer:tapGestureRecognizer];

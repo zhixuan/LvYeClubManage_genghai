@@ -198,6 +198,7 @@
     }
     ClubBankTableViewCell *bankCell=(ClubBankTableViewCell *)cell;
     ClubBankInfo *info=(ClubBankInfo*)[self.dataSource.data objectAtIndex:indexPath.row];
+    [bankCell setSelectionStyle:UITableViewCellSelectionStyleNone];
     [bankCell fillClubBankInfo:info];
     
 }
@@ -242,6 +243,7 @@
                 cell.textLabel.text = LOADMORE_LOADOVER;
             }
         }
+        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     }
     return cell;
 }
@@ -249,6 +251,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if (indexPath.row >= [self.dataSource.data count]) {
+        return;
+    }
     ClubBankInfo *info=(ClubBankInfo*)[self.dataSource.data objectAtIndex:indexPath.row];
     
     if (info.clubBankAccounStyle == ClubBankPublicStyle) {

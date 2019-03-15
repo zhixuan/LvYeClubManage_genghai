@@ -227,7 +227,20 @@
     if([self _isLoadMoreCellAtIndexPath:indexPath]) {
         return kSizeLoadMoreCellHeight;
     }
-    return KClubBillRecordCellHeight;
+    
+    
+    CGFloat tourNameHeightFloat = 0.0f;
+    ClubFinanceCapitalRecod *info=(ClubFinanceCapitalRecod*)[self.dataSource.data objectAtIndex:indexPath.row];
+    CGSize boundingSize = CGSizeMake((KProjectScreenWidth - KBtnContentLeftWidth*1.5), MAXFLOAT);
+    ///设置属性
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    [paragraphStyle setLineSpacing:KInforLeftIntervalWidth/2.5];
+    NSDictionary *attDic =@{NSFontAttributeName: [UIFont systemFontOfSize:(16*KLVYEAdapterSizeWidth)],
+                            NSParagraphStyleAttributeName:paragraphStyle,};
+    CGRect contentRect =  [info.tourName boundingRectWithSize:boundingSize options:NSStringDrawingUsesFontLeading|NSStringDrawingUsesLineFragmentOrigin attributes:attDic context:nil];
+    
+    tourNameHeightFloat =contentRect.size.height;
+    return (KClubBillRecordCellHeight+tourNameHeightFloat);
 }
 
 - (void)_configureCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath

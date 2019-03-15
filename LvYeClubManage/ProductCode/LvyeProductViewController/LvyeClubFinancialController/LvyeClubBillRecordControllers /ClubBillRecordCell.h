@@ -10,7 +10,7 @@
 
 #import "ClubFinanceCapitalRecod.h"
 
-#define KClubBillRecordCellHeight  (KLVYEUIControlSizeHeight(227.5))
+#define KClubBillRecordCellHeight  (KLVYEUIControlSizeHeight(227.5-44.176000))
 
 @interface ClubBillRecordCell : TableViewBasicCell
 

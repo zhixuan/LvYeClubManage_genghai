@@ -29,7 +29,11 @@
     // Override point for customization after application launch.
     
     
-    
+//    int x=3;
+//    int y= 10;
+//    x=y^0;
+//    NSLog(@"x is  %i, y is %i",x,y);
+//    
     
 
     ///初始化友盟统计

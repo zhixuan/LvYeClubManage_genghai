@@ -214,6 +214,8 @@
     UITabBarItem *tabBarItem = [[UITabBarItem alloc] initWithTitle:title image:normalImage selectedImage:selectedImage];
      [tabBarItem setFinishedSelectedImage:selectedImage withFinishedUnselectedImage:normalImage];
     [tabBarItem.selectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    
+    
     return tabBarItem;
     
 }
