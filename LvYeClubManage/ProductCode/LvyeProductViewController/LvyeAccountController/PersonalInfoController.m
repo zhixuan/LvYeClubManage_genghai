@@ -22,8 +22,13 @@
 
 #import "PersonalInfoController.h"
 #import "PersonalInfoEditController.h"
+#import "LvyeBaseNavigationController.h"
+#import "LvYeHttpClient.h"
+#import "PersonalEditPasswordController.h"
 
-@interface PersonalInfoController ()
+#import "LvYeHTTPClient+ClubUser.h"
+
+@interface PersonalInfoController ()<UIActionSheetDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate,UIAlertViewDelegate>
 
 
 /*!
@@ -56,6 +61,18 @@
  */
 @property (nonatomic , weak)      UILabel               *userEmailLabel;
 
+/*!
+ * @property
+ * @brief 用户是否编辑了信息
+ */
+@property (nonatomic , assign)      BOOL                userIsEditInfoBool;
+
+/*!
+ * @property
+ * @brief 用户头像信息
+ */
+@property (nonatomic , strong)      NSString            *userPersonalPhotoURL;
+
 @end
 
 @implementation PersonalInfoController
@@ -65,7 +82,8 @@
 - (id)init{
     self = [super init];
     if (self) {
-
+        self.userIsEditInfoBool = NO;
+        self.userPersonalPhotoURL = [[NSString alloc]initWithFormat:@"%@",@""];
     }
     return self;
 }
@@ -78,12 +96,17 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+     self.userIsEditInfoBool = NO;
+    self.userPersonalPhotoURL = [[NSString alloc]initWithFormat:@"%@",@""];
     NSLog(@"更改个人信息内容");
     // Do any additional setup after loading the view.
     
     NSLog(@"userName is %@",KLvyeClubCurrentUser.userName);
     
+    
+    [self setLeftNavButtonFA:FMIconFontF053
+                   withFrame:CGRectMake(0.0f, 0.0f, 55.0f, 44.0f)
+                actionTarget:self action:@selector(userGoToBackOperation)];
     [self setContorViewFrame];
 }
 
@@ -94,11 +117,14 @@
 
 - (void)setContorViewFrame{
     
+    
+    /*
     NSUUID *Cuuid = [UIDevice currentDevice].identifierForVendor;
     NSLog(@"uuid 1 [%@]",Cuuid.UUIDString);
-    
+    */
     UIView *contentBGView = [[UIView alloc]init];
     [contentBGView setBackgroundColor:[UIColor whiteColor]];
+    [contentBGView setUserInteractionEnabled:YES];
     [contentBGView setFrame:CGRectMake(0.0f, KBtnBackGroundTop, KProjectScreenWidth, KBtnBackGroudViewHeight)];
     [self.bgScrollView addSubview:contentBGView];
     
@@ -127,20 +153,27 @@
     UIImageView *photoImageView = [[UIImageView alloc]init];
     [photoImageView setBackgroundColor:[UIColor clearColor]];
     [photoImageView.layer setMasksToBounds:YES];
-//    [photoImageView.layer setBorderWidth:1.0f];
+    [photoImageView setUserInteractionEnabled:YES ];
+    [photoImageView.layer setBorderWidth:1.0f];
     [photoImageView setImage:KClueDefaultImage_ClubCurrentUserPhotoImage];
-//    [photoImageView.layer setCornerRadius:KPhotoImageViewHeight/2];
-//    [photoImageView.layer setBorderColor:KSeparateColorSetup.CGColor];
+    [photoImageView.layer setCornerRadius:KPhotoImageViewHeight/2];
+    [photoImageView.layer setBorderColor:KSeparateColorSetup.CGColor];
     [photoImageView setFrame:CGRectMake((KProjectScreenWidth - KPhotoImageViewHeight - KBtnContentLeftWidth), KBtnContentLeftWidth, KPhotoImageViewHeight, KPhotoImageViewHeight)];
     self.userPhotoImageView =photoImageView;
     [contentBGView addSubview:photoImageView];
+    NSString *photoImageURLStr = [NSString stringWithFormat:@"%@%@",KEY_RESPONSE_LVYE_IMAGE_URL,KLvyeClubCurrentUser.userPhotoImageURL];
 
-    NSString *photoImageURLStr = [NSString stringWithFormat:@"%@%@",KEY_RESPONSE_LVYE_CLUB_IMAGE_URL,KLvyeClubCurrentUser.userPhotoImageURL];
-
-//    [self.userPhotoImageView setImageWithURL:[NSURL URLWithString:photoImageURLStr] placeholderImage:KClueDefaultImage_ClubCurrentUserPhotoImage];
-//    [self.userPhotoImageView setImageWithURL:[NSURL URLWithString:photoImageURLStr] placeholderImage:KClueDefaultImage_ClubCurrentUserPhotoImage];
+    if(!IsStringEmptyOrNull(KLvyeClubCurrentUser.userPhotoImageURL)){
+        self.userPersonalPhotoURL = [[NSString alloc]initWithFormat:@"%@",KLvyeClubCurrentUser.userPhotoImageURL];
+    }
     
-    [self.userPhotoImageView setImageWithURL:[NSURL URLWithString:photoImageURLStr] placeholderImage:KClueDefaultImage_ClubCurrentUserPhotoImage options:SDWebImageCacheMemoryOnly];
+
+    NSLog(@"photoImageURLStr is %@",photoImageURLStr);
+    [self.userPhotoImageView setUserInteractionEnabled:YES];
+    [self.userPhotoImageView setImageWithURL:[NSURL URLWithString:photoImageURLStr] placeholderImage:KClueDefaultImage_ClubCurrentUserPhotoImage];
+    UITapGestureRecognizer *gestRec = [[UITapGestureRecognizer alloc]initWithTarget:self
+                                                                       action:@selector(userChoosePersonalPhotoEvent:)];
+    [self.userPhotoImageView addGestureRecognizer:gestRec];
     
     ///用户名
     UIButtonCell *nameButton = [UIButtonCell buttonNormalWithType:UIButtonTypeCustom];
@@ -206,7 +239,7 @@
     UILabel *passwordLabel = [[UILabel alloc]init];
     [passwordLabel setBackgroundColor:[UIColor clearColor]];
     [passwordLabel setFrame:CGRectMake((KProjectScreenWidth - 120.0f - KBtnContentLeftWidth/2), 0.0f, 100.0f, passwordButton.height)];
-    [passwordLabel setText:@"✨✨✨✨"];
+    [passwordLabel setText:@"修改密码"];
     [passwordLabel.layer setMasksToBounds:YES];
     [passwordLabel setTextAlignment:NSTextAlignmentRight];
     [passwordLabel setFont:KContentLeftTitleFontOfSize];
@@ -241,24 +274,172 @@
 
 
 - (void)userPersonalButtonEventOperation:(UIButtonCell *)button{
-    
-    
-    EditUserStyle style = EditUserNameStyle;
-    if (button.tag == KButtonForUserNameTag) {
-        style = EditUserNameStyle;
-    }else if (button.tag == KButtonForUserMobileTag){
-        style = EditUserMoblieStyle;
-    }else if (button.tag == KButtonForUserEmailTag){
-        style = EditUserEmailStyle;
+  
+    if(button.tag == KButtonForUserPasswordTag){
+        PersonalEditPasswordController *viewController = [[PersonalEditPasswordController alloc] init];
+        [self.navigationController pushViewController:viewController animated:YES];
+        return;
+    }else{
+        
+        EditUserStyle style = EditUserNameStyle;
+        if (button.tag == KButtonForUserNameTag) {
+            style = EditUserNameStyle;
+        }else if (button.tag == KButtonForUserMobileTag){
+            style = EditUserMoblieStyle;
+        }else if (button.tag == KButtonForUserEmailTag){
+            style = EditUserEmailStyle;
+        }
+        __weak __typeof(&*self)weakSelf = self;
+        PersonalInfoEditController  *viewController = [[PersonalInfoEditController alloc]initWithEditUserStyle:style block:^(NSString *editInfo, EditUserStyle style) {
+            
+            if (style == EditUserEmailStyle) {
+                [weakSelf.userEmailLabel setText:editInfo];
+            }else if (style == EditUserMoblieStyle) {
+                [weakSelf.userMobileLabel setText:editInfo];
+            }
+            else if (style == EditUserNameStyle) {
+                [weakSelf.userNameLabel setText:editInfo];
+            }
+            weakSelf.userIsEditInfoBool = YES;
+        }];
+        [viewController setTitle:@"编辑信息"];
+        [viewController setHidesBottomBarWhenPushed:YES];
+        [self.navigationController pushViewController:viewController animated:YES];
     }
-    else if (button.tag == KButtonForUserPasswordTag){
-        style = EditUserPasswordStyle;
-    }
-    
-    
-    PersonalInfoEditController  *viewController = [[PersonalInfoEditController alloc]initWithEditUserStyle:style];
-    [viewController setTitle:@"编辑信息"];
-    [viewController setHidesBottomBarWhenPushed:YES];
-    [self.navigationController pushViewController:viewController animated:YES];
 }
+
+
+- (void)userChoosePersonalPhotoEvent:(UITapGestureRecognizer *)gestureRecognizer{
+    
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"选择头像" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"相册" otherButtonTitles:@"拍照", nil];
+    [actionSheet showInView:self.view];
+}
+
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    NSLog(@"clickedButtonAtIndex:(NSInteger)buttonIndex is %ld",buttonIndex);
+    
+    if (buttonIndex != 2) {
+        
+        UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+        imagePickerController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+        imagePickerController.delegate = self;
+        imagePickerController.allowsEditing = NO;
+        
+        if (buttonIndex == 0) {
+            imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+            [imagePickerController setAllowsEditing:YES];
+
+        } else if (buttonIndex == 1) {
+                        imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+
+        }
+        
+        LvyeBaseNavigationController *navg = (LvyeBaseNavigationController *)self.navigationController;
+//        [navg presentModalViewController:imagePickerController animated:YES];
+        [navg presentViewController:imagePickerController animated:YES completion:^{
+            
+        }];
+    }
+}
+
+#pragma mark UIImagePickerControllerDelegate
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    UIImage *imageinfo  = [info objectForKey:@"UIImagePickerControllerEditedImage"];
+    CGSize imageSize    = imageinfo.size;
+    if (imageSize.width < 1) {
+        return;
+    }
+   
+    // 图片宽度限制在640，高度依比例缩放
+    CGFloat imageHeight = imageSize.height * KProjectScreenWidth / imageSize.width;
+    imageSize.width     = KProjectScreenWidth;
+    imageSize.height    = imageHeight;
+    UIGraphicsBeginImageContext(imageSize);
+    [imageinfo drawInRect: CGRectMake(0, 0, imageSize.width,imageSize.height)];
+    UIImage *smallImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    [self.userPhotoImageView setImage:smallImage];
+    
+    
+     __weak __typeof(&*self)weakSelf = self;
+    [picker dismissViewControllerAnimated:YES completion:^{
+        
+        
+        [KShareHTTPLvyeHTTPClient uploadImage:smallImage completion:^(WebAPIResponse *response) {
+            dispatch_async(dispatch_get_main_queue(), ^(void){
+                
+                if (response.code == WebAPIResponseCodeSuccess) {
+                    NSLog(@"response.code is %ld",response.code);
+                    NSLog(@"description is %@",response.responseObject);}
+                
+                weakSelf.userPersonalPhotoURL = [[NSString alloc]initWithFormat:@"%@",StringForKeyInUnserializedJSONDic(response.responseObject , @"url")];
+                 weakSelf.userIsEditInfoBool = YES;
+            });
+        }];
+    }];
+}
+
+
+- (void)userGoToBackOperation{
+    if(self.userIsEditInfoBool){
+        UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"您已修改信息，是否保存" message:@"直接退出后信息可能丢失" delegate: self cancelButtonTitle:@"不保存" otherButtonTitles:@"保存", nil];
+        [alertView show];
+    }else{
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+}
+
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    
+    NSLog(@"buttonIndex is %ld",buttonIndex );
+    
+    if(buttonIndex == 0){
+        [self.navigationController popViewControllerAnimated:YES];
+    }else{
+        
+        if (IsStringEmptyOrNull(self.userPersonalPhotoURL)) {
+            ShowImportErrorAlertView(@"请你上传图片");
+            
+            return;
+        }
+
+        
+        NSDictionary *info = @{@"userName":self.userNameLabel.text,
+                               @"photoUrl":self.userPersonalPhotoURL,
+                               @"email":self.userEmailLabel.text,
+                               @"mobile":self.userMobileLabel.text
+                               };
+
+        
+        __weak __typeof(&*self)weakSelf = self;
+        [KShareHTTPLvyeHTTPClient clubUserEditPersonalInfWithClubId:KLvyeClubCurrentUser.clubId userId:KLvyeClubCurrentUser.userId info:info completion:^(WebAPIResponse *response) {
+            dispatch_async(dispatch_get_main_queue(), ^(void){
+
+                NSLog(@"response.responseObject is %@",response.responseObject);
+                if (response.code == WebAPIResponseCodeSuccess) {
+
+                    [KLvyeClubCurrentUser setUserPhotoImageURL:weakSelf.userPersonalPhotoURL];
+                    [KLvyeClubCurrentUser setUserName:weakSelf.userNameLabel.text];
+                    [KLvyeClubCurrentUser setUserMobile:weakSelf.userMobileLabel.text];
+                    [KLvyeClubCurrentUser setUserEmail:weakSelf.userEmailLabel.text];
+                    weakSelf.userIsEditInfoBool= NO;
+                    [weakSelf.navigationController popViewControllerAnimated:YES];
+
+                }else if(response.code == WebAPIResponseCodeFailed){
+                    ShowImportErrorAlertView(StringForKeyInUnserializedJSONDic(response.responseObject, KDataKeyMsg));
+                }
+
+            });
+        }];
+        
+        
+        
+    }
+}
+
 @end

@@ -8,6 +8,7 @@
 
 #import "PersonalInfoEditController.h"
 
+
 #define KBtnOneBackGroudViewHeight                 (KBtnForBtnCellNormalHeight*1.0)
 
 
@@ -35,10 +36,11 @@
     return self;
 }
 
-- (instancetype)initWithEditUserStyle:(EditUserStyle)style{
+- (instancetype)initWithEditUserStyle:(EditUserStyle)style block:(UserPersonalEditInfoBlock)iblok{
     self = [super init];
     if (self) {
         self.userStyle = style;
+        self.block=iblok;
     }
     return self;
 }
@@ -118,7 +120,10 @@
 
 - (void)userSaveEditInfoClicked{
     
-    
+    if (self.block) {
+        self.block(self.userInfTextField.text, self.userStyle);
+       [self.navigationController popViewControllerAnimated:YES];
+    }
     
 }
 

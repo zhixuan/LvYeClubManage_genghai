@@ -8,11 +8,9 @@
 
 #import "LvyeBaseViewController.h"
 
-
-
 /**
  编辑用户信息枚举
-
+ 
  - EditUserNameStyle: 编辑用户名字
  - EditUserPasswordStyle: 编辑用户密码
  - EditUserEmailStyle: 编辑用户邮箱
@@ -24,8 +22,19 @@ typedef NS_ENUM(NSUInteger,EditUserStyle) {
     EditUserMoblieStyle,
 };
 
+
+typedef void(^UserPersonalEditInfoBlock) (NSString *editInfo,EditUserStyle style);
+
+
+
 @interface PersonalInfoEditController : LvyeBaseViewController
 
+/*!
+ * @property
+ * @brief 用户完成信息编辑Block
+ */
+@property (nonatomic , copy)      UserPersonalEditInfoBlock block;
 
-- (instancetype)initWithEditUserStyle:(EditUserStyle)style;
+
+- (instancetype)initWithEditUserStyle:(EditUserStyle)style block:(UserPersonalEditInfoBlock)iblok;
 @end
