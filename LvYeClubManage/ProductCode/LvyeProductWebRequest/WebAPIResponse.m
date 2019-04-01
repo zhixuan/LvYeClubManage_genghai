@@ -35,6 +35,21 @@
                               description:@"请求参数错误"];
 }
 
++ (id) responseWithImageURL:(NSString *)url{
+    WebAPIResponse *response = [[WebAPIResponse alloc]init];
+    
+    if (IsStringEmptyOrNull(url)) {
+        [response setCode:WebAPIResponseCodeFailed];
+        [response setCodeDescription:@"服务器返回数据异常"];
+    }else{
+        [response setCode:WebAPIResponseCodeSuccess];
+        NSDictionary *urlDic = @{@"url":url,};
+        [response setResponseObject:urlDic];
+    }
+    
+    return response;
+}
+
 +(id)responseWithUnserializedJSONDic:(id)returnData{
     
     
@@ -51,4 +66,5 @@
     
     return response;
 }
+
 @end

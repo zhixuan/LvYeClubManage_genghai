@@ -17,12 +17,15 @@
 
 #define KShareHTTPLvyeHTTPClient [LvYeHTTPClient shareLvYeHTTPClient]
 
+#define KShareHTTPLvyeImagesClient [LvYeHTTPClient shareLvYeImagesClient]
+
 typedef void(^WebAPIResponstComlitionBlock) (WebAPIResponse *response);
 
 @interface LvYeHTTPClient : AFHTTPClient
 
 
 + (LvYeHTTPClient *)shareLvYeHTTPClient;
++ (LvYeHTTPClient *)shareLvYeImagesClient;
 
 /**
  AFHTTP GET 请求操作
@@ -48,6 +51,19 @@ typedef void(^WebAPIResponstComlitionBlock) (WebAPIResponse *response);
 - (AFHTTPRequestOperation *)postPath:(NSString *)path
                           parameters:(NSDictionary *)parameters
                           completion:(WebAPIResponstComlitionBlock)completionBlock;
+
+
+
+/**
+ 上传图片
+
+ @param image 已选择好的图片y源
+ @param completionBlock 返回内容
+ @return 请求线程
+ */
+- (NSString *)uploadImage:(UIImage *)image
+               completion:(WebAPIResponstComlitionBlock)completionBlock;
+
 
 
 @end

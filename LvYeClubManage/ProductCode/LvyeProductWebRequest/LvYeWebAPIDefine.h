@@ -32,12 +32,12 @@
 
 
 ///正式环境数据内容
-//#define KEY_LVYE_API_URL                        @"http://192.168.106.68:8999/"
+//#define KEY_LVYE_API_URL                        @"http://192.168.24.74:8999/"
 #define KEY_LVYE_API_URL                        @"http://club.lvye.com:8999/"
 #define KEY_LVYE_WEB_RESPONSE_URL               KEY_LVYE_API_URL
 
 
-#define KEY_RESPONSE_LVYE_IMAGE_URL             @"http://res.lvye.com"
+#define KEY_RESPONSE_LVYE_IMAGE_URL             @"http://res.lvye.com/"
 #define KEY_RESPONSE_LVYE_CLUB_IMAGE_URL        @"http://club.lvye.com"
 
 
@@ -173,5 +173,7 @@
 ///MARK:用户信息
 #define KURLLoginURL                            @"userInfo/login"
 #define KURLUpdateTokenURL                      @"userInfo/updateToken"
+#define KURLUpdateUserBaseInfoURL               @"userInfo/updateLoginInfo"
+#define KURLUpdateUserPasswordURL               @"userInfo/updatePassword"
 
 #endif /* LvYeWebAPIDefine_h */

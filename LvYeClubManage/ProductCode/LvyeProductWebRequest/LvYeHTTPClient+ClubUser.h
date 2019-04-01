@@ -50,4 +50,40 @@
  */
 - (AFHTTPRequestOperation *)userAddClubAdministarorWithUserInfo:(ClubUserInfo *)userInfo
                                                     completion:(WebAPIResponstComlitionBlock)completionBlock;
+
+
+
+
+/**
+ 用户根据个人 ID，修改个人信息内容（头像、邮箱、姓名）
+ 
+ @param clubId 用户所在俱乐部信息
+ @param userId 用户 ID
+ @param info 需要修改的信息
+ @param completionBlock 操作 Block
+ @return 请求实例
+ */
+- (AFHTTPRequestOperation *)clubUserEditPersonalInfWithClubId:(NSString *)clubId
+                                                       userId:(NSString *)userId
+                                                         info:(NSDictionary *)info
+                                                   completion:(WebAPIResponstComlitionBlock)completionBlock;
+
+
+
+
+/**
+ 用户修改个人密码
+
+ @param clubId 用户所在俱乐部 ID
+ @param userId 用户 ID
+ @param oldPwd 旧密码
+ @param newPwd 新密码
+ @param completionBlock 操作 Block
+ @return 请求实例
+ */
+- (AFHTTPRequestOperation *)clubUserUpdatePersonalPasswordWithClubId:(NSString *)clubId
+                                                              userId:(NSString *)userId
+                                                                 old:(NSString *)oldPwd
+                                                                 new:(NSString *)newPwd
+                                                          completion:(WebAPIResponstComlitionBlock)completionBlock;
 @end

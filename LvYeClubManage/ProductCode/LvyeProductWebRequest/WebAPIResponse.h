@@ -29,7 +29,8 @@ typedef NS_ENUM(NSInteger, WebAPIResponseCode)
     WebAPIResponseCodeNOSpeakError          = 147,          /**< 该账户禁止发言*/
     WebAPIResponseCodeTitleRecurError       = 148,          /**< 话题的标题或者内容和上一条重复*/
     WebAPIResponseCodeAnsweRecurError       = 149,          /**< 话题回复的内容和上一条重复*/
-    WebAPIResponseCodeForceUpdateError      = 600           /**< 强制用户进行升级操作处理*/
+    WebAPIResponseCodeForceUpdateError      = 600,          /**< 强制用户进行升级操作处理*/
+    WebAPIResponseCodeBusinessError         = 504           /**< 业务逻辑或业务信息错误*/
 };
 
 @interface WebAPIResponse : NSObject
@@ -71,7 +72,7 @@ typedef NS_ENUM(NSInteger, WebAPIResponseCode)
 + (id)invalidArgumentsResonse;
 + (id)responseWithCode:(WebAPIResponseCode)code;
 + (id)responseWithCode:(WebAPIResponseCode)code description:(NSString *)codeDescription;
-
++ (id) responseWithImageURL:(NSString *)url;
 /**
  根据返回JSON数据，构建response
 
@@ -79,5 +80,6 @@ typedef NS_ENUM(NSInteger, WebAPIResponseCode)
  @return WebAPIResponseCode对象
  */
 + (id)responseWithUnserializedJSONDic:(id)returnData;
+
 
 @end

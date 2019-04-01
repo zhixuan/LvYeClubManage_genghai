@@ -74,4 +74,44 @@
     NSDictionary *param = [userInfo parameterInitDictionaryWithUserAddClubAdministrator];
     return [self postPath:KURLUpdateTokenURL parameters:param completion:completionBlock];
 }
+
+- (AFHTTPRequestOperation *)clubUserEditPersonalInfWithClubId:(NSString *)clubId userId:(NSString *)userId info:(NSDictionary *)info completion:(WebAPIResponstComlitionBlock)completionBlock{
+    
+    
+    if (clubId ==nil || [clubId length] < 1 || [userId length] < 1) {
+        if (completionBlock) {
+            completionBlock([WebAPIResponse invalidArgumentsResonse]);
+        }
+        return nil;
+    }
+    
+    NSDictionary *param = @{KDataKeyClubID:clubId,
+                            KDataKeyUserId:userId,
+                            @"name":StringForKeyInUnserializedJSONDic(info, @"userName"),
+                            @"mobile":StringForKeyInUnserializedJSONDic(info, @"mobile"),
+                            @"email":StringForKeyInUnserializedJSONDic(info, @"email"),
+                            @"photoUrl":StringForKeyInUnserializedJSONDic(info, @"photoUrl"),
+                            };
+    
+    return [self getPath:KURLUpdateUserBaseInfoURL parameters:param completion:completionBlock];
+    
+}
+
+- (AFHTTPRequestOperation *)clubUserUpdatePersonalPasswordWithClubId:(NSString *)clubId userId:(NSString *)userId old:(NSString *)oldPwd new:(NSString *)newPwd completion:(WebAPIResponstComlitionBlock)completionBlock{
+    
+    if (clubId ==nil || [clubId length] < 1 || [userId length] < 1) {
+        if (completionBlock) {
+            completionBlock([WebAPIResponse invalidArgumentsResonse]);
+        }
+        return nil;
+    }
+    
+    NSDictionary *param = @{KDataKeyClubID:clubId,
+                            KDataKeyUserId:userId,
+                            @"originalPwd":oldPwd,
+                            @"newPwd":newPwd,};
+    
+    return [self getPath:KURLUpdateUserPasswordURL parameters:param completion:completionBlock];
+    
+}
 @end

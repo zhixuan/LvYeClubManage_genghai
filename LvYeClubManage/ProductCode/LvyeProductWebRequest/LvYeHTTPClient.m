@@ -7,6 +7,7 @@
 //
 
 #import "LvYeHTTPClient.h"
+#import "QiniuSDK.h"
 
 @implementation LvYeHTTPClient
 
@@ -14,6 +15,16 @@
 
 + (LvYeHTTPClient *)shareLvYeHTTPClient{
    
+    static dispatch_once_t onceToken ;
+    dispatch_once(&onceToken, ^{
+        shareHttpClient = [[LvYeHTTPClient alloc]initWithBaseURL:[NSURL URLWithString:KEY_LVYE_API_URL]];
+    });
+    
+    return shareHttpClient;
+}
+
++ (LvYeHTTPClient *)shareLvYeImagesClient{
+    
     static dispatch_once_t onceToken ;
     dispatch_once(&onceToken, ^{
         shareHttpClient = [[LvYeHTTPClient alloc]initWithBaseURL:[NSURL URLWithString:KEY_LVYE_API_URL]];
@@ -132,5 +143,29 @@
     [self enqueueHTTPRequestOperation:operation];
     return operation;
 
+}
+
+- (NSString *)uploadImage:(UIImage *)image completion:(WebAPIResponstComlitionBlock)completionBlock{
+    
+    
+    [self getPath:@"token/qiniu" parameters:nil completion:^(WebAPIResponse *response) {
+        
+        if(response.code == WebAPIResponseCodeSuccess){
+            NSString *tokenString = [NSString stringWithFormat:@"%@",StringForKeyInUnserializedJSONDic(response.responseObject, KDataKeyData)];
+            
+            QNUploadManager *upload = [[QNUploadManager alloc]init];
+            [upload putData:UIImagePNGRepresentation(image) key:[NSString stringWithFormat:@"upload/%@.png",getranAutoImageName(5)] token:tokenString complete:^(QNResponseInfo *info, NSString *key, NSDictionary *resp) {
+                
+                if (completionBlock) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        completionBlock([WebAPIResponse responseWithImageURL:StringForKeyInUnserializedJSONDic(resp, @"key")]);
+                    });
+                }
+            } option:nil];
+        }
+    }];
+    
+  
+    return @"";
 }
 @end
