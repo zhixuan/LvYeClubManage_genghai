@@ -13,6 +13,11 @@
 ///自行处理颜色信息
 #define HUIRGBColor(r, g, b, a)             [UIColor colorWithRed:(r)/255.00 green:(g)/255.00 blue:(b)/255.00 alpha:(a)]
 
+
+#define HUIRGBHexColor(rgbValue,a)            [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:(a)]
+
+
+
 ////TODO: 项目整体背景色
 #define KDefaultViewBackGroundColor         [UIColor colorWithRed:230.0f/255.0 green:230.0/255.0 blue:236.0/255.0 alpha:1.0]
 

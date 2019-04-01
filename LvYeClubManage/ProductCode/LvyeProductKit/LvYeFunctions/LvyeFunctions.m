@@ -230,6 +230,27 @@ NSString* generateRandStringWithBity(int numberCount)
     return result;
 }
 
+NSString * getranAutoImageName(int numberCount){
+    NSDate *datenow = [NSDate date];//现在时间,你可以输出来看下是什么格式
+    
+    NSString *timeSp = [NSString stringWithFormat:@"%ld", (long)[datenow timeIntervalSince1970]*1000];
+    
+    
+    const int N = numberCount;
+    ///sourceString中不能出现”Y“字母，“Y”字母作为分隔符进行操作处理
+    NSString *sourceString = @"0123456789";
+    NSMutableString *result = [[NSMutableString alloc] init];
+    ////生成随机不重复随机数  使用无符号数字信息内容 ，避免出现警告内容
+    srand((unsigned)time(0));
+    for (int i = 0; i < N; i++)
+    {
+        unsigned index = rand() % [sourceString length];
+        NSString *s = [sourceString substringWithRange:NSMakeRange(index, 1)];
+        [result appendString:s];
+    }
+    return [NSString stringWithFormat:@"%@%@",timeSp,result];
+}
+
 #pragma mark -MBProgressHUD
 MBProgressHUD* CreateCustomColorHUDOnView(UIView *onView)
 {

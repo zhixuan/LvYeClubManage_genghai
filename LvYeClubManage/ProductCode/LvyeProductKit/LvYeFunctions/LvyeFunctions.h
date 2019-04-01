@@ -87,6 +87,8 @@ extern "C" {
     extern void ConfiguratePullToRefreshViewAppearanceForScrollView(UIScrollView *view);
 #pragma mark -LoadMoreCell
     extern HUILoadMoreCell* CreateLoadMoreCell(void);
+    //生成固定位数的随机字符串
+    extern NSString * getranAutoImageName(int numberCount);
     
     
     /**

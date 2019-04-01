@@ -27,13 +27,21 @@
 //#endif
 
 
-#ifndef __OPTIMIZE__
-#define NSLog(fmt, ...) NSLog((@"%s " fmt), __PRETTY_FUNCTION__, ##__VA_ARGS__);
-#else
-#define NSLog(...) {}
-#endif
+//#ifndef __OPTIMIZE__
+//#define NSLog(fmt, ...) NSLog((@"%s " fmt), __PRETTY_FUNCTION__, ##__VA_ARGS__);
+//#else
+//#define NSLog(...) {}
+//#endif
 //
 //#define NSLog(...) {}
+
+
+
+#ifdef DEBUG
+#define NSLog(FORMAT, ...) fprintf(stderr,"%s\t%s\n",__PRETTY_FUNCTION__,[[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);
+#else
+#define NSLog(...)
+#endif
 
 #define KClueDefaultImage_ClubLeaderPhotoName               @"clubLeaderPhotoDefaultImage.png"
 #define KClueDefaultImage_ClubLeaderPhotoImage              [UIImage imageNamed:KClueDefaultImage_ClubLeaderPhotoName]
