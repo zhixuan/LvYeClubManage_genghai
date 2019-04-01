@@ -9,8 +9,6 @@
 #import "UIButtonCell.h"
 #import "FontAwesome.h"
 
-
-
 @implementation UIButtonCell
 
 
@@ -82,10 +80,17 @@
     UIButtonCell *button = [UIButtonCell buttonWithType:UIButtonTypeCustom];
     
     
+    
+    
+    ///-webkit-linear-gradient(left, #46E781, #1FDAD0)
     UIImage *normalImage= [UIImage initWithGradientColorWithDirection:GradientColorHorizontalStyle
                                                                  size:CGSizeMake(KProjectScreenWidth, KBtnCellHeight)
                                                            startColor:HUIRGBColor(225.0, 225.0f, 225.0f, 1.0f)
                                                              endColor:[UIColor whiteColor]];
+//    UIImage *normalImage= [UIImage initWithGradientColorWithDirection:GradientColorHorizontalStyle
+//                                                                 size:CGSizeMake(KProjectScreenWidth, KBtnCellHeight)
+//                                                           startColor:ssRGBHex(0x46E781)
+//                                                             endColor:ssRGBHex(0x1FDAD0)];
     [button setBackgroundImage:normalImage forState:UIControlStateNormal];
 //    [button setBackgroundImage:createImageWithColor([UIColor whiteColor]) forState:UIControlStateNormal];
     [button setBackgroundImage:createImageWithColor(KButtonStateHighlightedColor) forState:UIControlStateHighlighted];
