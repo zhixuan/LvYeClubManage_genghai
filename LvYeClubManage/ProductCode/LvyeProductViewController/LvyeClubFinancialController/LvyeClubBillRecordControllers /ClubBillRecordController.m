@@ -222,7 +222,7 @@
     [paragraphStyle setLineSpacing:KInforLeftIntervalWidth/2.5];
     NSDictionary *attDic =@{NSFontAttributeName: [UIFont systemFontOfSize:(16*KLVYEAdapterSizeWidth)],
                             NSParagraphStyleAttributeName:paragraphStyle,};
-    CGRect contentRect =  [info.tourName boundingRectWithSize:boundingSize options:NSStringDrawingUsesFontLeading|NSStringDrawingUsesLineFragmentOrigin attributes:attDic context:nil];
+    CGRect contentRect =  [[NSString stringWithFormat:@"%@ -- %@",info.tourName,info.tourBasicId] boundingRectWithSize:boundingSize options:NSStringDrawingUsesFontLeading|NSStringDrawingUsesLineFragmentOrigin attributes:attDic context:nil];
     
     tourNameHeightFloat =contentRect.size.height;
     

@@ -9,29 +9,11 @@
 #import "TableViewBasicCell.h"
 #import "ClubOrderInfo.h"
 
-#define KClubOrderBaiscCellHeight  (KLVYEUIControlSizeHeight(227.5))
+
+#define KClubOrderBaiscCellHeight  (KLVYEUIControlSizeHeight(257.5-44.176000))
 
 
 @interface ClubOrderBaiscCell : TableViewBasicCell
-
-
-/*!
-* @property
-* @brief 结算状态
-*/
-@property (nonatomic , weak)      UILabel           *recordStatusLable;
-
-/*!
- * @property
- * @brief 界面数据内容背景视图
- */
-@property (nonatomic ,  weak)      UIView           *contentBackGroudView;
-
-/*!
- * @property
- * @brief 出发时间
- */
-@property (nonatomic , weak)      UILabel           *recordOutDateLabel;
 
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier;

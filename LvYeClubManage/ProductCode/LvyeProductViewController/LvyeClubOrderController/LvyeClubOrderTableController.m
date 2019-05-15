@@ -172,6 +172,8 @@
                         NSArray *dataArray =(NSArray *)ObjForKeyInUnserializedJSONDic(dataDictionary, @"list");
                         
                         NSMutableArray  *mutableArray =[NSMutableArray array];
+                        
+//                        NSDictionary *moduleDicfirst = (NSDictionary *)[dataArray firstObject];
                         for (NSDictionary *moduleDic in dataArray) {
                             ClubOrderInfo * itemInfo  =[ClubOrderInfo initWithClubItemOrderInfoCellAtOrderManagerWithUnserializedJSONDic:moduleDic];
                             [mutableArray addObject:itemInfo];
@@ -185,7 +187,6 @@
                         if ([mutableArray count] == 0) {
                             weakSelf.dataSource.pageCount = 0;
                         }
-                        NSLog(@"weakSelf.dataSource.pageCount is %lu",weakSelf.dataSource.pageCount);
                         [weakSelf.tableView reloadData];
                     }else{
                         
@@ -267,7 +268,21 @@
     if([self _isLoadMoreCellAtIndexPath:indexPath]) {
         return kSizeLoadMoreCellHeight;
     }
-    return KClubOrderBaiscCellHeight;
+    
+    
+    CGFloat tourNameHeightFloat = 0.0f;
+    ClubFinanceCapitalRecod *info=(ClubFinanceCapitalRecod*)[self.dataSource.data objectAtIndex:indexPath.row];
+    CGSize boundingSize = CGSizeMake((KProjectScreenWidth - KBtnContentLeftWidth*1.5), MAXFLOAT);
+    ///设置属性
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    [paragraphStyle setLineSpacing:KInforLeftIntervalWidth/2.5];
+    NSDictionary *attDic =@{NSFontAttributeName: [UIFont systemFontOfSize:(16*KLVYEAdapterSizeWidth)],
+                            NSParagraphStyleAttributeName:paragraphStyle,};
+    CGRect contentRect =  [[NSString stringWithFormat:@"%@ -- %@",info.tourName,info.tourBasicId] boundingRectWithSize:boundingSize options:NSStringDrawingUsesFontLeading|NSStringDrawingUsesLineFragmentOrigin attributes:attDic context:nil];
+    
+    tourNameHeightFloat =contentRect.size.height;
+    
+    return (KClubOrderBaiscCellHeight + tourNameHeightFloat);
 }
 
 - (void)_configureCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -280,13 +295,17 @@
     ClubFinanceCapitalRecod *info=(ClubFinanceCapitalRecod*)[self.dataSource.data objectAtIndex:indexPath.row];
     [recordCell fillClubBillRecordShowTableCellDataSourceWithClubFinanceCapitalRecod:info];
     */
+    
+    ClubOrderInfo * itemInfo =(ClubOrderInfo*)[self.dataSource.data objectAtIndex:indexPath.row];
+    ClubOrderBaiscCell *orderCell= (ClubOrderBaiscCell*)cell;
+    [orderCell setupCellDataInfo:itemInfo];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     
     
-    NSString *cellIdentifier=@"ClubBankInforCell";
+    NSString *cellIdentifier=@"ClubOrderBaiscCell";
     
     
     BOOL isLoadMoreCell = [self _isLoadMoreCellAtIndexPath:indexPath];

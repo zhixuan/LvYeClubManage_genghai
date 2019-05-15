@@ -91,7 +91,7 @@
     [orderNumberLabel setTextAlignment:NSTextAlignmentLeft];
     [orderNumberLabel setText:self.itemOrderInfo.orderNumber];
     [orderNumberLabel setFont:[UIFont boldSystemFontOfSize:18.0f]];
-    [orderNumberLabel setFrame:CGRectMake(KInforLeftIntervalWidth, 0.0f, (bgContentScrollView.width -KInforLeftIntervalWidth)/2, KBtnCellHeight)];
+    [orderNumberLabel setFrame:CGRectMake(KInforLeftIntervalWidth, 0.0f, (bgContentScrollView.width -KInforLeftIntervalWidth)*2/3, KBtnCellHeight)];
     [bgContentScrollView addSubview:orderNumberLabel];
     
     
