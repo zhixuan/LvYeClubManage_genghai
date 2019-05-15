@@ -89,6 +89,15 @@ extern "C" {
     extern HUILoadMoreCell* CreateLoadMoreCell(void);
     //生成固定位数的随机字符串
     extern NSString * getranAutoImageName(int numberCount);
+    ///获取图片 URL 地址--七牛缩略图片
+    extern NSString * getCompleteContractImageURLForQiNiuWithImageURLStr(NSString *imgStr);
+    ///获取图片 URL 地址--七牛网址图片
+    extern NSURL * getCompleteImageURLForQiNiuWithImageURLStr(NSString *imgStr);
+    extern NSURL * getCompleteImageURLForLvyeClubWithImageURLStr(NSString *imgStr);
+    
+    ////将字符串格式化为两位小数的字符串（货币金额格式化操作）
+    extern NSString *formateCurrencyDecimalWithMoneyStr(NSString *str);
+    
     
     
     /**

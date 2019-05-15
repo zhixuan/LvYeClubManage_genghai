@@ -7,6 +7,40 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		180288E82249B4C3002CB435 /* QNUploadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 180288B72249B4C3002CB435 /* QNUploadManager.m */; };
+		180288E92249B4C3002CB435 /* QNConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 180288B82249B4C3002CB435 /* QNConfiguration.m */; };
+		180288EA2249B4C3002CB435 /* QNResumeUpload.m in Sources */ = {isa = PBXBuildFile; fileRef = 180288BA2249B4C3002CB435 /* QNResumeUpload.m */; };
+		180288EB2249B4C3002CB435 /* QNUpToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 180288BC2249B4C3002CB435 /* QNUpToken.m */; };
+		180288EC2249B4C3002CB435 /* QNFormUpload.m in Sources */ = {isa = PBXBuildFile; fileRef = 180288BF2249B4C3002CB435 /* QNFormUpload.m */; };
+		180288ED2249B4C3002CB435 /* QNUploadOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 180288C02249B4C3002CB435 /* QNUploadOption.m */; };
+		180288EE2249B4C3002CB435 /* QNPHAssetResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 180288C22249B4C3002CB435 /* QNPHAssetResource.m */; };
+		180288EF2249B4C3002CB435 /* QNCrc32.m in Sources */ = {isa = PBXBuildFile; fileRef = 180288C32249B4C3002CB435 /* QNCrc32.m */; };
+		180288F02249B4C3002CB435 /* QNUrlSafeBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 180288C62249B4C3002CB435 /* QNUrlSafeBase64.m */; };
+		180288F12249B4C3002CB435 /* QNFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 180288CA2249B4C3002CB435 /* QNFile.m */; };
+		180288F22249B4C3002CB435 /* QNEtag.m in Sources */ = {isa = PBXBuildFile; fileRef = 180288CB2249B4C3002CB435 /* QNEtag.m */; };
+		180288F32249B4C3002CB435 /* QNSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 180288CD2249B4C3002CB435 /* QNSystem.m */; };
+		180288F42249B4C3002CB435 /* QNAsyncRun.m in Sources */ = {isa = PBXBuildFile; fileRef = 180288D02249B4C3002CB435 /* QNAsyncRun.m */; };
+		180288F52249B4C3002CB435 /* QNALAssetFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 180288D22249B4C3002CB435 /* QNALAssetFile.m */; };
+		180288F62249B4C3002CB435 /* QNPHAssetFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 180288D32249B4C3002CB435 /* QNPHAssetFile.m */; };
+		180288F72249B4C3002CB435 /* QN_GTM_Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 180288D42249B4C3002CB435 /* QN_GTM_Base64.m */; };
+		180288F82249B4C3002CB435 /* QNUserAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = 180288DA2249B4C3002CB435 /* QNUserAgent.m */; };
+		180288F92249B4C3002CB435 /* QNResponseInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 180288DC2249B4C3002CB435 /* QNResponseInfo.m */; };
+		180288FA2249B4C3002CB435 /* QNSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 180288DE2249B4C3002CB435 /* QNSessionManager.m */; };
+		180288FB2249B4C3002CB435 /* QNFileRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 180288E12249B4C3002CB435 /* QNFileRecorder.m */; };
+		180288FC2249B4C3002CB435 /* QNPipeline.m in Sources */ = {isa = PBXBuildFile; fileRef = 180288E72249B4C3002CB435 /* QNPipeline.m */; };
+		180288FE2249B763002CB435 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 180288FD2249B763002CB435 /* libresolv.tbd */; };
+		1802891C2249C40F002CB435 /* QNDes.m in Sources */ = {isa = PBXBuildFile; fileRef = 180289012249C40F002CB435 /* QNDes.m */; };
+		1802891D2249C40F002CB435 /* QNHex.m in Sources */ = {isa = PBXBuildFile; fileRef = 180289022249C40F002CB435 /* QNHex.m */; };
+		1802891E2249C40F002CB435 /* QNHijackingDetectWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 180289092249C40F002CB435 /* QNHijackingDetectWrapper.m */; };
+		1802891F2249C40F002CB435 /* QNResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = 1802890A2249C40F002CB435 /* QNResolver.m */; };
+		180289202249C40F002CB435 /* QNHosts.m in Sources */ = {isa = PBXBuildFile; fileRef = 1802890B2249C40F002CB435 /* QNHosts.m */; };
+		180289212249C40F002CB435 /* QNDnsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1802890E2249C40F002CB435 /* QNDnsManager.m */; };
+		180289222249C40F002CB435 /* QNNetworkInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 180289122249C40F002CB435 /* QNNetworkInfo.m */; };
+		180289232249C40F002CB435 /* QNDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = 180289132249C40F002CB435 /* QNDomain.m */; };
+		180289242249C40F002CB435 /* QNRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 180289152249C40F002CB435 /* QNRecord.m */; };
+		180289252249C40F002CB435 /* QNDnspodFree.m in Sources */ = {isa = PBXBuildFile; fileRef = 180289182249C40F002CB435 /* QNDnspodFree.m */; };
+		180289262249C40F002CB435 /* QNDnspodEnterprise.m in Sources */ = {isa = PBXBuildFile; fileRef = 1802891B2249C40F002CB435 /* QNDnspodEnterprise.m */; };
+		180DBB9022644FEB006791B6 /* LvYeHTTPClient+ClubTourStatistics.m in Sources */ = {isa = PBXBuildFile; fileRef = 180DBB8F22644FEB006791B6 /* LvYeHTTPClient+ClubTourStatistics.m */; };
 		18154E182112EF0700FF51F7 /* TableDataPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 18154E172112EF0700FF51F7 /* TableDataPage.m */; };
 		18156CFE211991A6008AB05D /* UIButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18156CFD211991A6008AB05D /* UIButtonCell.m */; };
 		1819791020FD9332001C9DA6 /* LvyeBaseTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1819790E20FD9332001C9DA6 /* LvyeBaseTabBarController.m */; };
@@ -46,9 +80,9 @@
 		1834287020F33A6300B78997 /* UMPush.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1834286F20F33A6300B78997 /* UMPush.framework */; };
 		1834287320F33B5E00B78997 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1834287220F33B5E00B78997 /* UserNotifications.framework */; };
 		18361D3E20F250460084DE0F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18361D3D20F250460084DE0F /* AppDelegate.m */; };
-		18361D4120F250460084DE0F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18361D4020F250460084DE0F /* ViewController.m */; };
 		18361D4620F250480084DE0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18361D4520F250480084DE0F /* Assets.xcassets */; };
 		18361D4C20F250480084DE0F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 18361D4B20F250480084DE0F /* main.m */; };
+		183DC4CD224CA74000363B0C /* PersonalEditPasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183DC4CC224CA74000363B0C /* PersonalEditPasswordController.m */; };
 		183E1642212E44170088037C /* iconlist.png in Resources */ = {isa = PBXBuildFile; fileRef = 183E1641212E44170088037C /* iconlist.png */; };
 		183E1644212E44550088037C /* club-infos.png in Resources */ = {isa = PBXBuildFile; fileRef = 183E1643212E44550088037C /* club-infos.png */; };
 		183E1646212E5F7B0088037C /* clubUserPhotoDefaultImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 183E1645212E5F7B0088037C /* clubUserPhotoDefaultImage.png */; };
@@ -64,6 +98,8 @@
 		184EA0F52134EFDF00553AD3 /* ClubOrderInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 184EA0F42134EFDF00553AD3 /* ClubOrderInfo.m */; };
 		184EA11821353C9800553AD3 /* TourBasicInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 184EA11721353C9800553AD3 /* TourBasicInfo.m */; };
 		184EA11B21353E7200553AD3 /* TourPriceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 184EA11A21353E7200553AD3 /* TourPriceInfo.m */; };
+		1850CF71225C2B33007E35F9 /* LvYeHTTPClient+ClubTour.m in Sources */ = {isa = PBXBuildFile; fileRef = 1850CF70225C2B33007E35F9 /* LvYeHTTPClient+ClubTour.m */; };
+		1850CF74225C6ECC007E35F9 /* LvyeBaseWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1850CF73225C6ECC007E35F9 /* LvyeBaseWebViewController.m */; };
 		1854A3B5211D347800CAF90C /* AppDelegate+ServiceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1854A3B4211D347800CAF90C /* AppDelegate+ServiceInfo.m */; };
 		1854A3CB211D762A00CAF90C /* ClubWithdrawController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1854A3C4211D762900CAF90C /* ClubWithdrawController.m */; };
 		1854A3CC211D762A00CAF90C /* ClubBankManageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1854A3C6211D762900CAF90C /* ClubBankManageController.m */; };
@@ -75,6 +111,11 @@
 		185DC320215E22780073BE59 /* libGrowing.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 185DC31F215E22780073BE59 /* libGrowing.a */; };
 		185DC322215E23FB0073BE59 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 185DC321215E23FB0073BE59 /* Security.framework */; };
 		185DC324215E24350073BE59 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 185DC323215E24350073BE59 /* CoreLocation.framework */; };
+		185FFCDB225B3F07002D40E5 /* ClubTourTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 185FFCDA225B3F07002D40E5 /* ClubTourTableCell.m */; };
+		1863B272226804DD00E116F5 /* NSObject+PropertyExport.m in Sources */ = {isa = PBXBuildFile; fileRef = 1863B271226804DD00E116F5 /* NSObject+PropertyExport.m */; };
+		1863B2752268212E00E116F5 /* ClubFunctionDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1863B2742268212E00E116F5 /* ClubFunctionDisplayViewController.m */; };
+		18642EE622857142006EB719 /* ClubTourCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18642EE522857142006EB719 /* ClubTourCommentCell.m */; };
+		18642EE9228575F8006EB719 /* TourCommentDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18642EE8228575F8006EB719 /* TourCommentDetailController.m */; };
 		18645AF0211A822D00059B1C /* LvyeClubRefundController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18645AEF211A822D00059B1C /* LvyeClubRefundController.m */; };
 		18645AF3211A848300059B1C /* LvyeClubToursController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18645AF2211A848300059B1C /* LvyeClubToursController.m */; };
 		18702FBF21211D1000BABA96 /* TableViewBasicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18702FBE21211D1000BABA96 /* TableViewBasicCell.m */; };
@@ -132,12 +173,15 @@
 		18BF30F9212555DE004C9D70 /* ClubAddDepartmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BF30F8212555DE004C9D70 /* ClubAddDepartmentViewController.m */; };
 		18BF30FC21255BC5004C9D70 /* ClubLeaderDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BF30FB21255BC5004C9D70 /* ClubLeaderDetailController.m */; };
 		18BF30FF21256AFB004C9D70 /* ClubBankTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BF30FE21256AFB004C9D70 /* ClubBankTableViewCell.m */; };
+		18C39BAA2253619A00B19F5B /* ClubToursMoreChooseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C39BA92253619A00B19F5B /* ClubToursMoreChooseViewController.m */; };
 		18C94FA021086B580088D3EA /* LvYeHTTPClient+ClubManage.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C94F9F21086B580088D3EA /* LvYeHTTPClient+ClubManage.m */; };
+		18C954842269BC9A00D5249E /* ClubUpdateAdministratorController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C954832269BC9A00D5249E /* ClubUpdateAdministratorController.m */; };
 		18CBEBAA2137CFDB0013AFC9 /* ClubOrderRefundInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CBEBA92137CFDB0013AFC9 /* ClubOrderRefundInfo.m */; };
 		18CBEBB02137E54D0013AFC9 /* ClubDepartmentInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CBEBAF2137E54D0013AFC9 /* ClubDepartmentInfo.m */; };
 		18CBEBB32137EA2F0013AFC9 /* ClubTravellerUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CBEBB22137EA2F0013AFC9 /* ClubTravellerUserInfo.m */; };
 		18DD56D4212CF401008D1A2E /* DepartmenUserTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DD56D3212CF401008D1A2E /* DepartmenUserTableCell.m */; };
 		18DD56D7212D01CE008D1A2E /* NSString+TransformCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DD56D6212D01CE008D1A2E /* NSString+TransformCategory.m */; };
+		18E848CC2253329200B51541 /* LGRightMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E848CB2253329200B51541 /* LGRightMenuView.m */; };
 		18E93DEC2101679D0025B94A /* VerificationCodeImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E93DEB2101679D0025B94A /* VerificationCodeImageView.m */; };
 		18E93DF02101D2C20025B94A /* UIView+ViewCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E93DEF2101D2C20025B94A /* UIView+ViewCategory.m */; };
 		18E965032238ACBC006ACC78 /* ClubOrderAuditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E965022238ACBC006ACC78 /* ClubOrderAuditViewController.m */; };
@@ -156,6 +200,81 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		180288B42249B4C3002CB435 /* QNResumeUpload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNResumeUpload.h; sourceTree = "<group>"; };
+		180288B52249B4C3002CB435 /* QNUploadOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNUploadOption.h; sourceTree = "<group>"; };
+		180288B62249B4C3002CB435 /* QNFormUpload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNFormUpload.h; sourceTree = "<group>"; };
+		180288B72249B4C3002CB435 /* QNUploadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNUploadManager.m; sourceTree = "<group>"; };
+		180288B82249B4C3002CB435 /* QNConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNConfiguration.m; sourceTree = "<group>"; };
+		180288B92249B4C3002CB435 /* QNUpToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNUpToken.h; sourceTree = "<group>"; };
+		180288BA2249B4C3002CB435 /* QNResumeUpload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNResumeUpload.m; sourceTree = "<group>"; };
+		180288BB2249B4C3002CB435 /* QNUploadOption+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "QNUploadOption+Private.h"; sourceTree = "<group>"; };
+		180288BC2249B4C3002CB435 /* QNUpToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNUpToken.m; sourceTree = "<group>"; };
+		180288BD2249B4C3002CB435 /* QNConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNConfiguration.h; sourceTree = "<group>"; };
+		180288BE2249B4C3002CB435 /* QNUploadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNUploadManager.h; sourceTree = "<group>"; };
+		180288BF2249B4C3002CB435 /* QNFormUpload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNFormUpload.m; sourceTree = "<group>"; };
+		180288C02249B4C3002CB435 /* QNUploadOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNUploadOption.m; sourceTree = "<group>"; };
+		180288C22249B4C3002CB435 /* QNPHAssetResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNPHAssetResource.m; sourceTree = "<group>"; };
+		180288C32249B4C3002CB435 /* QNCrc32.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNCrc32.m; sourceTree = "<group>"; };
+		180288C42249B4C3002CB435 /* QNFileDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNFileDelegate.h; sourceTree = "<group>"; };
+		180288C52249B4C3002CB435 /* QNALAssetFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNALAssetFile.h; sourceTree = "<group>"; };
+		180288C62249B4C3002CB435 /* QNUrlSafeBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNUrlSafeBase64.m; sourceTree = "<group>"; };
+		180288C72249B4C3002CB435 /* QNAsyncRun.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNAsyncRun.h; sourceTree = "<group>"; };
+		180288C82249B4C3002CB435 /* QN_GTM_Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QN_GTM_Base64.h; sourceTree = "<group>"; };
+		180288C92249B4C3002CB435 /* QNPHAssetFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNPHAssetFile.h; sourceTree = "<group>"; };
+		180288CA2249B4C3002CB435 /* QNFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNFile.m; sourceTree = "<group>"; };
+		180288CB2249B4C3002CB435 /* QNEtag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNEtag.m; sourceTree = "<group>"; };
+		180288CC2249B4C3002CB435 /* QNVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNVersion.h; sourceTree = "<group>"; };
+		180288CD2249B4C3002CB435 /* QNSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNSystem.m; sourceTree = "<group>"; };
+		180288CE2249B4C3002CB435 /* QNCrc32.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNCrc32.h; sourceTree = "<group>"; };
+		180288CF2249B4C3002CB435 /* QNPHAssetResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNPHAssetResource.h; sourceTree = "<group>"; };
+		180288D02249B4C3002CB435 /* QNAsyncRun.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNAsyncRun.m; sourceTree = "<group>"; };
+		180288D12249B4C3002CB435 /* QNUrlSafeBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNUrlSafeBase64.h; sourceTree = "<group>"; };
+		180288D22249B4C3002CB435 /* QNALAssetFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNALAssetFile.m; sourceTree = "<group>"; };
+		180288D32249B4C3002CB435 /* QNPHAssetFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNPHAssetFile.m; sourceTree = "<group>"; };
+		180288D42249B4C3002CB435 /* QN_GTM_Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QN_GTM_Base64.m; sourceTree = "<group>"; };
+		180288D52249B4C3002CB435 /* QNSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNSystem.h; sourceTree = "<group>"; };
+		180288D62249B4C3002CB435 /* QNEtag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNEtag.h; sourceTree = "<group>"; };
+		180288D72249B4C3002CB435 /* QNFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNFile.h; sourceTree = "<group>"; };
+		180288D92249B4C3002CB435 /* QNResponseInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNResponseInfo.h; sourceTree = "<group>"; };
+		180288DA2249B4C3002CB435 /* QNUserAgent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNUserAgent.m; sourceTree = "<group>"; };
+		180288DB2249B4C3002CB435 /* QNSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNSessionManager.h; sourceTree = "<group>"; };
+		180288DC2249B4C3002CB435 /* QNResponseInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNResponseInfo.m; sourceTree = "<group>"; };
+		180288DD2249B4C3002CB435 /* QNHttpDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNHttpDelegate.h; sourceTree = "<group>"; };
+		180288DE2249B4C3002CB435 /* QNSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNSessionManager.m; sourceTree = "<group>"; };
+		180288DF2249B4C3002CB435 /* QNUserAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNUserAgent.h; sourceTree = "<group>"; };
+		180288E12249B4C3002CB435 /* QNFileRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNFileRecorder.m; sourceTree = "<group>"; };
+		180288E22249B4C3002CB435 /* QNFileRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNFileRecorder.h; sourceTree = "<group>"; };
+		180288E32249B4C3002CB435 /* QNRecorderDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNRecorderDelegate.h; sourceTree = "<group>"; };
+		180288E42249B4C3002CB435 /* QiniuSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QiniuSDK.h; sourceTree = "<group>"; };
+		180288E62249B4C3002CB435 /* QNPipeline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNPipeline.h; sourceTree = "<group>"; };
+		180288E72249B4C3002CB435 /* QNPipeline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNPipeline.m; sourceTree = "<group>"; };
+		180288FD2249B763002CB435 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
+		180289012249C40F002CB435 /* QNDes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNDes.m; sourceTree = "<group>"; };
+		180289022249C40F002CB435 /* QNHex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNHex.m; sourceTree = "<group>"; };
+		180289032249C40F002CB435 /* QNDes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNDes.h; sourceTree = "<group>"; };
+		180289042249C40F002CB435 /* QNHex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNHex.h; sourceTree = "<group>"; };
+		180289062249C40F002CB435 /* QNHijackingDetectWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNHijackingDetectWrapper.h; sourceTree = "<group>"; };
+		180289072249C40F002CB435 /* QNResolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNResolver.h; sourceTree = "<group>"; };
+		180289082249C40F002CB435 /* QNHosts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNHosts.h; sourceTree = "<group>"; };
+		180289092249C40F002CB435 /* QNHijackingDetectWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNHijackingDetectWrapper.m; sourceTree = "<group>"; };
+		1802890A2249C40F002CB435 /* QNResolver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNResolver.m; sourceTree = "<group>"; };
+		1802890B2249C40F002CB435 /* QNHosts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNHosts.m; sourceTree = "<group>"; };
+		1802890D2249C40F002CB435 /* QNNetworkInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNNetworkInfo.h; sourceTree = "<group>"; };
+		1802890E2249C40F002CB435 /* QNDnsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNDnsManager.m; sourceTree = "<group>"; };
+		1802890F2249C40F002CB435 /* QNDomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNDomain.h; sourceTree = "<group>"; };
+		180289102249C40F002CB435 /* QNRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNRecord.h; sourceTree = "<group>"; };
+		180289112249C40F002CB435 /* QNResolverDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNResolverDelegate.h; sourceTree = "<group>"; };
+		180289122249C40F002CB435 /* QNNetworkInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNNetworkInfo.m; sourceTree = "<group>"; };
+		180289132249C40F002CB435 /* QNDomain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNDomain.m; sourceTree = "<group>"; };
+		180289142249C40F002CB435 /* QNDnsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNDnsManager.h; sourceTree = "<group>"; };
+		180289152249C40F002CB435 /* QNRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNRecord.m; sourceTree = "<group>"; };
+		180289162249C40F002CB435 /* HappyDNS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HappyDNS.h; sourceTree = "<group>"; };
+		180289182249C40F002CB435 /* QNDnspodFree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNDnspodFree.m; sourceTree = "<group>"; };
+		180289192249C40F002CB435 /* QNDnspodEnterprise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNDnspodEnterprise.h; sourceTree = "<group>"; };
+		1802891A2249C40F002CB435 /* QNDnspodFree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNDnspodFree.h; sourceTree = "<group>"; };
+		1802891B2249C40F002CB435 /* QNDnspodEnterprise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNDnspodEnterprise.m; sourceTree = "<group>"; };
+		180DBB8E22644FEB006791B6 /* LvYeHTTPClient+ClubTourStatistics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LvYeHTTPClient+ClubTourStatistics.h"; sourceTree = "<group>"; };
+		180DBB8F22644FEB006791B6 /* LvYeHTTPClient+ClubTourStatistics.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "LvYeHTTPClient+ClubTourStatistics.m"; sourceTree = "<group>"; };
 		18154E162112EF0700FF51F7 /* TableDataPage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableDataPage.h; sourceTree = "<group>"; };
 		18154E172112EF0700FF51F7 /* TableDataPage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableDataPage.m; sourceTree = "<group>"; };
 		18156CFC211991A6008AB05D /* UIButtonCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIButtonCell.h; sourceTree = "<group>"; };
@@ -236,11 +355,11 @@
 		18361D3920F250460084DE0F /* LvYeClubManage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LvYeClubManage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18361D3C20F250460084DE0F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		18361D3D20F250460084DE0F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		18361D3F20F250460084DE0F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		18361D4020F250460084DE0F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		18361D4520F250480084DE0F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		18361D4A20F250480084DE0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18361D4B20F250480084DE0F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		183DC4CB224CA74000363B0C /* PersonalEditPasswordController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonalEditPasswordController.h; sourceTree = "<group>"; };
+		183DC4CC224CA74000363B0C /* PersonalEditPasswordController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonalEditPasswordController.m; sourceTree = "<group>"; };
 		183E1641212E44170088037C /* iconlist.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconlist.png; sourceTree = "<group>"; };
 		183E1643212E44550088037C /* club-infos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "club-infos.png"; sourceTree = "<group>"; };
 		183E1645212E5F7B0088037C /* clubUserPhotoDefaultImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clubUserPhotoDefaultImage.png; sourceTree = "<group>"; };
@@ -269,6 +388,10 @@
 		184EA11721353C9800553AD3 /* TourBasicInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TourBasicInfo.m; sourceTree = "<group>"; };
 		184EA11921353E7200553AD3 /* TourPriceInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TourPriceInfo.h; sourceTree = "<group>"; };
 		184EA11A21353E7200553AD3 /* TourPriceInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TourPriceInfo.m; sourceTree = "<group>"; };
+		1850CF6F225C2B33007E35F9 /* LvYeHTTPClient+ClubTour.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LvYeHTTPClient+ClubTour.h"; sourceTree = "<group>"; };
+		1850CF70225C2B33007E35F9 /* LvYeHTTPClient+ClubTour.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "LvYeHTTPClient+ClubTour.m"; sourceTree = "<group>"; };
+		1850CF72225C6ECC007E35F9 /* LvyeBaseWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LvyeBaseWebViewController.h; sourceTree = "<group>"; };
+		1850CF73225C6ECC007E35F9 /* LvyeBaseWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LvyeBaseWebViewController.m; sourceTree = "<group>"; };
 		1854A3B3211D347800CAF90C /* AppDelegate+ServiceInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+ServiceInfo.h"; sourceTree = "<group>"; };
 		1854A3B4211D347800CAF90C /* AppDelegate+ServiceInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+ServiceInfo.m"; sourceTree = "<group>"; };
 		1854A3C3211D762900CAF90C /* ClubfinanceShowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClubfinanceShowController.h; sourceTree = "<group>"; };
@@ -289,6 +412,16 @@
 		185DC31F215E22780073BE59 /* libGrowing.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGrowing.a; sourceTree = "<group>"; };
 		185DC321215E23FB0073BE59 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		185DC323215E24350073BE59 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		185FFCD9225B3F07002D40E5 /* ClubTourTableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClubTourTableCell.h; sourceTree = "<group>"; };
+		185FFCDA225B3F07002D40E5 /* ClubTourTableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClubTourTableCell.m; sourceTree = "<group>"; };
+		1863B270226804DD00E116F5 /* NSObject+PropertyExport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+PropertyExport.h"; sourceTree = "<group>"; };
+		1863B271226804DD00E116F5 /* NSObject+PropertyExport.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+PropertyExport.m"; sourceTree = "<group>"; };
+		1863B2732268212E00E116F5 /* ClubFunctionDisplayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClubFunctionDisplayViewController.h; sourceTree = "<group>"; };
+		1863B2742268212E00E116F5 /* ClubFunctionDisplayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClubFunctionDisplayViewController.m; sourceTree = "<group>"; };
+		18642EE422857142006EB719 /* ClubTourCommentCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClubTourCommentCell.h; sourceTree = "<group>"; };
+		18642EE522857142006EB719 /* ClubTourCommentCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClubTourCommentCell.m; sourceTree = "<group>"; };
+		18642EE7228575F8006EB719 /* TourCommentDetailController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TourCommentDetailController.h; sourceTree = "<group>"; };
+		18642EE8228575F8006EB719 /* TourCommentDetailController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TourCommentDetailController.m; sourceTree = "<group>"; };
 		18645AEE211A822D00059B1C /* LvyeClubRefundController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LvyeClubRefundController.h; sourceTree = "<group>"; };
 		18645AEF211A822D00059B1C /* LvyeClubRefundController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LvyeClubRefundController.m; sourceTree = "<group>"; };
 		18645AF1211A848300059B1C /* LvyeClubToursController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LvyeClubToursController.h; sourceTree = "<group>"; };
@@ -400,8 +533,12 @@
 		18BF30FB21255BC5004C9D70 /* ClubLeaderDetailController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClubLeaderDetailController.m; sourceTree = "<group>"; };
 		18BF30FD21256AFB004C9D70 /* ClubBankTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClubBankTableViewCell.h; sourceTree = "<group>"; };
 		18BF30FE21256AFB004C9D70 /* ClubBankTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClubBankTableViewCell.m; sourceTree = "<group>"; };
+		18C39BA82253619A00B19F5B /* ClubToursMoreChooseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClubToursMoreChooseViewController.h; sourceTree = "<group>"; };
+		18C39BA92253619A00B19F5B /* ClubToursMoreChooseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClubToursMoreChooseViewController.m; sourceTree = "<group>"; };
 		18C94F9E21086B580088D3EA /* LvYeHTTPClient+ClubManage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LvYeHTTPClient+ClubManage.h"; sourceTree = "<group>"; };
 		18C94F9F21086B580088D3EA /* LvYeHTTPClient+ClubManage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "LvYeHTTPClient+ClubManage.m"; sourceTree = "<group>"; };
+		18C954822269BC9A00D5249E /* ClubUpdateAdministratorController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClubUpdateAdministratorController.h; sourceTree = "<group>"; };
+		18C954832269BC9A00D5249E /* ClubUpdateAdministratorController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClubUpdateAdministratorController.m; sourceTree = "<group>"; };
 		18CBEBA82137CFDB0013AFC9 /* ClubOrderRefundInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClubOrderRefundInfo.h; sourceTree = "<group>"; };
 		18CBEBA92137CFDB0013AFC9 /* ClubOrderRefundInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClubOrderRefundInfo.m; sourceTree = "<group>"; };
 		18CBEBAE2137E54D0013AFC9 /* ClubDepartmentInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClubDepartmentInfo.h; sourceTree = "<group>"; };
@@ -413,6 +550,8 @@
 		18DD56D3212CF401008D1A2E /* DepartmenUserTableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DepartmenUserTableCell.m; sourceTree = "<group>"; };
 		18DD56D5212D01CE008D1A2E /* NSString+TransformCategory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+TransformCategory.h"; sourceTree = "<group>"; };
 		18DD56D6212D01CE008D1A2E /* NSString+TransformCategory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+TransformCategory.m"; sourceTree = "<group>"; };
+		18E848CA2253329200B51541 /* LGRightMenuView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGRightMenuView.h; sourceTree = "<group>"; };
+		18E848CB2253329200B51541 /* LGRightMenuView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGRightMenuView.m; sourceTree = "<group>"; };
 		18E93DEA2101679D0025B94A /* VerificationCodeImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VerificationCodeImageView.h; sourceTree = "<group>"; };
 		18E93DEB2101679D0025B94A /* VerificationCodeImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VerificationCodeImageView.m; sourceTree = "<group>"; };
 		18E93DEE2101D2C20025B94A /* UIView+ViewCategory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+ViewCategory.h"; sourceTree = "<group>"; };
@@ -447,6 +586,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				180288FE2249B763002CB435 /* libresolv.tbd in Frameworks */,
 				185DC324215E24350073BE59 /* CoreLocation.framework in Frameworks */,
 				182EEDAB20F300D5000EBBAD /* libsqlite3.tbd in Frameworks */,
 				18702FC42121228A00BABA96 /* libicucore.tbd in Frameworks */,
@@ -471,6 +611,164 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		180288B22249B4C3002CB435 /* QiniuSDK */ = {
+			isa = PBXGroup;
+			children = (
+				180288B32249B4C3002CB435 /* Storage */,
+				180288C12249B4C3002CB435 /* Common */,
+				180288D82249B4C3002CB435 /* Http */,
+				180288E02249B4C3002CB435 /* Recorder */,
+				180288E42249B4C3002CB435 /* QiniuSDK.h */,
+				180288E52249B4C3002CB435 /* BigData */,
+			);
+			path = QiniuSDK;
+			sourceTree = "<group>";
+		};
+		180288B32249B4C3002CB435 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				180288B42249B4C3002CB435 /* QNResumeUpload.h */,
+				180288B52249B4C3002CB435 /* QNUploadOption.h */,
+				180288B62249B4C3002CB435 /* QNFormUpload.h */,
+				180288B72249B4C3002CB435 /* QNUploadManager.m */,
+				180288B82249B4C3002CB435 /* QNConfiguration.m */,
+				180288B92249B4C3002CB435 /* QNUpToken.h */,
+				180288BA2249B4C3002CB435 /* QNResumeUpload.m */,
+				180288BB2249B4C3002CB435 /* QNUploadOption+Private.h */,
+				180288BC2249B4C3002CB435 /* QNUpToken.m */,
+				180288BD2249B4C3002CB435 /* QNConfiguration.h */,
+				180288BE2249B4C3002CB435 /* QNUploadManager.h */,
+				180288BF2249B4C3002CB435 /* QNFormUpload.m */,
+				180288C02249B4C3002CB435 /* QNUploadOption.m */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		180288C12249B4C3002CB435 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				180288C82249B4C3002CB435 /* QN_GTM_Base64.h */,
+				180288D42249B4C3002CB435 /* QN_GTM_Base64.m */,
+				180288C52249B4C3002CB435 /* QNALAssetFile.h */,
+				180288D22249B4C3002CB435 /* QNALAssetFile.m */,
+				180288C72249B4C3002CB435 /* QNAsyncRun.h */,
+				180288D02249B4C3002CB435 /* QNAsyncRun.m */,
+				180288CE2249B4C3002CB435 /* QNCrc32.h */,
+				180288C32249B4C3002CB435 /* QNCrc32.m */,
+				180288D62249B4C3002CB435 /* QNEtag.h */,
+				180288CB2249B4C3002CB435 /* QNEtag.m */,
+				180288D72249B4C3002CB435 /* QNFile.h */,
+				180288CA2249B4C3002CB435 /* QNFile.m */,
+				180288C42249B4C3002CB435 /* QNFileDelegate.h */,
+				180288C92249B4C3002CB435 /* QNPHAssetFile.h */,
+				180288D32249B4C3002CB435 /* QNPHAssetFile.m */,
+				180288CF2249B4C3002CB435 /* QNPHAssetResource.h */,
+				180288C22249B4C3002CB435 /* QNPHAssetResource.m */,
+				180288D52249B4C3002CB435 /* QNSystem.h */,
+				180288CD2249B4C3002CB435 /* QNSystem.m */,
+				180288D12249B4C3002CB435 /* QNUrlSafeBase64.h */,
+				180288C62249B4C3002CB435 /* QNUrlSafeBase64.m */,
+				180288CC2249B4C3002CB435 /* QNVersion.h */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		180288D82249B4C3002CB435 /* Http */ = {
+			isa = PBXGroup;
+			children = (
+				180288D92249B4C3002CB435 /* QNResponseInfo.h */,
+				180288DA2249B4C3002CB435 /* QNUserAgent.m */,
+				180288DB2249B4C3002CB435 /* QNSessionManager.h */,
+				180288DC2249B4C3002CB435 /* QNResponseInfo.m */,
+				180288DD2249B4C3002CB435 /* QNHttpDelegate.h */,
+				180288DE2249B4C3002CB435 /* QNSessionManager.m */,
+				180288DF2249B4C3002CB435 /* QNUserAgent.h */,
+			);
+			path = Http;
+			sourceTree = "<group>";
+		};
+		180288E02249B4C3002CB435 /* Recorder */ = {
+			isa = PBXGroup;
+			children = (
+				180288E12249B4C3002CB435 /* QNFileRecorder.m */,
+				180288E22249B4C3002CB435 /* QNFileRecorder.h */,
+				180288E32249B4C3002CB435 /* QNRecorderDelegate.h */,
+			);
+			path = Recorder;
+			sourceTree = "<group>";
+		};
+		180288E52249B4C3002CB435 /* BigData */ = {
+			isa = PBXGroup;
+			children = (
+				180288E62249B4C3002CB435 /* QNPipeline.h */,
+				180288E72249B4C3002CB435 /* QNPipeline.m */,
+			);
+			path = BigData;
+			sourceTree = "<group>";
+		};
+		180288FF2249C40F002CB435 /* HappyDNS */ = {
+			isa = PBXGroup;
+			children = (
+				180289002249C40F002CB435 /* Util */,
+				180289052249C40F002CB435 /* Local */,
+				1802890C2249C40F002CB435 /* Common */,
+				180289162249C40F002CB435 /* HappyDNS.h */,
+				180289172249C40F002CB435 /* Http */,
+			);
+			path = HappyDNS;
+			sourceTree = "<group>";
+		};
+		180289002249C40F002CB435 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				180289012249C40F002CB435 /* QNDes.m */,
+				180289022249C40F002CB435 /* QNHex.m */,
+				180289032249C40F002CB435 /* QNDes.h */,
+				180289042249C40F002CB435 /* QNHex.h */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		180289052249C40F002CB435 /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				180289062249C40F002CB435 /* QNHijackingDetectWrapper.h */,
+				180289072249C40F002CB435 /* QNResolver.h */,
+				180289082249C40F002CB435 /* QNHosts.h */,
+				180289092249C40F002CB435 /* QNHijackingDetectWrapper.m */,
+				1802890A2249C40F002CB435 /* QNResolver.m */,
+				1802890B2249C40F002CB435 /* QNHosts.m */,
+			);
+			path = Local;
+			sourceTree = "<group>";
+		};
+		1802890C2249C40F002CB435 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				1802890D2249C40F002CB435 /* QNNetworkInfo.h */,
+				1802890E2249C40F002CB435 /* QNDnsManager.m */,
+				1802890F2249C40F002CB435 /* QNDomain.h */,
+				180289102249C40F002CB435 /* QNRecord.h */,
+				180289112249C40F002CB435 /* QNResolverDelegate.h */,
+				180289122249C40F002CB435 /* QNNetworkInfo.m */,
+				180289132249C40F002CB435 /* QNDomain.m */,
+				180289142249C40F002CB435 /* QNDnsManager.h */,
+				180289152249C40F002CB435 /* QNRecord.m */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		180289172249C40F002CB435 /* Http */ = {
+			isa = PBXGroup;
+			children = (
+				180289182249C40F002CB435 /* QNDnspodFree.m */,
+				180289192249C40F002CB435 /* QNDnspodEnterprise.h */,
+				1802891A2249C40F002CB435 /* QNDnspodFree.h */,
+				1802891B2249C40F002CB435 /* QNDnspodEnterprise.m */,
+			);
+			path = Http;
+			sourceTree = "<group>";
+		};
 		18154E152112EE1A00FF51F7 /* LvyeProductTableData */ = {
 			isa = PBXGroup;
 			children = (
@@ -621,6 +919,8 @@
 				182CF3AB20F4A570004499AD /* WebAPIResponse.m */,
 				182CF3AD20F4AFBA004499AD /* LvYeHTTPClient.h */,
 				182CF3AE20F4AFBA004499AD /* LvYeHTTPClient.m */,
+				1850CF6F225C2B33007E35F9 /* LvYeHTTPClient+ClubTour.h */,
+				1850CF70225C2B33007E35F9 /* LvYeHTTPClient+ClubTour.m */,
 				18B3C4C320F5E29A00EA93AC /* LvYeHTTPClient+ClubUser.h */,
 				18B3C4C420F5E29A00EA93AC /* LvYeHTTPClient+ClubUser.m */,
 				18B3C4C620F5E39600EA93AC /* LvYeHTTPClient+CLubInfo.h */,
@@ -633,6 +933,8 @@
 				18C94F9F21086B580088D3EA /* LvYeHTTPClient+ClubManage.m */,
 				182F28DA21E47218008DA403 /* LvYeHTTPClient+ClubInsurances.h */,
 				182F28DB21E47218008DA403 /* LvYeHTTPClient+ClubInsurances.m */,
+				180DBB8E22644FEB006791B6 /* LvYeHTTPClient+ClubTourStatistics.h */,
+				180DBB8F22644FEB006791B6 /* LvYeHTTPClient+ClubTourStatistics.m */,
 			);
 			path = LvyeProductWebRequest;
 			sourceTree = "<group>";
@@ -661,6 +963,8 @@
 		182EED9C20F2FD10000EBBAD /* VendorsCode */ = {
 			isa = PBXGroup;
 			children = (
+				180288FF2249C40F002CB435 /* HappyDNS */,
+				180288B22249B4C3002CB435 /* QiniuSDK */,
 				185DC31D215E22780073BE59 /* GrowingIOSDK */,
 				184E49CD21227C6C00F5CFBA /* MBProgressHUD */,
 				184E49C421227A0900F5CFBA /* SVPullToRefresh */,
@@ -696,6 +1000,7 @@
 		182EEDA520F300C1000EBBAD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				180288FD2249B763002CB435 /* libresolv.tbd */,
 				185DC323215E24350073BE59 /* CoreLocation.framework */,
 				185DC321215E23FB0073BE59 /* Security.framework */,
 				18702FC9212122AA00BABA96 /* libstdc++.tbd */,
@@ -746,6 +1051,10 @@
 				1876A4302123C9B7004B023E /* CatalogueEenuButton.m */,
 				18A16440212FDD5D00727C27 /* LGTextView.h */,
 				18A16441212FDD5D00727C27 /* LGTextView.m */,
+				18E848CA2253329200B51541 /* LGRightMenuView.h */,
+				18E848CB2253329200B51541 /* LGRightMenuView.m */,
+				1850CF72225C6ECC007E35F9 /* LvyeBaseWebViewController.h */,
+				1850CF73225C6ECC007E35F9 /* LvyeBaseWebViewController.m */,
 			);
 			path = LvyeProductControl;
 			sourceTree = "<group>";
@@ -782,8 +1091,6 @@
 				182EED9B20F2FD10000EBBAD /* ProductCode */,
 				182EED9D20F2FD11000EBBAD /* Resource */,
 				182EED9C20F2FD10000EBBAD /* VendorsCode */,
-				18361D3F20F250460084DE0F /* ViewController.h */,
-				18361D4020F250460084DE0F /* ViewController.m */,
 			);
 			path = LvYeClubManage;
 			sourceTree = "<group>";
@@ -1018,6 +1325,10 @@
 			children = (
 				1897FEC1212A4FFB001652F7 /* ClubTourManagesController.h */,
 				1897FEC2212A4FFB001652F7 /* ClubTourManagesController.m */,
+				18C39BA82253619A00B19F5B /* ClubToursMoreChooseViewController.h */,
+				18C39BA92253619A00B19F5B /* ClubToursMoreChooseViewController.m */,
+				185FFCD9225B3F07002D40E5 /* ClubTourTableCell.h */,
+				185FFCDA225B3F07002D40E5 /* ClubTourTableCell.m */,
 			);
 			path = ClubTourManageControllers;
 			sourceTree = "<group>";
@@ -1115,10 +1426,14 @@
 				18DD56D3212CF401008D1A2E /* DepartmenUserTableCell.m */,
 				18BF30F1212555A4004C9D70 /* ClubAddAdministratorController.h */,
 				18BF30F2212555A4004C9D70 /* ClubAddAdministratorController.m */,
+				18C954822269BC9A00D5249E /* ClubUpdateAdministratorController.h */,
+				18C954832269BC9A00D5249E /* ClubUpdateAdministratorController.m */,
 				18BF30F4212555CC004C9D70 /* ClubDepartmentViewController.h */,
 				18BF30F5212555CC004C9D70 /* ClubDepartmentViewController.m */,
 				18BF30F7212555DE004C9D70 /* ClubAddDepartmentViewController.h */,
 				18BF30F8212555DE004C9D70 /* ClubAddDepartmentViewController.m */,
+				1863B2732268212E00E116F5 /* ClubFunctionDisplayViewController.h */,
+				1863B2742268212E00E116F5 /* ClubFunctionDisplayViewController.m */,
 			);
 			path = LvyeClubStructureControllers;
 			sourceTree = "<group>";
@@ -1141,6 +1456,8 @@
 				18EA13AB212BF88000FAB572 /* UIImage+ImageGradientColorCategory.m */,
 				18DD56D5212D01CE008D1A2E /* NSString+TransformCategory.h */,
 				18DD56D6212D01CE008D1A2E /* NSString+TransformCategory.m */,
+				1863B270226804DD00E116F5 /* NSObject+PropertyExport.h */,
+				1863B271226804DD00E116F5 /* NSObject+PropertyExport.m */,
 			);
 			path = LvyeProductCategory;
 			sourceTree = "<group>";
@@ -1166,6 +1483,8 @@
 				183F34D1211C26EF005F0A8D /* PersonalInfoController.m */,
 				183F34D3211C38C1005F0A8D /* PersonalInfoEditController.h */,
 				183F34D4211C38C1005F0A8D /* PersonalInfoEditController.m */,
+				183DC4CB224CA74000363B0C /* PersonalEditPasswordController.h */,
+				183DC4CC224CA74000363B0C /* PersonalEditPasswordController.m */,
 			);
 			path = LvyeAccountController;
 			sourceTree = "<group>";
@@ -1192,6 +1511,10 @@
 				18702FCC212123A600BABA96 /* PersonalClubController.m */,
 				18702FCE212124B600BABA96 /* ClubCommentViewController.h */,
 				18702FCF212124B600BABA96 /* ClubCommentViewController.m */,
+				18642EE422857142006EB719 /* ClubTourCommentCell.h */,
+				18642EE522857142006EB719 /* ClubTourCommentCell.m */,
+				18642EE7228575F8006EB719 /* TourCommentDetailController.h */,
+				18642EE8228575F8006EB719 /* TourCommentDetailController.m */,
 			);
 			path = LvyeClubManageController;
 			sourceTree = "<group>";
@@ -1310,35 +1633,52 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1802891C2249C40F002CB435 /* QNDes.m in Sources */,
 				182CF39820F454A0004499AD /* AFImageRequestOperation.m in Sources */,
+				1850CF74225C6ECC007E35F9 /* LvyeBaseWebViewController.m in Sources */,
 				18645AF0211A822D00059B1C /* LvyeClubRefundController.m in Sources */,
 				18E965032238ACBC006ACC78 /* ClubOrderAuditViewController.m in Sources */,
 				18A16442212FDD5D00727C27 /* LGTextView.m in Sources */,
 				182CF39920F454A0004499AD /* AFPropertyListRequestOperation.m in Sources */,
 				1876A4352123F8E4004B023E /* ClubLeaderViewController.m in Sources */,
 				1854A3CD211D762A00CAF90C /* ClubfinanceShowController.m in Sources */,
+				1802891F2249C40F002CB435 /* QNResolver.m in Sources */,
+				180288EF2249B4C3002CB435 /* QNCrc32.m in Sources */,
 				182CF3AC20F4A570004499AD /* WebAPIResponse.m in Sources */,
 				18B3C4C520F5E29A00EA93AC /* LvYeHTTPClient+ClubUser.m in Sources */,
 				189B6773213D133300F6E9C5 /* ClubBillRecordCell.m in Sources */,
-				18361D4120F250460084DE0F /* ViewController.m in Sources */,
+				180289252249C40F002CB435 /* QNDnspodFree.m in Sources */,
+				180289222249C40F002CB435 /* QNNetworkInfo.m in Sources */,
+				180288F52249B4C3002CB435 /* QNALAssetFile.m in Sources */,
 				18CBEBB32137EA2F0013AFC9 /* ClubTravellerUserInfo.m in Sources */,
 				18B3C4D820F5FA9900EA93AC /* BankInfo.m in Sources */,
 				1876A43D21241C67004B023E /* ClubBillRecordController.m in Sources */,
 				18FDB464223631C100361460 /* ClubOrderBaiscCell.m in Sources */,
+				180288FB2249B4C3002CB435 /* QNFileRecorder.m in Sources */,
 				188C366420FC8E0B00B569BF /* ClubUserInfo.m in Sources */,
+				180288F22249B4C3002CB435 /* QNEtag.m in Sources */,
 				182CF39F20F454A0004499AD /* AFXMLRequestOperation.m in Sources */,
+				183DC4CD224CA74000363B0C /* PersonalEditPasswordController.m in Sources */,
 				1854A3B5211D347800CAF90C /* AppDelegate+ServiceInfo.m in Sources */,
 				1870300B21217B7F00BABA96 /* UIImageView+WebCache.m in Sources */,
+				180288F42249B4C3002CB435 /* QNAsyncRun.m in Sources */,
+				18C39BAA2253619A00B19F5B /* ClubToursMoreChooseViewController.m in Sources */,
 				188C366120FC8DE900B569BF /* ClubCurrentUserInfo.m in Sources */,
 				1854A3CE211D762A00CAF90C /* ClubBankAddController.m in Sources */,
+				180288EE2249B4C3002CB435 /* QNPHAssetResource.m in Sources */,
 				18A204A8213E0AC6007F439F /* ClubOrderDetailController.m in Sources */,
 				1897AE3D2136883D0097A8BC /* ClubSettleDetailController.m in Sources */,
+				185FFCDB225B3F07002D40E5 /* ClubTourTableCell.m in Sources */,
 				18361D4C20F250480084DE0F /* main.m in Sources */,
 				18702FD0212124B600BABA96 /* ClubCommentViewController.m in Sources */,
+				180289262249C40F002CB435 /* QNDnspodEnterprise.m in Sources */,
 				184E49D62122B65E00F5CFBA /* DataPage.m in Sources */,
 				18CBEBB02137E54D0013AFC9 /* ClubDepartmentInfo.m in Sources */,
+				180288E82249B4C3002CB435 /* QNUploadManager.m in Sources */,
 				182CF39C20F454A0004499AD /* AFURLConnectionOperation.m in Sources */,
 				18B3C4CE20F5E46C00EA93AC /* LvYeHTTPClient+ClubFinance.m in Sources */,
+				18642EE9228575F8006EB719 /* TourCommentDetailController.m in Sources */,
+				18C954842269BC9A00D5249E /* ClubUpdateAdministratorController.m in Sources */,
 				18E93DEC2101679D0025B94A /* VerificationCodeImageView.m in Sources */,
 				1854A3CB211D762A00CAF90C /* ClubWithdrawController.m in Sources */,
 				182CF3AF20F4AFBA004499AD /* LvYeHTTPClient.m in Sources */,
@@ -1352,11 +1692,14 @@
 				1870300021217B7F00BABA96 /* MKAnnotationView+WebCache.m in Sources */,
 				185686202133AAA100B55EAC /* ClubFinanceCapitalRecod.m in Sources */,
 				1897FEC0212A4FC0001652F7 /* ClubAddTourController.m in Sources */,
+				180288F12249B4C3002CB435 /* QNFile.m in Sources */,
 				184E49C3212270CB00F5CFBA /* UIDottedView.m in Sources */,
 				1870300221217B7F00BABA96 /* SDWebImageDecoder.m in Sources */,
+				180288F62249B4C3002CB435 /* QNPHAssetFile.m in Sources */,
 				18BF30FF21256AFB004C9D70 /* ClubBankTableViewCell.m in Sources */,
 				18B3C4C820F5E39600EA93AC /* LvYeHTTPClient+CLubInfo.m in Sources */,
 				182F28DC21E47218008DA403 /* LvYeHTTPClient+ClubInsurances.m in Sources */,
+				180288FC2249B4C3002CB435 /* QNPipeline.m in Sources */,
 				184EA11821353C9800553AD3 /* TourBasicInfo.m in Sources */,
 				1819791020FD9332001C9DA6 /* LvyeBaseTabBarController.m in Sources */,
 				181BDC2120FED0530031668E /* UIFont+FontAwesome.m in Sources */,
@@ -1364,24 +1707,32 @@
 				18702FFF21217B7F00BABA96 /* UIImage+WebP.m in Sources */,
 				181BDC1F20FED0530031668E /* UIButton+Bootstrap.m in Sources */,
 				18702FBF21211D1000BABA96 /* TableViewBasicCell.m in Sources */,
+				180288F32249B4C3002CB435 /* QNSystem.m in Sources */,
+				180DBB9022644FEB006791B6 /* LvYeHTTPClient+ClubTourStatistics.m in Sources */,
 				1897FEC3212A4FFB001652F7 /* ClubTourManagesController.m in Sources */,
 				181BDC2420FED0540031668E /* NSString+FontAwesome.m in Sources */,
+				180288F72249B4C3002CB435 /* QN_GTM_Base64.m in Sources */,
 				1870300721217B7F00BABA96 /* SDWebImagePrefetcher.m in Sources */,
 				1870300121217B7F00BABA96 /* SDWebImageManager.m in Sources */,
 				189B6770213D0C8300F6E9C5 /* ClubSettleTableCell.m in Sources */,
 				1854A3D1211D834200CAF90C /* BankDataSourceController.m in Sources */,
+				180289202249C40F002CB435 /* QNHosts.m in Sources */,
 				18BF30F3212555A4004C9D70 /* ClubAddAdministratorController.m in Sources */,
 				18FC1A622105718100CBC6FC /* LvyeClubAccountController.m in Sources */,
 				182CF39E20F454A0004499AD /* UIImageView+AFNetworking.m in Sources */,
 				18FC1A6E210571D300CBC6FC /* LvyeClubOrderController.m in Sources */,
 				18FC1A6B210571C200CBC6FC /* LvyeClubManageController.m in Sources */,
+				180288EA2249B4C3002CB435 /* QNResumeUpload.m in Sources */,
 				188C365B20FC8D9B00B569BF /* ClubInfo.m in Sources */,
 				184E49CA21227A0900F5CFBA /* UIScrollView+SVInfiniteScrolling.m in Sources */,
 				18DD56D7212D01CE008D1A2E /* NSString+TransformCategory.m in Sources */,
+				1802891D2249C40F002CB435 /* QNHex.m in Sources */,
 				18DD56D4212CF401008D1A2E /* DepartmenUserTableCell.m in Sources */,
 				181BDC2020FED0530031668E /* FAImageView.m in Sources */,
+				180288F92249B4C3002CB435 /* QNResponseInfo.m in Sources */,
 				18645AF3211A848300059B1C /* LvyeClubToursController.m in Sources */,
 				182CF3A820F4A03C004499AD /* LvyeFunctions.m in Sources */,
+				18E848CC2253329200B51541 /* LGRightMenuView.m in Sources */,
 				18BF30F02125551B004C9D70 /* ClubStructureController.m in Sources */,
 				1819791920FD994D001C9DA6 /* LvyeBaseViewController.m in Sources */,
 				183F34D5211C38C1005F0A8D /* PersonalInfoEditController.m in Sources */,
@@ -1398,12 +1749,18 @@
 				18BF30FC21255BC5004C9D70 /* ClubLeaderDetailController.m in Sources */,
 				182CF39A20F454A0004499AD /* AFHTTPClient.m in Sources */,
 				1876A4312123C9B7004B023E /* CatalogueEenuButton.m in Sources */,
+				1863B272226804DD00E116F5 /* NSObject+PropertyExport.m in Sources */,
 				18B3C4CB20F5E3CA00EA93AC /* LvYeHTTPClient+ClubOrder.m in Sources */,
+				18642EE622857142006EB719 /* ClubTourCommentCell.m in Sources */,
 				184E49CB21227A0900F5CFBA /* UIScrollView+SVPullToRefresh.m in Sources */,
+				1802891E2249C40F002CB435 /* QNHijackingDetectWrapper.m in Sources */,
 				18EA13AC212BF88000FAB572 /* UIImage+ImageGradientColorCategory.m in Sources */,
 				1870300821217B7F00BABA96 /* SDImageCache.m in Sources */,
+				180289232249C40F002CB435 /* QNDomain.m in Sources */,
+				1863B2752268212E00E116F5 /* ClubFunctionDisplayViewController.m in Sources */,
 				18702FCD212123A600BABA96 /* PersonalClubController.m in Sources */,
 				182CF39B20F454A0004499AD /* AFNetworkActivityIndicatorManager.m in Sources */,
+				180288F02249B4C3002CB435 /* QNUrlSafeBase64.m in Sources */,
 				18BF30F6212555CC004C9D70 /* ClubDepartmentViewController.m in Sources */,
 				18CBEBAA2137CFDB0013AFC9 /* ClubOrderRefundInfo.m in Sources */,
 				182CF39D20F454A0004499AD /* AFHTTPRequestOperation.m in Sources */,
@@ -1412,23 +1769,32 @@
 				18BF30EC21251939004C9D70 /* ClubLeaderTableViewCell.m in Sources */,
 				1854A3CC211D762A00CAF90C /* ClubBankManageController.m in Sources */,
 				18C94FA021086B580088D3EA /* LvYeHTTPClient+ClubManage.m in Sources */,
+				180288FA2249B4C3002CB435 /* QNSessionManager.m in Sources */,
 				183198E02117E4A40038ECBB /* LvyeClubMoreViewController.m in Sources */,
 				18154E182112EF0700FF51F7 /* TableDataPage.m in Sources */,
 				18B3C4DB20F5FAB700EA93AC /* ClubBankInfo.m in Sources */,
+				180289212249C40F002CB435 /* QNDnsManager.m in Sources */,
+				180288F82249B4C3002CB435 /* QNUserAgent.m in Sources */,
 				18702FC221211E7A00BABA96 /* BankDataTableViewCell.m in Sources */,
+				180288ED2249B4C3002CB435 /* QNUploadOption.m in Sources */,
+				180288EB2249B4C3002CB435 /* QNUpToken.m in Sources */,
 				1819791620FD98CF001C9DA6 /* LvyeBaseNavigationController.m in Sources */,
 				18BF30F9212555DE004C9D70 /* ClubAddDepartmentViewController.m in Sources */,
 				1870300521217B7F00BABA96 /* UIImage+MultiFormat.m in Sources */,
 				183F34D2211C26EF005F0A8D /* PersonalInfoController.m in Sources */,
+				180288EC2249B4C3002CB435 /* QNFormUpload.m in Sources */,
 				1870300A21217B7F00BABA96 /* NSData+ImageContentType.m in Sources */,
 				181BDC2220FED0530031668E /* FontAwesome.m in Sources */,
 				184E49D021227C6C00F5CFBA /* MBProgressHUD.m in Sources */,
 				18FC1A68210571AE00CBC6FC /* LvyeClubFinancialController.m in Sources */,
 				1876A4382123F950004B023E /* ClubLeaderAddController.m in Sources */,
 				18FC1A722105CE1100CBC6FC /* LvyeProductSettings.m in Sources */,
+				180288E92249B4C3002CB435 /* QNConfiguration.m in Sources */,
 				1870300421217B7F00BABA96 /* UIImage+GIF.m in Sources */,
 				18FC1A652105719B00CBC6FC /* LvyeClubDataController.m in Sources */,
+				1850CF71225C2B33007E35F9 /* LvYeHTTPClient+ClubTour.m in Sources */,
 				1897FEC7212A508B001652F7 /* ClubTourStatisticalController.m in Sources */,
+				180289242249C40F002CB435 /* QNRecord.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1480,6 +1846,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
+					"ZLG_DEBUG=1",
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -1535,6 +1902,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = "ZLG_RELEASE=1";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;

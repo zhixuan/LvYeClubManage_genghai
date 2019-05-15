@@ -97,6 +97,7 @@
     [button setTitleColor:KContentTextColor forState:UIControlStateNormal];
     [button.layer setMasksToBounds:YES];
     [button.layer setBorderWidth:1.0];
+    
     [button.layer setBorderColor:KSeparateColorSetup.CGColor];
     [button setTitleEdgeInsets:UIEdgeInsetsMake(0, (KInforLeftIntervalWidth*1.5+20.0f), 0, 0)];
     [button setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];

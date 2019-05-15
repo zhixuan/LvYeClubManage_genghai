@@ -35,6 +35,13 @@
 //    NSLog(@"x is  %i, y is %i",x,y);
 //    
     
+#if ZLG_DEBUG
+    printf("zhangliguangTEST");
+#endif
+    
+#if ZLG_RELEASE
+    printf("zhangliguang_Release");
+#endif
 
     ///初始化友盟统计
     [self setupUmengSDKInfor];
@@ -53,7 +60,7 @@
         [self.window setRootViewController:tabBarController];
     }else{
         LoginViewController * viewController = [[LoginViewController alloc] init];
-        [viewController settingNavTitle:@"登录" color:[UIColor redColor]];
+        [viewController settingNavTitle:@"登录" color:KButtonStateNormalColor];
         LvyeBaseNavigationController *navController = [[LvyeBaseNavigationController alloc]initWithRootViewController:viewController];
         [self.window setRootViewController:navController];
         
@@ -64,7 +71,26 @@
         };
     }
     
-    [self clubUserAutoLogin];
+    
+    
+    /*
+    
+    NSMutableString * userName = [[NSMutableString alloc]initWithString:@"JSON"];
+    [userName appendString:@"_JSON"];
+    BOOL isStr = [userName isMemberOfClass:[NSMutableString class]];
+    
+    
+    
+    
+    NSString  *strA = [[NSString alloc]initWithFormat:@"%@",@"ABC"];
+    
+    NSString  *strB = [strA mutableCopy];
+    
+    NSLog(@"strA is %@ %@   \n strB is %@ and strB is %@",strA,[strA class],strB,[strB class]  );
+     
+     
+     */
+[self clubUserAutoLogin];
 
     [self.window makeKeyAndVisible];
     return YES;
@@ -140,6 +166,9 @@
 }
 
 
-
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center openSettingsForNotification:(UNNotification *)notification API_AVAILABLE(ios(10.0)){
+    
+    NSLog(@"%@%@",@"开启推送操作， ",@"操作处理");
+}
 
 @end

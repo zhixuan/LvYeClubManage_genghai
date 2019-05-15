@@ -251,6 +251,33 @@ NSString * getranAutoImageName(int numberCount){
     return [NSString stringWithFormat:@"%@%@",timeSp,result];
 }
 
+
+
+NSString * getCompleteContractImageURLForQiNiuWithImageURLStr(NSString *imgStr){
+
+    return [[KEY_RESPONSE_LVYE_IMAGE_URL stringByAppendingString:imgStr] stringByAppendingString :@"?imageView2/0/q/30|imageslim"];
+}
+NSURL * getCompleteImageURLForQiNiuWithImageURLStr(NSString *imgStr){
+    
+   /// stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]
+    return [NSURL URLWithString: [[[KEY_RESPONSE_LVYE_IMAGE_URL stringByAppendingString:imgStr] stringByAppendingString:@"?imageView2/0/q/30|imageslim"] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]];
+  
+    ///里面不认识 | 符号，需要进行转码操作
+   //// http://res.lvye.com//upload/1232157516.jpg?imageView2/0/q/30|imageslim
+}
+NSURL * getCompleteImageURLForLvyeClubWithImageURLStr(NSString *imgStr){
+    return [NSURL URLWithString: [KEY_RESPONSE_LVYE_CLUB_IMAGE_URL stringByAppendingString:imgStr]];
+}
+
+////将字符串格式化为两位小数的字符串（货币金额格式化操作）
+NSString *formateCurrencyDecimalWithMoneyStr(NSString *str){
+    NSNumber *number = @([str doubleValue]);
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    formatter.numberStyle = kCFNumberFormatterDecimalStyle;
+    formatter.positiveFormat = @"#######0.00";
+    return [formatter stringFromNumber:number];
+}
+
 #pragma mark -MBProgressHUD
 MBProgressHUD* CreateCustomColorHUDOnView(UIView *onView)
 {

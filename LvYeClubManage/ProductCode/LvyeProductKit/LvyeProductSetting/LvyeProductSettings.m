@@ -34,12 +34,24 @@ static LvyeProductSettings       *lvyeProductSettings = nil;
         self.clubOrderPaymentStyleContentArray = [[NSArray alloc]initWithObjects:@"已失效",@"未支付",@"待确认",@"已确认，待支付",
                                                   @"已支付",@"待评价",@"已评价",@"申请中",@"审核中",@"已退款",@"退款失败"
                                                   ,@"申请售后",@"售后审核中",@"售后已退款",@"售后退款失败", nil];
+//        self.clubTourInfoStyleContentDictionary = [[NSDictionary alloc]initWithObjectsAndKeys:@"审核中",@"0",
+//                                                   @"审核中",@"1",
+//                                                   @"报名中",@"2",
+//                                                   @"已停用",@"3",
+//                                                   @"已取消",@"4",
+//                                                   @"已下架",@"8",
+//                                                   @"编辑中",@"9",
+//                                                   @"被驳回",@"21",
+//                                                   @"修改中",@"31",
+//                                                   @"已关停",@"35",nil];
+        
         self.clubTourInfoStyleContentDictionary = [[NSDictionary alloc]initWithObjectsAndKeys:@"审核中",@"0",
                                                    @"审核中",@"1",
                                                    @"报名中",@"2",
                                                    @"已停用",@"3",
                                                    @"已取消",@"4",
                                                    @"已下架",@"8",
+                                                   @"编辑中",@"9",
                                                    @"被驳回",@"21",
                                                    @"修改中",@"31",
                                                    @"已关停",@"35",nil];

@@ -15,6 +15,14 @@
 
 - (void)clubUserAutoLogin{
     
+    
+//    
+//    [KShareHTTPLvyeHTTPClient userTokenTESTWithUserToken:@"7ed76103c139088128058fef049383498d221ccf" completion:^(WebAPIResponse *response) {
+//         dispatch_async(dispatch_get_main_queue(), ^(void){
+//             NSLog(@"response.responseObject is  %@" ,response.responseObject);
+//             NSLog(@"name is %@",StringForKeyInUnserializedJSONDic(response.responseObject, @"account"));
+//         });
+//    }];
     if (!KLvyeProductClubSettings.isClubUserLogin) {
         return;
     }
