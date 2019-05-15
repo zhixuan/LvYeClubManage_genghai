@@ -7,6 +7,9 @@
 //
 
 #import "ClubLeaderAddController.h"
+#import "ClubLeaderInfo.h"
+#import "LvYeHTTPClient.h"
+#import "LvYeHTTPClient+CLubInfo.h"
 
 @interface ClubLeaderAddController ()
 
@@ -42,6 +45,68 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    
+    ClubLeaderInfo *leaderInfo = [[ClubLeaderInfo alloc]init];
+    [leaderInfo setUserName:@"雷国强——TEST"];
+    [leaderInfo setClubId:KLvyeClubCurrentUser.clubId];
+    [leaderInfo setUserMobile:@"15711478892"];
+    [leaderInfo setUserQQCode:@"132201198902176414"];
+    [leaderInfo setUserWeChatCode:@"132201198902176414"];
+    [leaderInfo setLeaderLocationCityName:@"乌鲁木齐"];
+    [leaderInfo setLeaderEvaluation:@"没啥自我评无用--"];
+    [leaderInfo setLeaderImportantLinkMobile:@"220182199107261967"];
+    [leaderInfo setUserGenderStyle:ClubUserGenderFemaleStyle];
+    [leaderInfo setLeaderCardCode:@"622623199202200023"];
+    [leaderInfo setLeaderState:0];
+    [leaderInfo setLeaderEvaluation:@"领队的自我评价"];
+    [leaderInfo setLeaderIntroduction:@"个人介绍"];
+    [leaderInfo setUserPhotoImageURL:@"/upload/1165254078.jpg"];
+
+    [leaderInfo setLeaderNationName:@"苗族"];
+    [leaderInfo setLeaderPositionStation:@"C++ 高级工程师"];
+    [leaderInfo setLeaderNativePlaceStr:@"北京海淀区c苏州街长远天地大厦"];
+    [leaderInfo setLeaderStarStr:@"七星级高级领队"];
+    [leaderInfo setLeaderEnglishCompetence:@"英语六级"];
+    [leaderInfo setLeaderStandardChinese:@"普通话五级"];
+    [leaderInfo setLeaderNativeDialect:@"维吾尔族方言，蒙古方言、朝鲜语"];
+    [leaderInfo setLeaderOtherLanguageCompetence:@"法语四级"];
+
+
+    [leaderInfo setLeaderSpecialtyContent:@"国内青少年户外教育最早的践行者，青少年户外探索教育师资培训计划发起人。12年户外活动经验，从事青少年户外教育工作近10年，设计并组织带领青少年户外项目400余次。"];
+    [leaderInfo setLeaderWorkExperience:@"国内青少年户外教育最早的践行者，青少年户外探索教育师资培训计划发起人。12年户外活动经验，从事青少年户外教育工作近10年，设计并组织带领青少年户外项目400余次。"];
+    
+    
+    
+
+    
+   
+    
+
+    [KShareHTTPLvyeHTTPClient clubInsertLeaderInfoWithClubId:KLvyeClubCurrentUser.clubId leader:leaderInfo completion:^(WebAPIResponse *response) {
+
+
+        dispatch_async(dispatch_get_main_queue(), ^(void){
+
+            NSLog(@"  response.responseObject is  %@",response.responseObject);
+
+            NSLog(@"KDataKeyMsg is %@",StringForKeyInUnserializedJSONDic(response.responseObject, KDataKeyMsg));
+        });
+    }];
+//
+//
+//    [leaderInfo setUserId:@"394"];
+//    [KShareHTTPLvyeHTTPClient clubUpdateLeaderInfoWithClubId:KLvyeClubCurrentUser.clubId leader:leaderInfo completion:^(WebAPIResponse *response) {
+//
+//
+//        dispatch_async(dispatch_get_main_queue(), ^(void){
+//
+//            NSLog(@"  response.responseObject is  %@",response.responseObject);
+//
+//            NSLog(@"KDataKeyMsg is %@",StringForKeyInUnserializedJSONDic(response.responseObject, KDataKeyMsg));
+//        });
+//    }];
+    
 }
 
 - (void)didReceiveMemoryWarning {
