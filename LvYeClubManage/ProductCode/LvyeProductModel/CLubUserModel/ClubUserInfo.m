@@ -59,20 +59,67 @@
     return userInfo;
 }
 
-- (NSDictionary *)parameterInitDictionaryWithUserAddClubAdministrator{
+#pragma mark -
+#pragma mark -  初始化创建俱乐部管理员参数信息
+- (NSMutableDictionary *)parameterInitDictionaryWithUserAddClubAdministrator{
+    NSMutableDictionary *param = [[NSMutableDictionary alloc]init];
+
     
-    NSDictionary *paramUser = @{@"userName":self.userName,
-                                @"userNameSimple":self.userNameSimple,
-                                @"userPwd":self.userPassword,
-                                @"userEmail":self.userEmail,
-                                @"userMobile":self.userMobile,
-                                
-                                @"userCo":self.clubId,
-                                @"userDes":self.clubDepartmentId,
-                                @"isLock":[NSNumber numberWithBool:self.userIsLock],
-                                @"RordID":@"24,"
-                                };
+//   [Hash = 1360080751, osLoginUserId=null, userName=xinkuanxiaodangjia, userPassword=6PJVDEM37NGRT3QC670B14728AD9902AECBA32E22FA4F6BDQE6UTCD8DIGH7RQU, loginnum=0, islock=0, userCo=1501, userTeam=172, workjob=0, teamaspect=null, name=新款小当家, tourRole=0, saleRole=0, userRole=null, companyType=0, mobile=186154596807, tel=null, fax=null, email=小积石山姐姐, msn=null, qqnum=null, lastIp=null, lastTime=null, allotOrder=0, resultOrder=0, transferOrder=0, orderSearch=0, editTourlineSearch=0, saleTourlineSearch=0, extension=null, extensionPass=null, isCall=0, device=null, optionalOrder=0, lockedOrder=0, optionalOrderNum=null, seeTel=null, isFinance=0, callPostSet=0, consultingWay=null, signIn=null, sendCity=null, isAnyPermissions=null, todayOrder=0, noneDetail=0, regPic=upload/155358408800004926.png, roleId=null, loginType=null, osGTripTypeId=null, osGDestinationId=null, serialVersionUID=1]
     
-    return paramUser;
+ 
+    AddObjectForKeyIntoDictionary(self.clubId, @"userCo", param);
+    AddObjectForKeyIntoDictionary(self.userName, @"name", param);
+    AddObjectForKeyIntoDictionary(self.userNameSimple, @"userName", param);
+    AddObjectForKeyIntoDictionary(self.userMobile, @"mobile", param);
+    AddObjectForKeyIntoDictionary(self.userPassword, @"userPassword", param);
+    AddObjectForKeyIntoDictionary(self.userPhotoImageURL, @"regPic", param);
+    AddObjectForKeyIntoDictionary([NSNumber numberWithInt:0], @"islock", param);
+    AddObjectForKeyIntoDictionary(self.userEmail, @"email", param);
+    AddObjectForKeyIntoDictionary(self.clubDepartmentId, @"userTeam", param);
+    AddObjectForKeyIntoDictionary(@"0,18,19,20,21,22,23,24,", @"roleId", param);
+
+    
+    ///默认参数信息
+    AddObjectForKeyIntoDictionary(@"0", @"loginnum", param);
+    AddObjectForKeyIntoDictionary(@"0", @"workjob", param);
+    
+    AddObjectForKeyIntoDictionary(@"0", @"tourRole", param);
+    AddObjectForKeyIntoDictionary(@"0", @"saleRole", param);
+    AddObjectForKeyIntoDictionary(@"0", @"userRole", param);
+    AddObjectForKeyIntoDictionary(@"0", @"companyType", param);
+    
+    AddObjectForKeyIntoDictionary(@"0", @"allotOrder", param);
+    AddObjectForKeyIntoDictionary(@"0", @"resultOrder", param);
+    AddObjectForKeyIntoDictionary(@"0", @"transferOrder", param);
+    AddObjectForKeyIntoDictionary(@"0", @"orderSearch", param);
+    AddObjectForKeyIntoDictionary(@"0", @"editTourlineSearch", param);
+    AddObjectForKeyIntoDictionary(@"0", @"saleTourlineSearch", param);
+    
+    AddObjectForKeyIntoDictionary(@"0", @"extension", param);
+    AddObjectForKeyIntoDictionary(@"0", @"extensionPass", param);
+    AddObjectForKeyIntoDictionary(@"0", @"isCall", param);
+    AddObjectForKeyIntoDictionary(@"0", @"optionalOrder", param);
+    AddObjectForKeyIntoDictionary(@"0", @"lockedOrder", param);
+    AddObjectForKeyIntoDictionary(@"0", @"optionalOrderNum", param);
+    AddObjectForKeyIntoDictionary(@"0", @"seeTel", param);
+    AddObjectForKeyIntoDictionary(@"0", @"isFinance", param);
+    AddObjectForKeyIntoDictionary(@"0", @"callPostSet", param);
+    AddObjectForKeyIntoDictionary(@"0", @"todayOrder", param);
+    AddObjectForKeyIntoDictionary(@"0", @"noneDetail", param);
+    AddObjectForKeyIntoDictionary(@"0", @"id", param);
+    
+
+
+    return param;
+}
+
+- (NSMutableDictionary *)parameterInitDictionaryWithUserUpdateClubAdministrator{
+    NSMutableDictionary *param = [[NSMutableDictionary alloc]init];
+    [param setDictionary:[self parameterInitDictionaryWithUserAddClubAdministrator]];
+    AddObjectForKeyIntoDictionary(self.userId, @"osLoginUserId", param);
+    
+    return param;
+    
 }
 @end

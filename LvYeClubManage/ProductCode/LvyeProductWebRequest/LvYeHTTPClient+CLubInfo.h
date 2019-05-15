@@ -7,6 +7,7 @@
 //
 
 #import "LvYeHTTPClient.h"
+#import "ClubLeaderInfo.h"
 
 
 
@@ -37,6 +38,34 @@
                                                pageSize:(NSInteger)pageSize
                                              pageNumber:(NSInteger)pageNumber
                                              completion:(WebAPIResponstComlitionBlock)completionBlock;
+
+
+
+/**
+ 添加领队信息
+
+ @param clubId 俱乐部 ID
+ @param leader 领队信息
+ @param completionBlock  请求完成后返回的数据内容 Block
+ @return 网络请求实例
+ */
+- (AFHTTPRequestOperation *)clubInsertLeaderInfoWithClubId:(NSString *)clubId
+                                                    leader:(ClubLeaderInfo *)leader
+                                                completion:(WebAPIResponstComlitionBlock)completionBlock;
+
+/**
+ 添加领队信息
+ 
+ @param clubId 俱乐部 ID
+ @param leader 领队信息
+ @param completionBlock  请求完成后返回的数据内容 Block
+ @return 网络请求实例
+ */
+- (AFHTTPRequestOperation *)clubUpdateLeaderInfoWithClubId:(NSString *)clubId
+                                                    leader:(ClubLeaderInfo *)leader
+                                                completion:(WebAPIResponstComlitionBlock)completionBlock;
+
+
 
 
 /**

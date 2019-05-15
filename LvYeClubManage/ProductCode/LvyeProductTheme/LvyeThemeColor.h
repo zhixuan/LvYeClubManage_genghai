@@ -40,6 +40,9 @@
 ///设置图片默认背景样式
 #define KImageNormalColor                   KBorderColorSetup
 
+///设置图片默认背景-默认图片
+#define KImageNormalImageViewWithColor      createImageWithColor(KBorderColorSetup)
+
 ///TableViewCell 选中的颜色
 #define KTableViewCellSelectedColor     KButtonStateHighlightedColor
 

@@ -15,6 +15,12 @@
 @interface ClubInfo : NSObject
 
 
+
+/*!
+ * @property
+ * @brief 信息 ID
+ */
+@property (nonatomic , copy)      NSString              *infoId;
 /*!
  * @breif 俱乐部 ID
  * @See 俱乐部 ID

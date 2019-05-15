@@ -26,4 +26,32 @@
                                                         userId:(NSString *)userId
                                                       moduleId:(NSString *)moduleId
                                                     completion:(WebAPIResponstComlitionBlock)completionBlock;
+
+
+
+/**
+ 获取登录俱乐部的评论线路列表
+
+ @param clubId 俱乐部 ID
+ @param pageSize  页面大小
+ @param number 当前页面
+ @param completionBlock 请求完成后返回的数据内容 Block
+ @return 网络请求实例
+ */
+-(AFHTTPRequestOperation *)userClubCommentListInfoWithClubId:(NSString  *)clubId
+                                                    pageSize:(NSInteger)pageSize
+                                                  pageNumber:(NSInteger)number
+                                                  completion:(WebAPIResponstComlitionBlock)completionBlock;
+
+
+/**
+ 获取登录俱乐部被评论线路的全部评论详情信息
+
+ @param clubId 俱乐部 ID
+ @param completionBlock 请求完成后返回的数据内容 Block
+ @return 网络请求实例
+ */
+-(AFHTTPRequestOperation *)userClubGetTourCommentDetailListWithClubId:(NSString  *)clubId
+                                                           completion:(WebAPIResponstComlitionBlock)completionBlock;
+
 @end

@@ -121,7 +121,16 @@
 
  @return NSDictionary
  */
-- (NSDictionary *)parameterInitDictionaryWithUserAddClubAdministrator;
+- (NSMutableDictionary *)parameterInitDictionaryWithUserAddClubAdministrator;
+
+
+
+/**
+ 初始化修改俱乐部管理员参数信息
+
+ @return 操作参数内容
+ */
+- (NSMutableDictionary *)parameterInitDictionaryWithUserUpdateClubAdministrator;
 
 
 @end

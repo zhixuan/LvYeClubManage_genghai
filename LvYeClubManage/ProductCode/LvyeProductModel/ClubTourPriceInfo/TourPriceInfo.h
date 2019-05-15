@@ -29,19 +29,19 @@
 
 /*!
  * @property
- * @brief 成人平台价
+ * @brief 成人结算价
  */
 @property (nonatomic , copy)      NSNumber          *tourPriceReprice;
 
 /*!
  * @property
- * @brief 儿童平台价
+ * @brief 儿童结算价
  */
 @property (nonatomic , copy)      NSNumber          *tourPriceReChildrenprice;
 
 /*!
  * @property
- * @brief  房差价平台价
+ * @brief  房差价结算价
  */
 @property (nonatomic , copy)      NSNumber          *tourPriceReRoomprice;
 

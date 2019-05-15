@@ -41,12 +41,25 @@
 
     [itemOrder setOrderNumber:StringForKeyInUnserializedJSONDic(dic, @"order_num")];
     [itemOrder setOrderAddDateTime:StringForKeyInUnserializedJSONDic(dic, @"create_date")];
+    [itemOrder setOrderAddDateTime:formatDateWithFormat(@"yyyy-MM-dd HH:mm:ss",
+                                                        @"yyyy-MM-dd HH:mm",
+                                                        itemOrder.orderAddDateTime)];
+    
+    
     [itemOrder setOrderOutDateTime:StringForKeyInUnserializedJSONDic(dic, @"intention_date")];
     [itemOrder setOrderLinkUserName:StringForKeyInUnserializedJSONDic(dic, @"user_name")];
     [itemOrder setOrderLinkUserMobile:StringForKeyInUnserializedJSONDic(dic, @"user_mobile")];
     [itemOrder setOrderPaymentStatus:StringForKeyInUnserializedJSONDic(dic, @"payment_status")];
-    [itemOrder setOrderTotalAmountMoney:StringForKeyInUnserializedJSONDic(dic, @"intention_price")];
+    [itemOrder setOrderTotalAmountMoney:formateCurrencyDecimalWithMoneyStr(StringForKeyInUnserializedJSONDic(dic, @"intention_price"))];
     [itemOrder setOrderManPeopleCount:IntForKeyInUnserializedJSONDic(dic, @"man_num")];
+    [itemOrder setOrderPayStyle:IntForKeyInUnserializedJSONDic(dic, @"pay_type")];
+    [itemOrder setOrderConsultRoad:IntForKeyInUnserializedJSONDic(dic, @"consult_road")];
+    [itemOrder setTourPriceTheme:StringForKeyInUnserializedJSONDic(dic, @"tour_price_theme")];
+    
+    
+    
+    [itemOrder.orderLinkUserInfo  setUserName:StringForKeyInUnserializedJSONDic(dic, @"user_name")];
+    [itemOrder.orderLinkUserInfo setUserMobile:StringForKeyInUnserializedJSONDic(dic, @"user_mobile")];
     
 
     return itemOrder;

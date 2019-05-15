@@ -48,6 +48,42 @@
 }
 
 #pragma mark -
+#pragma mark -  添加领队信息
+- (AFHTTPRequestOperation *)clubInsertLeaderInfoWithClubId:(NSString *)clubId leader:(ClubLeaderInfo *)leader completion:(WebAPIResponstComlitionBlock)completionBlock{
+    
+    
+    if (clubId ==nil || [clubId length] < 1) {
+        if (completionBlock) {
+            completionBlock([WebAPIResponse invalidArgumentsResonse]);
+        }
+        return nil;
+    }
+    
+    NSMutableDictionary *param =[leader parameterForClubUserInsertLeaderInfo];
+    AddObjectForKeyIntoDictionary(clubId, KDataKeyClubID, param);
+    
+    return [self postPath:KURLClubLeaderInsertURL parameters:(NSDictionary *)param completion:completionBlock];
+}
+
+- (AFHTTPRequestOperation *)clubUpdateLeaderInfoWithClubId:(NSString *)clubId
+                                                    leader:(ClubLeaderInfo *)leader
+                                                completion:(WebAPIResponstComlitionBlock)completionBlock{
+    
+    
+    if (clubId ==nil || [clubId length] < 1) {
+        if (completionBlock) {
+            completionBlock([WebAPIResponse invalidArgumentsResonse]);
+        }
+        return nil;
+    }
+    
+    NSMutableDictionary *param =[leader parameterForClubUserUpdateLeaderInfo];
+    AddObjectForKeyIntoDictionary(clubId, KDataKeyClubID, param);
+    
+    return [self postPath:KURLClubLeaderEditURL parameters:(NSDictionary *)param completion:completionBlock];
+}
+
+#pragma mark -
 #pragma mark -  获取俱乐部-账户管理中-机构管理列表数据信息 （部门信息+各部门人员配置信息）
 - (AFHTTPRequestOperation *)clubAccountManageGetDepartmentUsersWithClubId:(NSString *)clubId
                                                                completion:(WebAPIResponstComlitionBlock)completionBlock{

@@ -133,6 +133,7 @@
                                   }
                                   failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                       NSLog(@"Received: %@", [error localizedDescription]);
+                                       NSLog(@"responseObject: %@", error.description);
                                       if (completionBlock) {
                                           dispatch_async(dispatch_get_main_queue(), ^{
                                               completionBlock([WebAPIResponse responseWithCode:WebAPIResponseCodeNetError]);

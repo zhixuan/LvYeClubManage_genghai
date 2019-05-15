@@ -27,6 +27,10 @@
                                        completion:(WebAPIResponstComlitionBlock)completionBlock;
 
 
+- (AFHTTPRequestOperation *)userTokenTESTWithUserToken:(NSString *)userToken
+                                            completion:(WebAPIResponstComlitionBlock)completionBlock;
+
+
 /**
  登录用户上传获取到的推送 TOKEN
 
@@ -50,6 +54,17 @@
  */
 - (AFHTTPRequestOperation *)userAddClubAdministarorWithUserInfo:(ClubUserInfo *)userInfo
                                                     completion:(WebAPIResponstComlitionBlock)completionBlock;
+
+
+/**
+ 登录者修改某个俱乐部管理者信息内容
+
+ @param userInfo 管理者用户
+ @param completionBlock 登录操作请求完成后的返回结果Block
+ @return AFHTTPRequestOperation 实例
+ */
+- (AFHTTPRequestOperation *)userUpdateClubAdministarorWithUserInfo:(ClubUserInfo *)userInfo
+                                                        completion:(WebAPIResponstComlitionBlock)completionBlock;
 
 
 

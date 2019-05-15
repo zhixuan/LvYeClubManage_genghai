@@ -24,6 +24,8 @@
 
 
 
+///  http://account.lvye.cn/oauth2/check_token/
+
 
 /////正式环境
 #define KEY_LVYE_API_URL_TEST                   @"http://club.lvye.com:8999/"
@@ -32,7 +34,8 @@
 
 
 ///正式环境数据内容
-//#define KEY_LVYE_API_URL                        @"http://192.168.24.74:8999/"
+//#define KEY_LVYE_API_URL                        @"http://192.168.24.93:8999/"
+//#define KEY_LVYE_API_URL                        @"http://account.lvye.cn/"
 #define KEY_LVYE_API_URL                        @"http://club.lvye.com:8999/"
 #define KEY_LVYE_WEB_RESPONSE_URL               KEY_LVYE_API_URL
 
@@ -73,6 +76,7 @@
 
 ////返回数据内容KEY
 #define KDataKeyData                            @"data"
+#define KDataKeyList                            @"list"
 #define KDataKeyMsg                             @"message"
 #define KDataKeyCode                            @"code"
 #define KDataKeyStateFlag                       @"flag"
@@ -99,6 +103,15 @@
 #define KURLClubLeaderEditURL                   @"clubLeader/leaderUpdate"
 
 
+#pragma mark - 俱乐部活动管理
+///俱乐部活动管理- 活动列表（带搜索）
+#define KURLClubTourTableListURL                @"clubTour/tourList"
+///俱乐部活动管理- 俱乐部中活动的活动详情信息（WEB版）
+#define KURLClubItemTourDetailURL               @"web/tour/clubTourDetail"
+///俱乐部活动管理- 修改俱乐部活动状态接口
+#define KURLClubUpdateTourStatusURL             @"clubTour/updateTour"
+
+
 #pragma mark -
 #pragma mark -  --俱乐部订单管理（俱乐部退款管理）--
 #pragma mark -
@@ -113,10 +126,17 @@
 //TODO:俱乐部管理接口 - 我的评价--
 ///俱乐部基本信息接口
 #define KURLClubBaseInfoURL                     @"clubInfo/info"
-///俱乐部评价列表
+///俱乐部被评价活动列表
 #define KURLClubCommentListURL                  @"clubShopManage/clubCommentList"
+///活动l评价列表详情
+#define KURLClubTourCommentDetailURL            @"clubShopManage/tourCommentList"
 
+#pragma mark -
+#pragma mark -  --数据管理接口接口--
+#pragma mark -
 
+///活动统计接口
+#define KURLClubTourStatisticsURL               @"clubTour/tourStatistical"
 
 
 
@@ -167,7 +187,9 @@
 ///俱乐部中添加部门操作
 #define KURLClubAccountADDDepartmentURL        @"accountManage/addDepartment"
 ///俱乐部添加管理员
-#define KURLClubAccountAddUserURL               @"accountManage/userInfo"
+#define KURLClubAccountAddUserURL               @"accountManage/userInsert"
+///俱乐部修改管理员信息
+#define KURLClubAccountUpdateUserURL            @"accountManage/userUpdate"
 
 
 ///MARK:用户信息
