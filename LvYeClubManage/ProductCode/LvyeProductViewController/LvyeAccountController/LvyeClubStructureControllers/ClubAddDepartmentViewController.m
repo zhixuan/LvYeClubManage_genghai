@@ -179,11 +179,19 @@
        forControlEvents:UIControlEventTouchUpInside];
     [self.bgScrollView addSubview:LoginBtn];
     
+//    UIImageView  *imageView = [[UIImageView alloc]init];
+//    [imageView setBackgroundColor:[UIColor clearColor]];
+//    [imageView setFrame:CGRectMake((KProjectScreenWidth - 28.0f)/2, LoginBtn.bottom +40.0f, 28.0f, 28.0f)];
+//    UIImage *imageInfo = [UIImage imageNamed:@"iconlist.png"];
+//    imageInfo = [imageInfo thumbScaleImageWithPoint:CGPointMake(294,106) size:CGSizeMake(56, 56)];
+//    [imageView setImage:imageInfo];
+//    [self.bgScrollView addSubview:imageView];
+    
     UIImageView  *imageView = [[UIImageView alloc]init];
     [imageView setBackgroundColor:[UIColor clearColor]];
-    [imageView setFrame:CGRectMake((KProjectScreenWidth - 100.0f)/2, LoginBtn.bottom +40.0f, 80.0f, 80.0f)];
+    [imageView setFrame:CGRectMake((KProjectScreenWidth - 28.0f)/2, LoginBtn.bottom +40.0f, 28.0f, 28.0f)];
     UIImage *imageInfo = [UIImage imageNamed:@"iconlist.png"];
-    imageInfo = [imageInfo thumbScaleImageWithPoint:CGPointMake(294,106) size:CGSizeMake(56, 56)];
+    imageInfo = [imageInfo thumbScaleImageWithPoint:CGPointMake(162,65) size:CGSizeMake(30, 30)];
     [imageView setImage:imageInfo];
     [self.bgScrollView addSubview:imageView];
     

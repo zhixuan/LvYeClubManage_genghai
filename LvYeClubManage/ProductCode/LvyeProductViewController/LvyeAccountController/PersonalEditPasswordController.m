@@ -268,6 +268,7 @@
     if (1 == range.length) {//按下回格键
         return YES;
     }
+        ///密码限制在20位以内的字母、数字（区分大小写）
         NSCharacterSet *cs= [[NSCharacterSet characterSetWithCharactersInString:@"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"] invertedSet];
         NSString *filtered = [[string componentsSeparatedByCharactersInSet:cs]componentsJoinedByString:@"\\"];
         BOOL txtlength = NO;

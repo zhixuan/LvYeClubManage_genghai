@@ -64,6 +64,13 @@
     
     [self.cellRightImageView setHidden:YES];
     NSString *photoImageURL = [NSString stringWithFormat:@"%@%@",@"http://club.lvye.com",StringForKeyInUnserializedJSONDic(dataSource, @"photourl")];
+    
+    NSString *urlStr =StringForKeyInUnserializedJSONDic(dataSource, @"photourl");
+    if([urlStr hasPrefix:@"/images"]){
+        photoImageURL =[NSString stringWithFormat:@"%@%@",KEY_RESPONSE_LVYE_CLUB_IMAGE_URL,urlStr];
+    }else if([urlStr hasPrefix:@"upload"]){
+        photoImageURL =[NSString stringWithFormat:@"%@%@",KEY_RESPONSE_LVYE_IMAGE_URL,urlStr];
+    }
     [self.cellLeftImageView setImageWithURL:[NSURL URLWithString:photoImageURL]
                            placeholderImage:KClueDefaultImage_ClubUserPhotoDefaultImage];
     
@@ -95,7 +102,6 @@
 
 - (void)layoutSubviews{
     if(self.dataSourceStyle == DataSourceForUserInfoStyle){
-        NSLog(@"DataSourceForUserInfoStyle is %lu",DataSourceForUserInfoStyle);
         CGFloat imageWidth = (KDepartmenUserTableCellHeight - KUserPhotoImageWidth)/2;
         [self.cellLeftImageView setFrame:CGRectMake(KUserPhotoForCellLeftInterval,imageWidth,
                                                     KUserPhotoImageWidth, KUserPhotoImageWidth)];
@@ -106,7 +112,6 @@
                                                  KDepartmenUserTableCellHeight)];
     }else if (self.dataSourceStyle == DataSourceForDepartmenStyle){
         
-        NSLog(@"DataSourceForDepartmenStyle is %lu",DataSourceForDepartmenStyle);
         [self.cellTitleLabel setFrame:CGRectMake(KUserPhotoForCellLeftInterval, 0.0f,
                                                  (KProjectScreenWidth-KBtnContentLeftWidth),
                                                  KDepartmenUserTableCellHeight)];

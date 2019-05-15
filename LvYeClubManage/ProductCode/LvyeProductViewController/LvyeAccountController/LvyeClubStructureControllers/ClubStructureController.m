@@ -107,6 +107,7 @@
     //停掉当前未完成的请求操作
     [self.requestDataOperation cancel];
     [self.clubDepartmentNameArray removeAllObjects];
+    [self.clubDepartmentUserArray removeAllObjects];
     //清空当前数据源中所有数据
     [self.dataSource cleanAllData];
     [self.tableView reloadData];
@@ -137,6 +138,7 @@
                     
                     
                     NSDictionary *dataDictionary =(NSDictionary *)ObjForKeyInUnserializedJSONDic(response.responseObject, KDataKeyData);
+                    
                     NSLog(@"dataDictionary is %@",dataDictionary);
                     
                     if([dataDictionary count]>0){
@@ -144,7 +146,6 @@
                          [weakSelf.clubDepartmentNameArray addObjectsFromArray:allKeyArray];
                         
                         NSArray *allValuesArray = [dataDictionary allValues];
-                        NSLog(@"allValuesArray is %@",allValuesArray);
                         [weakSelf.clubDepartmentUserArray addObjectsFromArray:allValuesArray];
                     }else{
                         if (response.code == WebAPIResponseCodeNetError) {
@@ -323,6 +324,17 @@
         if(indexPath.row < [itemDepartmentUserArray count]){
             NSDictionary *dataInfo = (NSDictionary *)[itemDepartmentUserArray objectAtIndex:indexPath.row];
             ClubUserInfo *userInfo = [ClubUserInfo initClubUserInfoForDepartmenUserWithUnserializedJSONDic:dataInfo];
+    
+            NSLog(@"%@",[userInfo toPropertyExportString]);
+            
+//            if(!userInfo.userIsLock){
+//
+                ClubAddAdministratorController *viewController = [[ClubAddAdministratorController alloc]initWithUserInfo:userInfo];
+                [viewController setTitle:@"编辑"];
+                [viewController setHidesBottomBarWhenPushed:YES];
+                [self.navigationController pushViewController:viewController animated:YES];
+//            }
+            
         }
     }
    

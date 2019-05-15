@@ -6,6 +6,17 @@
 //  Copyright © 2018年 Beijing Lvye Shijie Information Technology Co.,Ltd. All rights reserved.
 //
 
+/**
+ 
+ json is  MAC client_id=20,code=6933b827538ceffc9eb056d8d5a11256deb10324,nonce=1234567894,ts=1557388636,mac=v3Mgk7zU8AzMFkHaV/dyjUvFE3I=
+ url is http://192.168.106.183/oauth2/access_token/
+ mac is v3Mgk7zU8AzMFkHaV/dyjUvFE3I=
+ oauth_login/index.jsp:265000754lianglei08613716301605nullweb_site=beijing
+ 
+ 
+ 
+ ***/
+
 #import "LvyeClubDataController.h"
 #import "LvYeHTTPClient+ClubManage.h"
 @interface LvyeClubDataController ()

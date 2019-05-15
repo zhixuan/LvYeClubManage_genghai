@@ -10,12 +10,27 @@
 #define KBtnOneBackGroudViewHeight      (KBtnForBtnCellNormalHeight*7.0 + 6.0f)
 
 #define KContentTitleWidth              (80.0f)
+
+
+#define KBtnDepartmentButtonTag         (1571881)
+#define KBtnFunctionButtnTag            (1571882)
+
 #import "ClubAddAdministratorController.h"
 #import "NSString+TransformCategory.h"
 #import "ClubDepartmentViewController.h"
+#import "ClubFunctionDisplayViewController.h"
+#import "LvYeHTTPClient.h"
+#import "LvYeHTTPClient+ClubUser.h"
+
 
 
 @interface ClubAddAdministratorController ()<ClubDepartmentSelectDelegate,UITextFieldDelegate>
+
+/*!
+ * @property
+ * @brief 是否是修改用户信息界面
+ */
+@property (nonatomic , assign)      BOOL            isUpdateAdminBool;
 
 /*!
  * @property
@@ -59,6 +74,12 @@
  */
 @property (nonatomic ,  weak)      UILabel          *userDepartmentNameLabel;
 
+/*!
+ * @property
+ * @brief 功能权限内容
+ */
+@property (nonatomic , weak)      UILabel           *userFunctionInfoLabel;
+
 @end
 
 @implementation ClubAddAdministratorController
@@ -69,6 +90,8 @@
 - (instancetype)init{
     self = [super init];
     if (self) {
+        self.clubUserAddAdministrator = [[ClubUserInfo alloc]init];
+        self.isUpdateAdminBool = NO;
     }
     return self;
 }
@@ -77,6 +100,7 @@
     self = [super init];
     if (self) {
         self.clubUserAddAdministrator =userInfo;
+        self.isUpdateAdminBool= YES;
     }
     return self;
 }
@@ -91,13 +115,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self setRightNavButtonTitleStr:@"完成" withFrame:kNavBarButtonRect
+    [self setRightNavButtonTitleStr: self.isUpdateAdminBool ? @"保存":@"完成" withFrame:kNavBarButtonRect
                        actionTarget:self action:@selector(userSaveEditInfoClicked)];
     [self setViewControlFrame];
     
-//    NSString *chineseStr = @"进入到这里操作了";
-//    NSString *charStr = [chineseStr transformLetterWithChinese];
-//    NSLog(@"charStr is %@",charStr);
+    NSString *chineseStr = @"进入到这里操作了";
+    NSString *charStr = [chineseStr transformLetterWithChinese];
+    NSLog(@"charStr is %@",charStr);
+    
+    
     
 }
 
@@ -291,9 +317,10 @@
     [contentBGView addSubview:self.clubAdminEmailField];
     
     
-    ///手机号
+    ///所属部门
     UIButtonCell *departmentButton = [UIButtonCell buttonNormalWithType:UIButtonTypeCustom];
     [departmentButton setTitle:@"所属部门" forState:UIControlStateNormal];
+    [departmentButton setTag:KBtnDepartmentButtonTag];
     [departmentButton addTarget:self action:@selector(userPersonalButtonEventOperation:)
            forControlEvents:UIControlEventTouchUpInside];
     [departmentButton setFrame:CGRectMake(0.0f, emailBottomSeparate.bottom, KProjectScreenWidth, KBtnForBtnCellNormalHeight)];
@@ -309,10 +336,95 @@
     self.userDepartmentNameLabel = departmentLabel;
     [departmentButton addSubview:self.userDepartmentNameLabel];
     
+    
+    
+    ///所属部门
+    UIButtonCell *functionButton = [UIButtonCell buttonNormalWithType:UIButtonTypeCustom];
+    [functionButton setTitle:@"功能权限" forState:UIControlStateNormal];
+    [functionButton setTag:KBtnFunctionButtnTag];
+    [functionButton addTarget:self action:@selector(userPersonalButtonEventOperation:)
+               forControlEvents:UIControlEventTouchUpInside];
+    [functionButton setFrame:CGRectMake(0.0f, departmentButton.bottom, KProjectScreenWidth, KBtnForBtnCellNormalHeight)];
+    [contentBGView addSubview:functionButton];
+    
+    UILabel *functionLabel = [[UILabel alloc]init];
+    [functionLabel setBackgroundColor:[UIColor clearColor]];
+    [functionLabel setFrame:CGRectMake((KProjectScreenWidth - 260.0f - KBtnContentLeftWidth/2), 0.0f, 240.0f, functionButton.height)];
+    [functionLabel setText:@"选择功能"];
+    [functionLabel setTextAlignment:NSTextAlignmentRight];
+    [functionLabel setFont:KContentLeftTitleFontOfSize];
+    [functionLabel setTextColor:KContentGreyTextColor];
+    self.userFunctionInfoLabel = functionLabel;
+    [functionButton addSubview:self.userFunctionInfoLabel];
+    
+    if(self.isUpdateAdminBool){
+        [self.clubAdminNameField setText:self.clubUserAddAdministrator.userName];
+        [self.clubAdminNameLetterField setText:self.clubUserAddAdministrator.userNameSimple];
+        [self.clubAdminMobileField setText:self.clubUserAddAdministrator.userMobile];
+        [self.clubAdminEmailField setText:self.clubUserAddAdministrator.userEmail];
+    }
+    
 }
 
 - (void)userSaveEditInfoClicked{
     
+    
+    [self.clubUserAddAdministrator setClubId:KLvyeClubCurrentUser.clubId];
+    [self.clubUserAddAdministrator setUserName:self.clubAdminNameField.text];
+    [self.clubUserAddAdministrator setUserNameSimple:[self.clubAdminNameField.text transformLetterWithChinese]];
+    [self.clubUserAddAdministrator setUserMobile:self.clubAdminMobileField.text];
+    [self.clubUserAddAdministrator setUserEmail:self.clubAdminEmailField.text];
+    
+    
+    NSString *beforeStr = generateRandStringWithBity(32);
+    NSString *afterStr = [beforeStr substringFromIndex:16];
+    beforeStr =[beforeStr substringToIndex:16];
+    NSString *md5Password = EncryptPassword(self.clubAdminPasswordField.text);
+    beforeStr =[beforeStr substringToIndex:16];
+    __block NSMutableString *userPasswordString =[[NSMutableString alloc]initWithString:beforeStr];
+    [userPasswordString appendString:md5Password];
+    [userPasswordString appendString:afterStr];
+    
+    [self.clubUserAddAdministrator setUserPassword:userPasswordString];
+    [self.clubUserAddAdministrator setUserPhotoImageURL:@"upload/155358408800004926.png"];
+    
+    if(self.isUpdateAdminBool){///修改用户信息
+        
+        [self.clubUserAddAdministrator setUserPhotoImageURL: @"upload/images/1020002407.jpg"];
+        ///修改用户信息
+        [KShareHTTPLvyeHTTPClient userUpdateClubAdministarorWithUserInfo:self.clubUserAddAdministrator completion:^(WebAPIResponse *response) {
+            
+            dispatch_async(dispatch_get_main_queue(), ^(void){
+                
+                NSLog(@"response.responseObject is  %ld",response.code);
+                NSLog(@"response.responseObject is  %@",response.responseObject);
+                NSLog(@"codeDescription is %@",response.codeDescription);
+                
+                NSLog(@"KDataKeyMsg is %@",StringForKeyInUnserializedJSONDic(response.responseObject, KDataKeyMsg));
+            });
+        }];
+        
+    }else{
+        
+        
+        ///创建用户信息
+        [KShareHTTPLvyeHTTPClient userAddClubAdministarorWithUserInfo:self.clubUserAddAdministrator completion:^(WebAPIResponse *response) {
+            
+            dispatch_async(dispatch_get_main_queue(), ^(void){
+                
+                
+                
+                NSLog(@"response.responseObject is  %ld",response.code);
+                NSLog(@"response.responseObject is  %@",response.responseObject);
+                NSLog(@"codeDescription is %@",response.codeDescription);
+                
+                NSLog(@"KDataKeyMsg is %@",StringForKeyInUnserializedJSONDic(response.responseObject, KDataKeyMsg));
+            });
+        }];
+    }
+    
+    
+   
 }
 /*
 #pragma mark - Navigation
@@ -326,16 +438,34 @@
 
 - (void)userPersonalButtonEventOperation:(UIButtonCell *)button{
     
-    ClubDepartmentViewController*viewController = [[ClubDepartmentViewController alloc]initWithDelegate:self];
-    [viewController setTitle:@"部门列表"];
-    [viewController setHidesBottomBarWhenPushed:YES];
-    [self.navigationController pushViewController:viewController animated:YES];
+    
+    if(button.tag == KBtnDepartmentButtonTag){
+        ClubDepartmentViewController*viewController = [[ClubDepartmentViewController alloc]initWithDelegate:self];
+        [viewController setTitle:@"部门列表"];
+        [viewController setHidesBottomBarWhenPushed:YES];
+        [self.navigationController pushViewController:viewController animated:YES];
+        
+    }else if (button.tag == KBtnFunctionButtnTag){
+        
+        
+        ClubFunctionDisplayViewController*viewController = [[ClubFunctionDisplayViewController alloc]init];
+        [viewController setTitle:@"功能权限"];
+        [self.navigationController pushViewController:viewController animated:YES];
+        
+        viewController.block=^(NSDictionary *info){
+            
+            
+        };
+        
+    }
 }
+
 
 - (void)userSelectedClubDepartmentFinishOperation:(NSDictionary *)info{
 
     if(info != NULL && [info count] >0){
         [self.userDepartmentNameLabel setText:StringForKeyInUnserializedJSONDic(info, @"departmentName")];
+        [self.clubUserAddAdministrator setClubDepartmentId:StringForKeyInUnserializedJSONDic(info, @"departmentId")];
     }
 }
 
@@ -345,6 +475,11 @@
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    return YES;
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    
     return YES;
 }
 @end

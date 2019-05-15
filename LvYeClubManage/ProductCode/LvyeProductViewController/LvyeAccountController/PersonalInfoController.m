@@ -161,16 +161,29 @@
     [photoImageView setFrame:CGRectMake((KProjectScreenWidth - KPhotoImageViewHeight - KBtnContentLeftWidth), KBtnContentLeftWidth, KPhotoImageViewHeight, KPhotoImageViewHeight)];
     self.userPhotoImageView =photoImageView;
     [contentBGView addSubview:photoImageView];
-    NSString *photoImageURLStr = [NSString stringWithFormat:@"%@%@",KEY_RESPONSE_LVYE_IMAGE_URL,KLvyeClubCurrentUser.userPhotoImageURL];
+    
+    
+    
+    
+    NSString *photoImageURL = [NSString stringWithFormat:@"%@%@",@"http://club.lvye.com",KLvyeClubCurrentUser.userPhotoImageURL];
+    
+    NSString *urlStr =KLvyeClubCurrentUser.userPhotoImageURL;
+    if([urlStr hasPrefix:@"/images"]){
+        photoImageURL =[NSString stringWithFormat:@"%@%@",KEY_RESPONSE_LVYE_CLUB_IMAGE_URL,urlStr];
+    }else if([urlStr hasPrefix:@"upload"]){
+        photoImageURL =[NSString stringWithFormat:@"%@%@",KEY_RESPONSE_LVYE_IMAGE_URL,urlStr];
+    }
+    
+    
+//    NSString *photoImageURLStr = [NSString stringWithFormat:@"%@%@",KEY_RESPONSE_LVYE_IMAGE_URL,KLvyeClubCurrentUser.userPhotoImageURL];
 
     if(!IsStringEmptyOrNull(KLvyeClubCurrentUser.userPhotoImageURL)){
         self.userPersonalPhotoURL = [[NSString alloc]initWithFormat:@"%@",KLvyeClubCurrentUser.userPhotoImageURL];
     }
     
-
-    NSLog(@"photoImageURLStr is %@",photoImageURLStr);
+    NSLog(@"photoImageURLStr is %@",photoImageURL);
     [self.userPhotoImageView setUserInteractionEnabled:YES];
-    [self.userPhotoImageView setImageWithURL:[NSURL URLWithString:photoImageURLStr] placeholderImage:KClueDefaultImage_ClubCurrentUserPhotoImage];
+    [self.userPhotoImageView setImageWithURL:[NSURL URLWithString:photoImageURL] placeholderImage:KClueDefaultImage_ClubCurrentUserPhotoImage];
     UITapGestureRecognizer *gestRec = [[UITapGestureRecognizer alloc]initWithTarget:self
                                                                        action:@selector(userChoosePersonalPhotoEvent:)];
     [self.userPhotoImageView addGestureRecognizer:gestRec];
@@ -362,25 +375,22 @@
     UIGraphicsEndImageContext();
     
     [self.userPhotoImageView setImage:smallImage];
-    
-    
      __weak __typeof(&*self)weakSelf = self;
     [picker dismissViewControllerAnimated:YES completion:^{
-        
-        
+        ///二次封装七牛云内容，屏蔽第三方影响，屏蔽业务影响
         [KShareHTTPLvyeHTTPClient uploadImage:smallImage completion:^(WebAPIResponse *response) {
             dispatch_async(dispatch_get_main_queue(), ^(void){
                 
                 if (response.code == WebAPIResponseCodeSuccess) {
-                    NSLog(@"response.code is %ld",response.code);
-                    NSLog(@"description is %@",response.responseObject);}
-                
-                weakSelf.userPersonalPhotoURL = [[NSString alloc]initWithFormat:@"%@",StringForKeyInUnserializedJSONDic(response.responseObject , @"url")];
-                 weakSelf.userIsEditInfoBool = YES;
+                    weakSelf.userPersonalPhotoURL = [[NSString alloc]initWithFormat:@"%@",StringForKeyInUnserializedJSONDic(response.responseObject , @"url")];
+                    weakSelf.userIsEditInfoBool = YES;
+                }
             });
         }];
     }];
 }
+
+//奋斗的小鸟
 
 
 - (void)userGoToBackOperation{
