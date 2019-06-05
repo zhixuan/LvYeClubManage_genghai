@@ -8,6 +8,7 @@
 
 #import "LvyeClubManageController.h"
 #import "LvYeHTTPClient+ClubManage.h"
+
 @interface LvyeClubManageController ()
 
 @end
@@ -130,7 +131,9 @@
     if (!IsStringEmptyOrNull(btn.btnClassName)) {
         NSString *moduleClassName = btn.btnClassName;
         NSString *moduleNameStr = btn.btnControTitleName;
+       
         Class moduleController = NSClassFromString(moduleClassName);
+         NSLog(@"moduleClassName is %@ \n moduleController is %@",moduleClassName,moduleController);
         LvyeBaseViewController *baseController = (LvyeBaseViewController*)[[moduleController alloc]init];
         [baseController setTitle:moduleNameStr];
         [baseController setHidesBottomBarWhenPushed:YES];

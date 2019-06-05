@@ -79,19 +79,6 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-//    [self setRightNavButtonFA:FMIconFontF23A withFrame:CGRectMake(0.0f, 0.0f, 64.0f, 40.0f) actionTarget:self action:@selector(setRightButtonEventOperation)];
-//    
-//    [self setri withFrame:CGRectMake(0.0f, 0.0f, 64.0f, 40.0f) actionTarget:self action:@selector(setRightButtonEventOperation)];
-//    [self setRightNavButtonTitleStr:@"添加"
-//                          withFrame:CGRectMake(0.0f, 0.0f, 64.0f, 40.0f)
-//                       actionTarget: self
-//                             action:@selector(setRightButtonEventOperation)];
-////    [self setLeftNavButtonFA:FMIconFontF1D6 withFrame:CGRectMake(0.0f, 0.0f, 64.0f, 40.0f) actionTarget:self action:@selector(setRightButtonEventOperation)];
-//
-//    [self setLeftNavButtonTitleStr:@"取消" withFrame:CGRectMake(0.0f, 0.0f, 64.0f, 40.0f)
-//                      actionTarget:self action:@selector(setRightButtonEventOperation)];
-    // Do any additional setup after loading the view.
     [self setViewFrame];
 }
 
