@@ -16,7 +16,8 @@
 
 #define HUIKeyWindow                ([UIApplication sharedApplication].keyWindow)
 #define HUITopWindow                ([[[UIApplication sharedApplication] windows] lastObject])
-#define HUIApplicationFrame()        ([[UIScreen mainScreen] applicationFrame])
+//#define HUIApplicationFrame()        ([[UIScreen mainScreen] applicationFrame])
+#define HUIApplicationFrame()        ([[UIScreen mainScreen] bounds])
 //#define HUIIsRetinaScreen()         ([[UIScreen mainScreen] isRetinaDisplay])
 //#define HUIIsIPhone5()              ([[UIScreen mainScreen] isIPhone5])
 

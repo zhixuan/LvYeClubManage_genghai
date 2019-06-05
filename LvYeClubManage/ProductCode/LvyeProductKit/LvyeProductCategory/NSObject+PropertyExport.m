@@ -11,7 +11,7 @@
 
 @implementation NSObject (PropertyExport)
 
-- (NSString *)toPropertyExportString{
+- (NSString *)toStringPropertyExportString{
 #ifdef DEBUG
     const char *clasName = object_getClassName(self);
      Class clas = NSClassFromString([NSString stringWithCString:clasName encoding:NSUTF8StringEncoding]);

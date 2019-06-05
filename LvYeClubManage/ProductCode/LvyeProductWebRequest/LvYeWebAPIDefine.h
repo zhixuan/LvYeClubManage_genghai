@@ -149,7 +149,7 @@
 ///俱乐部账单记录列表
 #define KURLClubBillRecordListURL               @"capitalManage/billList"
 ///俱乐部账单申请结算
-#define KURLClubSettleAccountsAddOperURL        @"capitalManage/settleUpList"
+#define KURLClubSettleAccountsAddOperURL        @"capitalManage/settleOpera"
 ///MARK:--财务管理--结算记录
 ///俱乐部结算单记录列表
 #define KURLClubSettleAccountsRecordListURL     @"capitalManage/settleUpList"

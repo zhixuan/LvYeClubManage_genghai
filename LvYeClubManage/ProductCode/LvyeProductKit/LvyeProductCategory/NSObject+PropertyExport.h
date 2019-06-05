@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSObject (PropertyExport)
 
-- (NSString *)toPropertyExportString;
+- (NSString *)toStringPropertyExportString;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -32,6 +32,15 @@
 }
 
 
+///KURLClubSettleAccountsAddOperURL
+- (AFHTTPRequestOperation *)clubUserApplySettleOperationWithClubId:(NSString *)clubId userId:(NSString *)userId orderNum:(NSString *)orderNumber completion:(WebAPIResponstComlitionBlock)completionBlock{
+    
+    NSDictionary *param = @{KDataKeyClubID:clubId,
+                            KDataKeyUserId:userId,};
+     return [self postPath:KURLClubSettleAccountsAddOperURL parameters:param completion:completionBlock];
+}
+
+
 //TODO:结算记录接口内容
 #pragma mark -
 #pragma mark -  根据俱乐部信息及查询条件，获取该俱乐部的结算记录内容
@@ -163,7 +172,7 @@
     NSDictionary *param = @{KDataKeyClubID:clubId,
                             KDataKeyUserId:userId,
                             @"amount":amount,
-                            @"clubCardID":cardId};
+                            @"clubCardId":cardId};
     
     return [self getPath:KURLClubWithdrawOperaURL parameters:param completion:completionBlock];
 }

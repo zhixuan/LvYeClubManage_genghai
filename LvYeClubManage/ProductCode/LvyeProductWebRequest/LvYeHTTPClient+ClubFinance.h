@@ -42,6 +42,21 @@
                                                 completion:(WebAPIResponstComlitionBlock)completionBlock;
 
 
+/**
+ 俱乐部用户申请结算操作
+
+ @param clubId 俱乐部 ID
+ @param userId  用户 ID
+ @param orderNumber 订单号
+ @param completionBlock 请求完成后返回的数据内容 Block
+ @return 网络请求实例
+ */
+- (AFHTTPRequestOperation *)clubUserApplySettleOperationWithClubId:(NSString *)clubId
+                                                            userId:(NSString *)userId
+                                                          orderNum:(NSString *)orderNumber
+                                                        completion:(WebAPIResponstComlitionBlock)completionBlock;
+
+
 //TODO:结算记录接口内容
 
 

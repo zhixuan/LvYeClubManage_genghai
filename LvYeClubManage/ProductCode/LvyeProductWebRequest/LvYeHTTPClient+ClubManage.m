@@ -66,21 +66,21 @@
 /**
  获取登录俱乐部被评论线路的全部评论详情信息
  
- @param clubId 俱乐部 ID
+ @param commentId 评论 ID
  @param completionBlock 请求完成后返回的数据内容 Block
  @return 网络请求实例
  */
--(AFHTTPRequestOperation *)userClubGetTourCommentDetailListWithClubId:(NSString  *)clubId
-                                                           completion:(WebAPIResponstComlitionBlock)completionBlock{
+-(AFHTTPRequestOperation *)userClubGetTourCommentDetailListWithCommentId:(NSString *)commentId
+                                                              completion:(WebAPIResponstComlitionBlock)completionBlock{
     
-    if (clubId ==nil || [clubId length] < 1 ) {
+    if (commentId ==nil || [commentId length] < 1 ) {
         if (completionBlock) {
             completionBlock([WebAPIResponse invalidArgumentsResonse]);
         }
         return nil;
     }
     
-    NSDictionary *param = @{KDataKeyClubID:clubId,};
+    NSDictionary *param = @{@"commentID":commentId,};
     return [self getPath:KURLClubTourCommentDetailURL parameters:param completion:completionBlock];
 }
 @end

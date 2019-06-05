@@ -73,7 +73,7 @@
     AddObjectForKeyIntoDictionary(@"0", @"Id", paramDic);
     
     
-    NSLog(@"%@ ",[self toPropertyExportString]);
+    NSLog(@"%@ ",[self toStringPropertyExportString]);
     return paramDic;
 }
 

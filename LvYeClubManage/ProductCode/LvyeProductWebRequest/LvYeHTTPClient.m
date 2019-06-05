@@ -105,6 +105,8 @@
     NSLog(@"\n\n POST 请求is %@\nparam is %@\n",path,parameters);
 
     
+    
+    
       NSURLRequest *request = [self requestWithMethod:@"POST"
                                                  path:[path stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]
                                           parameters:parameters];
@@ -149,7 +151,7 @@
 - (NSString *)uploadImage:(UIImage *)image completion:(WebAPIResponstComlitionBlock)completionBlock{
     
     
-    [self getPath:@"token/qiniu" parameters:nil completion:^(WebAPIResponse *response) {
+     AFHTTPRequestOperation *imageTokenReq =   [self getPath:@"token/qiniu" parameters:nil completion:^(WebAPIResponse *response) {
         
         if(response.code == WebAPIResponseCodeSuccess){
             NSString *tokenString = [NSString stringWithFormat:@"%@",StringForKeyInUnserializedJSONDic(response.responseObject, KDataKeyData)];
@@ -165,6 +167,9 @@
             } option:nil];
         }
     }];
+    
+    imageTokenReq = nil;
+    
     
   
     return @"";

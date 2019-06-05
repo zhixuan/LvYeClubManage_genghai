@@ -51,7 +51,7 @@
  @param completionBlock 请求完成后返回的数据内容 Block
  @return 网络请求实例
  */
--(AFHTTPRequestOperation *)userClubGetTourCommentDetailListWithClubId:(NSString  *)clubId
+-(AFHTTPRequestOperation *)userClubGetTourCommentDetailListWithCommentId:(NSString  *)commentId
                                                            completion:(WebAPIResponstComlitionBlock)completionBlock;
 
 @end
