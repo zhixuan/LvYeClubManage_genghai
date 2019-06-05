@@ -52,6 +52,7 @@
 - (id)init{
     self = [super init];
     if (self) {
+        self.clubBankInfo = [[ClubBankInfo alloc]init];
     }
     return self;
 }
@@ -100,7 +101,7 @@
     ///提现金额输入
     UILabel *photoLabel = [[UILabel alloc]init];
     [photoLabel setBackgroundColor:[UIColor clearColor]];
-    [photoLabel setFrame:CGRectMake(KBtnContentLeftWidth, 0.0f, 60.0f, KBtnForBtnCellNormalHeight)];
+    [photoLabel setFrame:CGRectMake(KBtnContentLeftWidth, 0.0f, 120.0f, KBtnForBtnCellNormalHeight)];
     [photoLabel setText:@"金额(¥)"];
     [photoLabel setTextAlignment:NSTextAlignmentLeft];
     [photoLabel setFont:KContentLeftTitleFontOfSize];
@@ -233,7 +234,7 @@
     NSLog(@"\n userID %@  \nclubId is %@  \n money is %@ \n bankID is %@",KLvyeClubCurrentUser.userId,KLvyeClubCurrentUser.clubId,self.clubWithdrawMoneyField.text,self.clubBankInfo.bankInfoId);
     
     
-    [KShareHTTPLvyeHTTPClient clubUserWithdrawOperaWithClubId:KLvyeClubCurrentUser.clubId userId:KLvyeClubCurrentUser.userId amount:self.clubWithdrawMoneyField.text cardId:self.clubBankInfo.bankSourceId completion:^(WebAPIResponse *response) {
+    [KShareHTTPLvyeHTTPClient clubUserWithdrawOperaWithClubId:KLvyeClubCurrentUser.clubId userId:KLvyeClubCurrentUser.userId amount:self.clubWithdrawMoneyField.text cardId:self.clubBankInfo.bankInfoId completion:^(WebAPIResponse *response) {
         
         dispatch_async(dispatch_get_main_queue(), ^(void){
             NSLog(@"response.responseObject is %@",response.responseObject);

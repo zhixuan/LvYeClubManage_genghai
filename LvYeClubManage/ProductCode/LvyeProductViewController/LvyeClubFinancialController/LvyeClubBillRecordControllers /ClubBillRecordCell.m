@@ -165,7 +165,6 @@
     self.recordIncreaseLabel.attributedText = attributedString;
     
     
-
     NSString *subtractContentStr = [NSString stringWithFormat:@"出账: ¥%@",recod.orderRefundPrice];
     NSMutableAttributedString *subtractAttributedString = [[NSMutableAttributedString alloc] initWithString:subtractContentStr];
     NSRange subtractAttributeRange=[ subtractContentStr rangeOfString: [NSString stringWithFormat:@"¥%@",recod.orderRefundPrice]];

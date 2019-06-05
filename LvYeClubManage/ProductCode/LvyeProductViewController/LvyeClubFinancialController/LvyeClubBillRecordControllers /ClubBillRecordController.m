@@ -61,6 +61,8 @@
     tbView.separatorStyle = UITableViewCellSeparatorStyleNone;
     tbView.backgroundColor = [UIColor clearColor];
     tbView.dataSource = self;
+//    [tbView setEditing:YES];
+//    [tbView setEditing:YES animated:YES];
     tbView.delegate = self;
     self.tableView =tbView;
     [self.view addSubview:self.tableView ];
@@ -72,6 +74,9 @@
     }];
     ConfiguratePullToRefreshViewAppearanceForScrollView(self.tableView);
     [self.tableView triggerPullToRefresh];
+    
+    
+    [self setRightNavButtonTitleStr:@"全选" withFrame:kNavBarButtonRect actionTarget:self action:@selector(userOperationCheckRequs)];
 
 }
 
@@ -80,6 +85,21 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+- (void)userOperationCheckRequs{
+    
+    
+    [self.tableView setAllowsMultipleSelection:YES];
+//    [self.tableView setAllowsSelection:YES];
+    
+//    ClubFinanceCapitalRecod *info=(ClubFinanceCapitalRecod*)[self.dataSource.data objectAtIndex:indexPath.row];
+
+    
+    
+    
+ 
+    
+}
 
 - (void)refreshListData
 {
@@ -137,12 +157,12 @@
                         if (response.code == WebAPIResponseCodeNetError) {
                             ShowAutoHideMBProgressHUD(weakSelf.view,NETERROR_LOADERR_TIP);
                         }
-                        if (self.loadMoreCell) {
-                            [self.loadMoreCell stopLoadingAnimation];
+                        if (weakSelf.loadMoreCell) {
+                            [weakSelf.loadMoreCell stopLoadingAnimation];
                             if (response.code == WebAPIResponseCodeNetError) {
-                                self.loadMoreCell.textLabel.text = LOADMORE_LOADFAILD;
+                                weakSelf.loadMoreCell.textLabel.text = LOADMORE_LOADFAILD;
                             }else{
-                                self.loadMoreCell.textLabel.text = LOADMORE_LOADOVER;
+                                weakSelf.loadMoreCell.textLabel.text = LOADMORE_LOADOVER;
                             }
                         }
                     }
@@ -151,12 +171,12 @@
                     if (response.code == WebAPIResponseCodeNetError) {
                         ShowAutoHideMBProgressHUD(weakSelf.view,NETERROR_LOADERR_TIP);
                     }
-                    if (self.loadMoreCell) {
-                        [self.loadMoreCell stopLoadingAnimation];
+                    if (weakSelf.loadMoreCell) {
+                        [weakSelf.loadMoreCell stopLoadingAnimation];
                         if (response.code == WebAPIResponseCodeNetError) {
-                            self.loadMoreCell.textLabel.text = LOADMORE_LOADFAILD;
+                            weakSelf.loadMoreCell.textLabel.text = LOADMORE_LOADFAILD;
                         }else{
-                            self.loadMoreCell.textLabel.text = LOADMORE_LOADOVER;
+                            weakSelf.loadMoreCell.textLabel.text = LOADMORE_LOADOVER;
                         }
                     }
                 }
@@ -165,12 +185,12 @@
                 if (response.code == WebAPIResponseCodeNetError) {
                     ShowAutoHideMBProgressHUD(weakSelf.view,NETERROR_LOADERR_TIP);
                 }
-                if (self.loadMoreCell) {
-                    [self.loadMoreCell stopLoadingAnimation];
+                if (weakSelf.loadMoreCell) {
+                    [weakSelf.loadMoreCell stopLoadingAnimation];
                     if (response.code == WebAPIResponseCodeNetError) {
-                        self.loadMoreCell.textLabel.text = LOADMORE_LOADFAILD;
+                        weakSelf.loadMoreCell.textLabel.text = LOADMORE_LOADFAILD;
                     }else{
-                        self.loadMoreCell.textLabel.text = LOADMORE_LOADOVER;
+                        weakSelf.loadMoreCell.textLabel.text = LOADMORE_LOADOVER;
                     }
                 }
             }
@@ -238,7 +258,11 @@
     ClubFinanceCapitalRecod *info=(ClubFinanceCapitalRecod*)[self.dataSource.data objectAtIndex:indexPath.row];
     [recordCell fillClubBillRecordShowTableCellDataSourceWithClubFinanceCapitalRecod:info];
     
+    
+    
 }
+
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
@@ -298,5 +322,45 @@
 }
 
 
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return  @"申请结算";
+}
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
+    
+    if (indexPath.row < [self.dataSource.data count]) {
+        
+        NSLog(@"轻轻的申请结算操作");
+        
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:@"是否现在申请结算" preferredStyle:UIAlertControllerStyleAlert];
+        [alertController addAction:([UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+            NSLog(@"开始请求数据了呢");
+            
+            [self userPersonalSettleApplyRequest];
+            
+            
+        }])];
+        
+        [alertController addAction:([UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            
+        }])];
+        
+        [self presentViewController:alertController animated:YES completion:^{
+            
+        }];
+    }
+}
 
+
+
+
+/**
+ 用户个人申请结算请求
+ */
+- (void)userPersonalSettleApplyRequest{
+    
+    
+    [KShareHTTPLvyeHTTPClient clubUserWithdrawOperaWithClubId:<#(NSString *)#> userId:<#(NSString *)#> amount:<#(NSString *)#> cardId:<#(NSString *)#> completion:<#^(WebAPIResponse *response)completionBlock#>];
+    
+}
 @end

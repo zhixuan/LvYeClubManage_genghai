@@ -14,6 +14,8 @@
 #import "ClubfinanceShowTableCell.h"
 #import "ClubFinanceCapitalRecod.h"
 #import "ClubSettleDetailController.h"
+#import "NSObject+PropertyExport.h"
+
 
 
 @interface ClubfinanceShowController ()<UITableViewDataSource,UITableViewDelegate>
@@ -186,12 +188,12 @@
                         if (response.code == WebAPIResponseCodeNetError) {
                             ShowAutoHideMBProgressHUD(weakSelf.view,NETERROR_LOADERR_TIP);
                         }
-                        if (self.loadMoreCell) {
-                            [self.loadMoreCell stopLoadingAnimation];
+                        if (weakSelf.loadMoreCell) {
+                            [weakSelf.loadMoreCell stopLoadingAnimation];
                             if (response.code == WebAPIResponseCodeNetError) {
-                                self.loadMoreCell.textLabel.text = LOADMORE_LOADFAILD;
+                                weakSelf.loadMoreCell.textLabel.text = LOADMORE_LOADFAILD;
                             }else{
-                                self.loadMoreCell.textLabel.text = LOADMORE_LOADOVER;
+                                weakSelf.loadMoreCell.textLabel.text = LOADMORE_LOADOVER;
                             }
                         }
                     }
@@ -200,12 +202,12 @@
                 if (response.code == WebAPIResponseCodeNetError) {
                     ShowAutoHideMBProgressHUD(weakSelf.view,NETERROR_LOADERR_TIP);
                 }
-                if (self.loadMoreCell) {
-                    [self.loadMoreCell stopLoadingAnimation];
+                if (weakSelf.loadMoreCell) {
+                    [weakSelf.loadMoreCell stopLoadingAnimation];
                     if (response.code == WebAPIResponseCodeNetError) {
-                        self.loadMoreCell.textLabel.text = LOADMORE_LOADFAILD;
+                        weakSelf.loadMoreCell.textLabel.text = LOADMORE_LOADFAILD;
                     }else{
-                        self.loadMoreCell.textLabel.text = LOADMORE_LOADOVER;
+                        weakSelf.loadMoreCell.textLabel.text = LOADMORE_LOADOVER;
                     }
                 }
             }
@@ -315,10 +317,17 @@
     ClubFinanceCapitalRecod *info=(ClubFinanceCapitalRecod*)[self.dataSource.data objectAtIndex:indexPath.row];
     NSLog(@"capitalMoneyCotnent is %@",info.capitalMoneyCotnent);
 
+    
+    NSLog(@"%@",[info toStringPropertyExportString]);
+
+//    return;
+    
     if(info.capitalRecodStatusType ==1){
         ClubSettleDetailController *viewController = [[ClubSettleDetailController alloc]initWithBillCheckNumber:info.capitalRecodNumber];
         [viewController setTitle:@"详情"];
         [self.navigationController pushViewController:viewController animated:YES];
+    }else if (info.capitalRecodStatusType ==2 || info.capitalRecodStatusType ==3){
+
     }
 
 }

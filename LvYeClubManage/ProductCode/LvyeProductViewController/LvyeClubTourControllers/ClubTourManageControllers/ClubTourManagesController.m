@@ -223,22 +223,22 @@
                         if (response.code == WebAPIResponseCodeNetError) {
                             ShowAutoHideMBProgressHUD(weakSelf.view,NETERROR_LOADERR_TIP);
                         }
-                        if (self.loadMoreCell) {
-                            [self.loadMoreCell stopLoadingAnimation];
+                        if (weakSelf.loadMoreCell) {
+                            [weakSelf.loadMoreCell stopLoadingAnimation];
                             if (response.code == WebAPIResponseCodeNetError) {
-                                self.loadMoreCell.textLabel.text = LOADMORE_LOADFAILD;
+                                weakSelf.loadMoreCell.textLabel.text = LOADMORE_LOADFAILD;
                             }else{
-                                self.loadMoreCell.textLabel.text = LOADMORE_LOADOVER;
+                                weakSelf.loadMoreCell.textLabel.text = LOADMORE_LOADOVER;
                             }
                         }
                     }
                 }else{
-                    if (self.loadMoreCell) {
-                        [self.loadMoreCell stopLoadingAnimation];
+                    if (weakSelf.loadMoreCell) {
+                        [weakSelf.loadMoreCell stopLoadingAnimation];
                         if (response.code == WebAPIResponseCodeNetError) {
-                            self.loadMoreCell.textLabel.text = LOADMORE_LOADFAILD;
+                            weakSelf.loadMoreCell.textLabel.text = LOADMORE_LOADFAILD;
                         }else{
-                            self.loadMoreCell.textLabel.text = LOADMORE_LOADOVER;
+                            weakSelf.loadMoreCell.textLabel.text = LOADMORE_LOADOVER;
                         }
                     }
                 }
@@ -246,12 +246,12 @@
                 if (response.code == WebAPIResponseCodeNetError) {
                     ShowAutoHideMBProgressHUD(weakSelf.view,NETERROR_LOADERR_TIP);
                 }
-                if (self.loadMoreCell) {
-                    [self.loadMoreCell stopLoadingAnimation];
+                if (weakSelf.loadMoreCell) {
+                    [weakSelf.loadMoreCell stopLoadingAnimation];
                     if (response.code == WebAPIResponseCodeNetError) {
-                        self.loadMoreCell.textLabel.text = LOADMORE_LOADFAILD;
+                        weakSelf.loadMoreCell.textLabel.text = LOADMORE_LOADFAILD;
                     }else{
-                        self.loadMoreCell.textLabel.text = LOADMORE_LOADOVER;
+                        weakSelf.loadMoreCell.textLabel.text = LOADMORE_LOADOVER;
                     }
                 }
             }

@@ -99,7 +99,7 @@
     UILabel *titleTextLabel = [[UILabel alloc] initWithFrame: rcTileView];
     titleTextLabel.backgroundColor = [UIColor clearColor];
     [titleTextLabel setTextAlignment:NSTextAlignmentCenter];
-    titleTextLabel.textColor = [UIColor whiteColor];
+    titleTextLabel.textColor = KButtonStateNormalColor;
     [titleTextLabel setFont:KLVYEUIContentFontSize(18.0f)];
     [titleTextLabel setText:title];
     self.navigationItem.titleView = titleTextLabel;
@@ -113,7 +113,7 @@
     UILabel *titleTextLabel = [[UILabel alloc] initWithFrame: rcTileView];
     titleTextLabel.backgroundColor = [UIColor clearColor];
     [titleTextLabel setTextAlignment:NSTextAlignmentCenter];
-//    titleTextLabel.textColor = [UIColor blackColor];
+    titleTextLabel.textColor = [UIColor blackColor];
     titleTextLabel.textColor = color;
 
     [titleTextLabel setFont:KLVYEUIContentFontSize(18.0f)];

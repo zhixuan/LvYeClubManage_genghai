@@ -142,12 +142,12 @@
                 if (response.code == WebAPIResponseCodeNetError) {
                     ShowAutoHideMBProgressHUD(weakSelf.view,NETERROR_LOADERR_TIP);
                 }
-                if (self.loadMoreCell) {
-                    [self.loadMoreCell stopLoadingAnimation];
+                if (weakSelf.loadMoreCell) {
+                    [weakSelf.loadMoreCell stopLoadingAnimation];
                     if (response.code == WebAPIResponseCodeNetError) {
-                        self.loadMoreCell.textLabel.text = LOADMORE_LOADFAILD;
+                        weakSelf.loadMoreCell.textLabel.text = LOADMORE_LOADFAILD;
                     }else{
-                        self.loadMoreCell.textLabel.text = LOADMORE_LOADOVER;
+                        weakSelf.loadMoreCell.textLabel.text = LOADMORE_LOADOVER;
                     }
                 }
             }
@@ -171,6 +171,10 @@
     if ([cellIdentifier isEqualToString:kHUILoadMoreCellIdentifier])
         return CreateLoadMoreCell();
     ClubBankTableViewCell *bankCell = [[ClubBankTableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
+    
+    UILongPressGestureRecognizer *gestureRec = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(cellLongPress:)];
+    [gestureRec setMinimumPressDuration:1.0f];
+    [bankCell addGestureRecognizer:gestureRec];
     return bankCell;
     
 }
@@ -288,6 +292,18 @@
     }
 }
 
+
+-(void)cellLongPress:(UILongPressGestureRecognizer *)longRecognizer{
+    
+    if (longRecognizer.state==UIGestureRecognizerStateBegan) {
+        //成为第一响应者，需重写该方法
+        [self becomeFirstResponder];
+        
+        CGPoint location = [longRecognizer locationInView:self.tableView];
+        NSIndexPath * indexPath = [self.tableView indexPathForRowAtPoint:location];
+        NSLog(@"indexPath.row is %ld",indexPath.row);
+    }
+}
 
 
 @end
