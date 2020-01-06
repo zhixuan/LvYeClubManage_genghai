@@ -31,6 +31,8 @@ extern CFAbsoluteTime startTime;
     
     
     ////验证信息测试操作
+    
+    ///提交g个人更改操作你饿哦让。
     double launchTime = (CFAbsoluteTimeGetCurrent() - startTime);
     NSLog(@"launchTime is %lf ----- startTime is %f",launchTime,startTime);
 //    int x=3;
