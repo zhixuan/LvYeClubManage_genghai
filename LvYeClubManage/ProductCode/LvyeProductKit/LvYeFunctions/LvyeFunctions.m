@@ -9,6 +9,7 @@
 #import "LvyeFunctions.h"
 #import <CommonCrypto/CommonDigest.h>
 
+//解析不同的数据内容信息，并设置相关内容信息
 #pragma mark - JSON
 void AddObjectForKeyIntoDictionary(id object, id key, NSMutableDictionary *dic)
 {
