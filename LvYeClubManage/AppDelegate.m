@@ -30,7 +30,7 @@ extern CFAbsoluteTime startTime;
     // Override point for customization after application launch.
     
     
-    
+    ////验证信息测试操作
     double launchTime = (CFAbsoluteTimeGetCurrent() - startTime);
     NSLog(@"launchTime is %lf ----- startTime is %f",launchTime,startTime);
 //    int x=3;
