@@ -210,6 +210,18 @@ void ShowImportErrorAlertView(NSString *errorString){
     [alertView show];
 }
 
+void ShowImportErrorAlertControl(NSString *errorString,id target){
+    
+    UIAlertController *control = [UIAlertController alertControllerWithTitle:errorString message:@"" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *doneAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    [control addAction:doneAction];
+    [target presentViewController:control animated:YES completion:^{
+    }];
+}
+
+
 ///生成固定位数的随机字符串
 NSString* generateRandStringWithBity(int numberCount)
 {

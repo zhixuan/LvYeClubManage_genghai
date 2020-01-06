@@ -236,17 +236,17 @@
  
     
     if (IsStringEmptyOrNull(self.clubDepartmentNameField.text)) {
-        ShowImportErrorAlertView(@"部门名不能为空！");
+        ShowImportErrorAlertControl(@"部门名不能为空！",self);
         return;
     }
     
     if (IsStringEmptyOrNull(self.clubDepartmentIntroduceTextView.text)) {
-        ShowImportErrorAlertView(@"部门介绍不能为空！");
+        ShowImportErrorAlertControl(@"部门介绍不能为空！",self);
         return;
     }
     
     if([self.clubDepartmentIntroduceTextView.text length] < 10){
-        ShowImportErrorAlertView(@"部门介绍不能少于10个字！");
+        ShowImportErrorAlertControl(@"部门介绍不能少于10个字！",self);
         return;
     }
     

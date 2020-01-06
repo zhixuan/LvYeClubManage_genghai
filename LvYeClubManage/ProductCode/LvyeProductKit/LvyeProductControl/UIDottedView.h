@@ -12,6 +12,7 @@
 
 /**
  处理虚线视图
+ -- -- -- -- -- 模拟虚线c处理
  */
 @interface UIDottedView : UIView
 

@@ -17,7 +17,7 @@
 #import "LvyeBaseWebViewController.h"
 
 
-@interface ClubTourManagesController ()<ClubToursMoreChooseDelegate,UITableViewDataSource,UITableViewDelegate,UIAlertViewDelegate>
+@interface ClubTourManagesController ()<ClubToursMoreChooseDelegate,UITableViewDataSource,UITableViewDelegate>
 /*!
  * @property
  * @brief 数据信息载体
@@ -364,9 +364,6 @@
     
     TourBasicInfo *cellInfo  =(TourBasicInfo*)[self.dataSource.data objectAtIndex:indexPath.row];
     self.clubUserSelectedTourInfo =cellInfo;
-//    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"" message:@"是否确定提交审核该活动" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
-//    [alertView show];
-    
     LvyeBaseWebViewController *webViewContrl = [[LvyeBaseWebViewController alloc] initWithTourId:cellInfo.tourBasicId];
     [self.navigationController pushViewController:webViewContrl animated:YES ];
 }
@@ -385,7 +382,7 @@
     NSLog(@"啥信息都没有");
 }
 
-
+/*
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     
     
@@ -396,6 +393,7 @@
         [self userPersonalSubmintTourInfoRequest];
     }
 }
+ */
 
 - (void)userPersonalSubmintTourInfoRequest{
     

@@ -78,9 +78,10 @@
     
     
     
-
-    
-   
+//    NSString *nullStr = nil;
+//    [NSArray arrayWithObject:nullStr];
+//    
+//   
     
 
     [KShareHTTPLvyeHTTPClient clubInsertLeaderInfoWithClubId:KLvyeClubCurrentUser.clubId leader:leaderInfo completion:^(WebAPIResponse *response) {
@@ -91,6 +92,7 @@
             NSLog(@"  response.responseObject is  %@",response.responseObject);
 
             NSLog(@"KDataKeyMsg is %@",StringForKeyInUnserializedJSONDic(response.responseObject, KDataKeyMsg));
+            
         });
     }];
 //

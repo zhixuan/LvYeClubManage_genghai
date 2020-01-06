@@ -33,10 +33,16 @@
 
 
 ///KURLClubSettleAccountsAddOperURL
-- (AFHTTPRequestOperation *)clubUserApplySettleOperationWithClubId:(NSString *)clubId userId:(NSString *)userId orderNum:(NSString *)orderNumber completion:(WebAPIResponstComlitionBlock)completionBlock{
+- (AFHTTPRequestOperation *)clubUserApplySettleOperationWithClubId:(NSString *)clubId
+                                                            userId:(NSString *)userId
+                                                            billId:(NSString *)billIds orderCount:(NSInteger)count
+                                                        completion:(WebAPIResponstComlitionBlock)completionBlock{
     
     NSDictionary *param = @{KDataKeyClubID:clubId,
-                            KDataKeyUserId:userId,};
+                            KDataKeyUserId:userId,
+                            @"billCheckIds":billIds,
+                            @"orderCount":[NSNumber numberWithInteger:count]
+                            };
      return [self postPath:KURLClubSettleAccountsAddOperURL parameters:param completion:completionBlock];
 }
 

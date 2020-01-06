@@ -20,7 +20,6 @@
     
     
     
-    
     /**
      
     Could not successfully update network info during initialization.
@@ -52,7 +51,10 @@
 //    }];
     
     
+    NSSetUncaughtExceptionHandler(&UncaughtExceptionHandler);
     
+//    NSLog(@"1e5 is  %.1f",1e5);
+
     
 }
 
@@ -78,4 +80,26 @@
 //       [Growing startWithAccountId:@"ba8bb9e6b164b0dc"];
     
 }
+
+- (void)updateAPPErrorInfomation{
+    
+    
+    
+}
+
+
+void UncaughtExceptionHandler(NSException *exception) {
+    NSArray *arr = [exception callStackSymbols];
+    NSString *reason = [exception reason];
+    NSString *name = [exception name];
+    NSDictionary *userInfo = [exception userInfo];
+     NSArray *address= [exception callStackReturnAddresses];
+    NSLog(@"\n ===arr is \n%@ \n ====reason is \n %@ \n ====name is \n%@ \n userInfo is \n %@ \n address is \n %@  ",arr,reason,name,userInfo,address);
+    
+    
+    
+    
+}
+    
+  
 @end

@@ -181,23 +181,23 @@
  
     
     if(IsStringEmptyOrNull(self.userPerOldPasswordTextFiled.text)){
-        ShowImportErrorAlertView(@"请输入旧密码！");
+        ShowImportErrorAlertControl(@"请输入旧密码！", self);
         return;
     }
     
     if(IsStringEmptyOrNull(self.userPerNewPasswordTextFiled.text)){
-        ShowImportErrorAlertView(@"请输入新密码！");
+        ShowImportErrorAlertControl(@"请输入新密码！", self);
         return;
     }
     
     if(IsStringEmptyOrNull(self.userPerConfirmPasswordTextFiled.text)){
-        ShowImportErrorAlertView(@"请再次输入新密码！");
+        ShowImportErrorAlertControl(@"请再次输入新密码！", self);
         return;
     }
     
     
     if (![self.userPerConfirmPasswordTextFiled.text isEqualToString:self.userPerNewPasswordTextFiled.text] ) {
-        ShowImportErrorAlertView(@"两次密码输入不同，请重新r输入");
+        ShowImportErrorAlertControl(@"两次密码输入不同，请重新r输入", self);
         return;
     }
     
@@ -235,7 +235,7 @@
                 [weakSelf.navigationController popViewControllerAnimated:YES];
                 
             }else if(response.code == WebAPIResponseCodeFailed){
-                ShowImportErrorAlertView(StringForKeyInUnserializedJSONDic(response.responseObject, KDataKeyMsg));
+                ShowImportErrorAlertControl(StringForKeyInUnserializedJSONDic(response.responseObject, KDataKeyMsg), self);
             }
         });
     }];

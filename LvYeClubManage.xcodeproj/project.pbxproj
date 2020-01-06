@@ -53,6 +53,7 @@
 		181BDC2320FED0530031668E /* LvyeFontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 181BDC1D20FED0530031668E /* LvyeFontAwesome.ttf */; };
 		181BDC2420FED0540031668E /* NSString+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 181BDC1E20FED0530031668E /* NSString+FontAwesome.m */; };
 		181BDC2620FEE34C0031668E /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 181BDC2520FEE34C0031668E /* FontAwesome.ttf */; };
+		182299EF22AF91F7001C8D1D /* LGUIdottedLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 182299EE22AF91F7001C8D1D /* LGUIdottedLineView.m */; };
 		182CF39820F454A0004499AD /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CF38720F454A0004499AD /* AFImageRequestOperation.m */; };
 		182CF39920F454A0004499AD /* AFPropertyListRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CF38820F454A0004499AD /* AFPropertyListRequestOperation.m */; };
 		182CF39A20F454A0004499AD /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CF38A20F454A0004499AD /* AFHTTPClient.m */; };
@@ -160,6 +161,7 @@
 		189B6773213D133300F6E9C5 /* ClubBillRecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 189B6772213D133300F6E9C5 /* ClubBillRecordCell.m */; };
 		18A16442212FDD5D00727C27 /* LGTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A16441212FDD5D00727C27 /* LGTextView.m */; };
 		18A204A8213E0AC6007F439F /* ClubOrderDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A204A7213E0AC6007F439F /* ClubOrderDetailController.m */; };
+		18AEC10F228BE7870079B466 /* CommentDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AEC10E228BE7870079B466 /* CommentDetailCell.m */; };
 		18B3C4C520F5E29A00EA93AC /* LvYeHTTPClient+ClubUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B3C4C420F5E29A00EA93AC /* LvYeHTTPClient+ClubUser.m */; };
 		18B3C4C820F5E39600EA93AC /* LvYeHTTPClient+CLubInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B3C4C720F5E39600EA93AC /* LvYeHTTPClient+CLubInfo.m */; };
 		18B3C4CB20F5E3CA00EA93AC /* LvYeHTTPClient+ClubOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B3C4CA20F5E3CA00EA93AC /* LvYeHTTPClient+ClubOrder.m */; };
@@ -197,6 +199,7 @@
 		18FC1A6E210571D300CBC6FC /* LvyeClubOrderController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FC1A6D210571D300CBC6FC /* LvyeClubOrderController.m */; };
 		18FC1A722105CE1100CBC6FC /* LvyeProductSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FC1A712105CE1100CBC6FC /* LvyeProductSettings.m */; };
 		18FDB464223631C100361460 /* ClubOrderBaiscCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FDB463223631C100361460 /* ClubOrderBaiscCell.m */; };
+		7BFB992F23BE3AA6000FF952 /* graduallyImg.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BFB992E23BE3AA6000FF952 /* graduallyImg.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -304,6 +307,8 @@
 		181BDC1D20FED0530031668E /* LvyeFontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = LvyeFontAwesome.ttf; sourceTree = "<group>"; };
 		181BDC1E20FED0530031668E /* NSString+FontAwesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FontAwesome.m"; sourceTree = "<group>"; };
 		181BDC2520FEE34C0031668E /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.ttf; sourceTree = "<group>"; };
+		182299ED22AF91F7001C8D1D /* LGUIdottedLineView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGUIdottedLineView.h; sourceTree = "<group>"; };
+		182299EE22AF91F7001C8D1D /* LGUIdottedLineView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGUIdottedLineView.m; sourceTree = "<group>"; };
 		182CF38320F44878004499AD /* LvyeClubProxyParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LvyeClubProxyParam.h; sourceTree = "<group>"; };
 		182CF38520F454A0004499AD /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		182CF38620F454A0004499AD /* AFURLConnectionOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLConnectionOperation.h; sourceTree = "<group>"; };
@@ -507,6 +512,8 @@
 		18A16441212FDD5D00727C27 /* LGTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGTextView.m; sourceTree = "<group>"; };
 		18A204A6213E0AC6007F439F /* ClubOrderDetailController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClubOrderDetailController.h; sourceTree = "<group>"; };
 		18A204A7213E0AC6007F439F /* ClubOrderDetailController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClubOrderDetailController.m; sourceTree = "<group>"; };
+		18AEC10D228BE7870079B466 /* CommentDetailCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentDetailCell.h; sourceTree = "<group>"; };
+		18AEC10E228BE7870079B466 /* CommentDetailCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommentDetailCell.m; sourceTree = "<group>"; };
 		18B3C4C320F5E29A00EA93AC /* LvYeHTTPClient+ClubUser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LvYeHTTPClient+ClubUser.h"; sourceTree = "<group>"; };
 		18B3C4C420F5E29A00EA93AC /* LvYeHTTPClient+ClubUser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "LvYeHTTPClient+ClubUser.m"; sourceTree = "<group>"; };
 		18B3C4C620F5E39600EA93AC /* LvYeHTTPClient+CLubInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LvYeHTTPClient+CLubInfo.h"; sourceTree = "<group>"; };
@@ -579,6 +586,7 @@
 		18FC1A712105CE1100CBC6FC /* LvyeProductSettings.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LvyeProductSettings.m; sourceTree = "<group>"; };
 		18FDB462223631C100361460 /* ClubOrderBaiscCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClubOrderBaiscCell.h; sourceTree = "<group>"; };
 		18FDB463223631C100361460 /* ClubOrderBaiscCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClubOrderBaiscCell.m; sourceTree = "<group>"; };
+		7BFB992E23BE3AA6000FF952 /* graduallyImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = graduallyImg.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1047,6 +1055,8 @@
 				18156CFD211991A6008AB05D /* UIButtonCell.m */,
 				184E49C1212270CB00F5CFBA /* UIDottedView.h */,
 				184E49C2212270CB00F5CFBA /* UIDottedView.m */,
+				182299ED22AF91F7001C8D1D /* LGUIdottedLineView.h */,
+				182299EE22AF91F7001C8D1D /* LGUIdottedLineView.m */,
 				1876A42F2123C9B7004B023E /* CatalogueEenuButton.h */,
 				1876A4302123C9B7004B023E /* CatalogueEenuButton.m */,
 				18A16440212FDD5D00727C27 /* LGTextView.h */,
@@ -1083,14 +1093,14 @@
 				18361D3C20F250460084DE0F /* AppDelegate.h */,
 				18361D3D20F250460084DE0F /* AppDelegate.m */,
 				182EED9E20F2FDC5000EBBAD /* AppDelegateExtention */,
+				182EED9B20F2FD10000EBBAD /* ProductCode */,
+				182EED9C20F2FD10000EBBAD /* VendorsCode */,
+				182EED9D20F2FD11000EBBAD /* Resource */,
 				18361D4520F250480084DE0F /* Assets.xcassets */,
 				18361D4A20F250480084DE0F /* Info.plist */,
 				182EED9A20F2FB30000EBBAD /* LvYeClubManage-Prefix.pch */,
 				1834287120F33AA500B78997 /* LvYeClubManage.entitlements */,
 				18361D4B20F250480084DE0F /* main.m */,
-				182EED9B20F2FD10000EBBAD /* ProductCode */,
-				182EED9D20F2FD11000EBBAD /* Resource */,
-				182EED9C20F2FD10000EBBAD /* VendorsCode */,
 			);
 			path = LvYeClubManage;
 			sourceTree = "<group>";
@@ -1353,6 +1363,7 @@
 		1897FEC9212AB078001652F7 /* ClubDefaultImages */ = {
 			isa = PBXGroup;
 			children = (
+				7BFB992E23BE3AA6000FF952 /* graduallyImg.png */,
 				183E1645212E5F7B0088037C /* clubUserPhotoDefaultImage.png */,
 				183E1643212E44550088037C /* club-infos.png */,
 				183E1641212E44170088037C /* iconlist.png */,
@@ -1515,6 +1526,8 @@
 				18642EE522857142006EB719 /* ClubTourCommentCell.m */,
 				18642EE7228575F8006EB719 /* TourCommentDetailController.h */,
 				18642EE8228575F8006EB719 /* TourCommentDetailController.m */,
+				18AEC10D228BE7870079B466 /* CommentDetailCell.h */,
+				18AEC10E228BE7870079B466 /* CommentDetailCell.m */,
 			);
 			path = LvyeClubManageController;
 			sourceTree = "<group>";
@@ -1621,6 +1634,7 @@
 				18361D4620F250480084DE0F /* Assets.xcassets in Resources */,
 				18EA13A4212BE4EE00FAB572 /* clubLeaderPhotoDefaultImage111.jpg in Resources */,
 				183E1646212E5F7B0088037C /* clubUserPhotoDefaultImage.png in Resources */,
+				7BFB992F23BE3AA6000FF952 /* graduallyImg.png in Resources */,
 				181BDC2320FED0530031668E /* LvyeFontAwesome.ttf in Resources */,
 				18EA13A3212BE4EE00FAB572 /* clubLeaderPhotoDefaultImage.png in Resources */,
 			);
@@ -1640,6 +1654,7 @@
 				18E965032238ACBC006ACC78 /* ClubOrderAuditViewController.m in Sources */,
 				18A16442212FDD5D00727C27 /* LGTextView.m in Sources */,
 				182CF39920F454A0004499AD /* AFPropertyListRequestOperation.m in Sources */,
+				182299EF22AF91F7001C8D1D /* LGUIdottedLineView.m in Sources */,
 				1876A4352123F8E4004B023E /* ClubLeaderViewController.m in Sources */,
 				1854A3CD211D762A00CAF90C /* ClubfinanceShowController.m in Sources */,
 				1802891F2249C40F002CB435 /* QNResolver.m in Sources */,
@@ -1702,6 +1717,7 @@
 				180288FC2249B4C3002CB435 /* QNPipeline.m in Sources */,
 				184EA11821353C9800553AD3 /* TourBasicInfo.m in Sources */,
 				1819791020FD9332001C9DA6 /* LvyeBaseTabBarController.m in Sources */,
+				18AEC10F228BE7870079B466 /* CommentDetailCell.m in Sources */,
 				181BDC2120FED0530031668E /* UIFont+FontAwesome.m in Sources */,
 				188C366720FC906300B569BF /* ClubLeaderInfo.m in Sources */,
 				18702FFF21217B7F00BABA96 /* UIImage+WebP.m in Sources */,
@@ -1854,7 +1870,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "740ca4a0-8699-43cf-a8e4-ac0c8828d66d";
@@ -1909,7 +1925,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PROVISIONING_PROFILE = "5912b2e7-7677-4e19-ab9d-fa08da0de9c3";
 				SDKROOT = iphoneos;
@@ -1935,7 +1951,7 @@
 				);
 				GCC_PREFIX_HEADER = "LvYeClubManage/LvYeClubManage-Prefix.pch";
 				INFOPLIST_FILE = LvYeClubManage/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1972,7 +1988,7 @@
 				);
 				GCC_PREFIX_HEADER = "LvYeClubManage/LvYeClubManage-Prefix.pch";
 				INFOPLIST_FILE = LvYeClubManage/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

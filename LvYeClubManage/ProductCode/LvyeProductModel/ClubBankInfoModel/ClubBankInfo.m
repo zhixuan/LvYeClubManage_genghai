@@ -25,6 +25,7 @@
     }
     
     [bankInfo setBankInfoId:StringForKeyInUnserializedJSONDic(dic, @"club_bank_id")];
+    [bankInfo setBankSourceId:StringForKeyInUnserializedJSONDic(dic, @"club_bank_id")];
     [bankInfo setBankSourceName:StringForKeyInUnserializedJSONDic(dic, @"bank_name")];
     
     

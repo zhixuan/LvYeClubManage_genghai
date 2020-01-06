@@ -68,17 +68,10 @@
 
     self.clubCanMaxCapitalStr = [[NSString alloc]initWithFormat:@"%@",@"0.00"];
     [self viewControlFrame];
-    __weak __typeof(&*self)weakSelf = self;
-    [KShareHTTPLvyeHTTPClient clubCanDepositFundsInfowWithClubId:KLvyeClubCurrentUser.clubId userId:KLvyeClubCurrentUser.userId completion:^(WebAPIResponse *response) {
-        dispatch_async(dispatch_get_main_queue(), ^(void){
-            NSLog(@"response.responseObject is %@",response.responseObject);
-            if (response.code == WebAPIResponseCodeSuccess) {
-                NSString *moneyStr = StringForKeyInUnserializedJSONDic(response.responseObject, KDataKeyData);
-                weakSelf.clubCanMaxCapitalStr = [NSString stringWithFormat:@"%@",moneyStr];
-                [weakSelf.clubWithdrawMoneyField setPlaceholder:moneyStr];
-            }
-        });
-    }];
+    /////
+    [self requestValidCanDepositFundsInfo];
+    
+    
     // Do any additional setup after loading the view.
 }
 
@@ -215,34 +208,65 @@
 - (void)userPersonalSubmitInfoOperation{
     
     if(IsStringEmptyOrNull(self.clubWithdrawMoneyField.text)){
-        ShowImportErrorAlertView(@"提现金额不能为空!");
+        ShowImportErrorAlertControl(@"提现金额不能为空!", self);
         return;
     }
     
     CGFloat monedFload = [self.clubWithdrawMoneyField.text floatValue];
     if (monedFload <=0.01) {
-        ShowImportErrorAlertView(@"请输入有效提现金额！");
+        ShowImportErrorAlertControl(@"请输入有效提现金额！", self);
+        return;
+    }
+    
+    
+    CGFloat oldMonedFload = [self.clubCanMaxCapitalStr floatValue];
+    if (monedFload > oldMonedFload) {
+        ShowImportErrorAlertControl(@"本次输入金额大于可提现金额，请输入有效金额！", self);
         return;
     }
     
     
     if([self.clubBankNameLabel.text isEqualToString:@"请选择银行卡"]){
-        ShowImportErrorAlertView(@"请选择银行卡！");
+        ShowImportErrorAlertControl(@"请选择银行卡！", self);
         return;
     }
     
     NSLog(@"\n userID %@  \nclubId is %@  \n money is %@ \n bankID is %@",KLvyeClubCurrentUser.userId,KLvyeClubCurrentUser.clubId,self.clubWithdrawMoneyField.text,self.clubBankInfo.bankInfoId);
     
-    
+    __weak __typeof(&*self)weakSelf = self;
+
     [KShareHTTPLvyeHTTPClient clubUserWithdrawOperaWithClubId:KLvyeClubCurrentUser.clubId userId:KLvyeClubCurrentUser.userId amount:self.clubWithdrawMoneyField.text cardId:self.clubBankInfo.bankInfoId completion:^(WebAPIResponse *response) {
         
         dispatch_async(dispatch_get_main_queue(), ^(void){
             NSLog(@"response.responseObject is %@",response.responseObject);
             if (response.code == WebAPIResponseCodeSuccess) {
                 
+                [weakSelf requestValidCanDepositFundsInfo];
+                ShowImportErrorAlertControl(@"本次提现请求已完成，请注意查看账户资金变动！", self);
+            }else if (response.code == WebAPIResponseCodeFailed) {
+                ShowImportErrorAlertControl(StringForKeyInUnserializedJSONDic(response.responseObject,KDataKeyMsg), self);
+
+                
+            }else{
+                ShowImportErrorAlertControl(@"网络错误，请稍后重试！", self);
             }
-            
-            
+        });
+    }];
+}
+
+
+- (void)requestValidCanDepositFundsInfo{
+    
+    __weak __typeof(&*self)weakSelf = self;
+    [KShareHTTPLvyeHTTPClient clubCanDepositFundsInfowWithClubId:KLvyeClubCurrentUser.clubId userId:KLvyeClubCurrentUser.userId completion:^(WebAPIResponse *response) {
+        dispatch_async(dispatch_get_main_queue(), ^(void){
+            NSLog(@"response.responseObject is %@",response.responseObject);
+            if (response.code == WebAPIResponseCodeSuccess) {
+                NSString *moneyStr = StringForKeyInUnserializedJSONDic(response.responseObject, KDataKeyData);
+                weakSelf.clubCanMaxCapitalStr = [NSString stringWithFormat:@"%@",moneyStr];
+                [weakSelf.clubWithdrawMoneyField setText:@""];
+                [weakSelf.clubWithdrawMoneyField setPlaceholder:moneyStr];
+            }
         });
     }];
 }

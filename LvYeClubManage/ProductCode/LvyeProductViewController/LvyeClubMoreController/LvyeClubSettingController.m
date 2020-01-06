@@ -16,7 +16,7 @@
 
 #define KAlertForLogoutTag                      (1419211)
 
-@interface LvyeClubSettingController ()<UIAlertViewDelegate>
+@interface LvyeClubSettingController ()
 
 @end
 
@@ -91,16 +91,42 @@
 - (void)moduleButtonCellEventOperation:(UIButtonCell*)btnCell{
     UIButton *btn = (UIButton*)btnCell;
     if(btn.tag == KButtonForClearMemoryTag){
-        ShowImportErrorAlertView(@"清空缓存！");
+        ShowImportErrorAlertControl(@"清空缓存！", self);
     }else if (btn.tag == KButtonForLogoutTag){
 
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"是否退出本账户？"
-                                                      delegate:self cancelButtonTitle:@"取消"
-                                             otherButtonTitles:@"确定", nil];
-        [alert setTag:KAlertForLogoutTag];
-        [alert show];
+//        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"是否退出本账户？"
+//                                                      delegate:self cancelButtonTitle:@"取消"
+//                                             otherButtonTitles:@"确定", nil];
+//        [alert setTag:KAlertForLogoutTag];
+//        [alert show];
+        
+        UIAlertController *control = [UIAlertController alertControllerWithTitle:@"提示" message:@"是否退出本账户？" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *doneAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+            [KLvyeClubCurrentUser clubUserLogoutAndClearCurrentUserInfo];
+            
+            LoginViewController * viewController = [[LoginViewController alloc] init];
+            [viewController settingNavTitle:@"登录" color:[UIColor redColor]];
+            LvyeBaseNavigationController *navController = [[LvyeBaseNavigationController alloc]initWithRootViewController:viewController];
+            [KShareAppDelegate.window setRootViewController:navController];
+            
+            viewController.block = ^(WebAPIResponseCode code) {
+                LvyeBaseTabBarController *tabBarController = [[LvyeBaseTabBarController alloc]init];
+                tabBarController.selectedIndex = 0;
+                [KShareAppDelegate.window setRootViewController:tabBarController];
+            };
+            
+        }];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+        [control addAction:doneAction];
+        [control addAction:cancelAction];
+        [ self presentViewController:control animated:YES completion:^{
+        }];
     }
 }
+/*
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     
     NSLog(@"buttonIndex is %ld",buttonIndex);
@@ -121,5 +147,6 @@
         };
     }
 }
+ */
 
 @end

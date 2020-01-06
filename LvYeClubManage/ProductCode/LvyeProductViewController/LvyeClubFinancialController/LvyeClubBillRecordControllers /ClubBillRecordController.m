@@ -15,6 +15,7 @@
 #import "ClubFinanceCapitalRecod.h"
 
 #import "ClubOrderDetailController.h"
+#import "NSObject+PropertyExport.h"
 
 @interface ClubBillRecordController ()<UITableViewDataSource,UITableViewDelegate>
 /*!
@@ -329,6 +330,16 @@
     
     if (indexPath.row < [self.dataSource.data count]) {
         
+        
+        
+         ClubFinanceCapitalRecod *info=(ClubFinanceCapitalRecod*)[self.dataSource.data objectAtIndex:indexPath.row];
+        
+        
+        
+        if (info.capitalBillCheckStateType >0) {
+            return;
+        }
+        
         NSLog(@"轻轻的申请结算操作");
         
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:@"是否现在申请结算" preferredStyle:UIAlertControllerStyleAlert];
@@ -336,7 +347,9 @@
             
             NSLog(@"开始请求数据了呢");
             
-            [self userPersonalSettleApplyRequest];
+             ClubFinanceCapitalRecod *info=(ClubFinanceCapitalRecod*)[self.dataSource.data objectAtIndex:indexPath.row];
+            NSLog(@"%@",[info toStringPropertyExportString]);
+            [self userPersonalSettleApplyRequestWithRecode:info];
             
             
         }])];
@@ -357,10 +370,22 @@
 /**
  用户个人申请结算请求
  */
-- (void)userPersonalSettleApplyRequest{
+- (void)userPersonalSettleApplyRequestWithRecode:(ClubFinanceCapitalRecod *)info{
     
     
-    [KShareHTTPLvyeHTTPClient clubUserWithdrawOperaWithClubId:<#(NSString *)#> userId:<#(NSString *)#> amount:<#(NSString *)#> cardId:<#(NSString *)#> completion:<#^(WebAPIResponse *response)completionBlock#>];
-    
+    [KShareHTTPLvyeHTTPClient clubUserApplySettleOperationWithClubId:KLvyeClubCurrentUser.clubId userId:KLvyeClubCurrentUser.userId billId:info.capitalDepositId orderCount:1 completion:^(WebAPIResponse *response) {
+        
+        dispatch_async(dispatch_get_main_queue(), ^(void){
+            
+            
+            NSLog(@"%@",response.responseObject);
+            NSLog(@"%@",StringForKeyInUnserializedJSONDic(response.responseObject, @"message"));
+            if (response.code == WebAPIResponseCodeSuccess) {
+                
+                
+            }
+            
+        });
+    }];
 }
 @end

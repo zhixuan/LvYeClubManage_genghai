@@ -269,7 +269,7 @@
             }
         }
     }else{
-        ShowImportErrorAlertView(@"当前禁止个人账户提现！");
+        ShowImportErrorAlertControl(@"当前禁止个人账户提现！",self);
     }
     
     

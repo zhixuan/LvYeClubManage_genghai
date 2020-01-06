@@ -19,7 +19,7 @@
 
  @param launchOptions 参数内容
  */
-- (void)didFinishLaunchingWithOptions:(NSDictionary *)launchOptions id:(id)selfId;
+- (void)didFinishLaunchingWithOptions:(NSDictionary *_Nonnull)launchOptions id:(id _Nonnull )selfId;
 
 /**
  二次封装友盟内容，达到代码隔离效果
@@ -28,8 +28,8 @@
  @param userInfo userInfo
  @param completionHandler completionHandler
  */
-- (void)application:(UIApplication *)application umengDidReceiveRemoteNotification:(nonnull NSDictionary *)userInfo fetchCompletionHandler:(nonnull void (^)(UIBackgroundFetchResult))completionHandler;
+- (void)application:(UIApplication *_Nonnull)application umengDidReceiveRemoteNotification:(nonnull NSDictionary *)userInfo fetchCompletionHandler:(nonnull void (^)(UIBackgroundFetchResult))completionHandler;
 
 
--(void)umengWillPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler API_AVAILABLE(ios(10.0));
+-(void)umengWillPresentNotification:(UNNotification *_Nullable)notification withCompletionHandler:(void (^_Nullable)(UNNotificationPresentationOptions))completionHandler API_AVAILABLE(ios(10.0));
 @end

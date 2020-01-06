@@ -27,6 +27,23 @@
 - (AFHTTPRequestOperation *)clubBasicInfoWithClubId:(NSString *)clubId
                                          completion:(WebAPIResponstComlitionBlock)completionBlock;
 
+
+/**
+ 修改俱乐部基本信息内容
+ 
+ @param clubId 俱乐部 ID
+ @param content  slogan 内容信息
+ @param bgUrl 背景图信息
+ @param logoUrl logo图片
+ @param completionBlock  请求完成后返回的数据内容 Block
+ @return 网络请求实例
+ */
+- (AFHTTPRequestOperation *)updateClubBasicInfoWithClubId:(NSString *)clubId
+                                                   slogan:(NSString *)content
+                                                  bgImage:(NSString *)bgUrl
+                                                     logo:(NSString *)logoUrl
+                                               completion:(WebAPIResponstComlitionBlock)completionBlock;
+
 /**
  获取俱乐部全部领队基本信息内容
  

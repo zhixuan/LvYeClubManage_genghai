@@ -24,6 +24,17 @@
  * @brief 俱乐部信息
  */
 @property (nonatomic , strong)      ClubInfo            *clubInfor;
+
+/*!
+ * @property
+ * @brief 俱乐部logo
+ */
+@property (nonatomic , weak)      UIImageView           *clubLogoImageView;
+/*!
+ * @property
+ * @brief 俱乐部背景图
+ */
+@property (nonatomic , weak)      UIImageView           *clubBackgroundImageView;
 @end
 
 @implementation PersonalClubController
@@ -50,6 +61,27 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    
+    UIImageView *clubBgImageView = [[UIImageView alloc]init];
+    [clubBgImageView setBackgroundColor:[UIColor whiteColor]];
+    [clubBgImageView setFrame:CGRectMake(0.0f, 20.0f + KImageLogoImageViewHeight/2,
+                                         KProjectScreenWidth, KImageBGImageViewHeight)];
+    [clubBgImageView.layer setMasksToBounds:YES];
+    self.clubBackgroundImageView = clubBgImageView;
+    [self.bgScrollView addSubview:self.clubBackgroundImageView];
+    
+    ///logo Photo
+    UIImageView *logoImageView = [[UIImageView alloc]init];
+    [logoImageView setBackgroundColor:[UIColor whiteColor]];
+    [logoImageView setFrame:CGRectMake((KProjectScreenWidth - KImageLogoImageViewHeight)/2, 20.0f,
+                                       KImageLogoImageViewHeight, KImageLogoImageViewHeight)];
+    [logoImageView.layer setCornerRadius:KImageLogoImageViewHeight/2];
+    [logoImageView.layer setMasksToBounds:YES];
+    [logoImageView.layer setBorderWidth:2.0f];
+    [logoImageView.layer setBorderColor:KContentGreyTextColor.CGColor];
+    self.clubLogoImageView = logoImageView;
+    [self.bgScrollView addSubview:self.clubLogoImageView];
     
     __weak __typeof(&*self)weakSelf = self;
     [KShareHTTPLvyeHTTPClient clubBasicInfoWithClubId:KLvyeClubCurrentUser.clubId completion:^(WebAPIResponse *response) {
@@ -79,38 +111,26 @@
     
 
     
-
-    UIImageView *clubBgImageView = [[UIImageView alloc]init];
-    [clubBgImageView setBackgroundColor:[UIColor whiteColor]];
-    [clubBgImageView setFrame:CGRectMake(0.0f, 20.0f + KImageLogoImageViewHeight/2,
-                                       KProjectScreenWidth, KImageBGImageViewHeight)];
-    [clubBgImageView.layer setMasksToBounds:YES];
     NSString *clubBGImageURL = [NSString stringWithFormat:@"%@%@",KEY_RESPONSE_LVYE_IMAGE_URL,self.clubInfor.clubBgImageURL];
-    [clubBgImageView setImageWithURL:[NSURL URLWithString:clubBGImageURL] placeholderImage:createImageWithColor(KButtonStateHighlightedColor)];
-    [self.bgScrollView addSubview:clubBgImageView];
-    
-    ///logo Photo
-    UIImageView *logoImageView = [[UIImageView alloc]init];
-    [logoImageView setBackgroundColor:[UIColor whiteColor]];
-    [logoImageView setFrame:CGRectMake((KProjectScreenWidth - KImageLogoImageViewHeight)/2, 20.0f,
-                                       KImageLogoImageViewHeight, KImageLogoImageViewHeight)];
-    [logoImageView.layer setCornerRadius:KImageLogoImageViewHeight/2];
-    [logoImageView.layer setMasksToBounds:YES];
-    [logoImageView.layer setBorderWidth:2.0f];
-    [logoImageView.layer setBorderColor:KContentGreyTextColor.CGColor];
+    [self.clubBackgroundImageView  setImageWithURL:[NSURL URLWithString:clubBGImageURL] placeholderImage:createImageWithColor(KButtonStateHighlightedColor)];
+    [self.clubBackgroundImageView  setUserInteractionEnabled:YES];
+    UITapGestureRecognizer *backgroundGestRec = [[UITapGestureRecognizer alloc]initWithTarget:self
+                                                                             action:@selector(userUpdatePersonalClubBackgroundImageInfoEvent:)];
+    [self.clubBackgroundImageView addGestureRecognizer:backgroundGestRec];
+
+
     NSString *loginImageURL = [NSString stringWithFormat:@"%@%@",KEY_RESPONSE_LVYE_IMAGE_URL,self.clubInfor.clubLogoImageURL];
-    [logoImageView setImageWithURL:[NSURL URLWithString:loginImageURL] placeholderImage:createImageWithColor(KButtonStateHighlightedColor)];
-    
-     [logoImageView setImageWithURL:[NSURL URLWithString:loginImageURL] placeholderImage:createImageWithColor(KButtonStateHighlightedColor)];
-    [self.bgScrollView addSubview:logoImageView];
-    
+    [self.clubLogoImageView setImageWithURL:[NSURL URLWithString:loginImageURL]
+                           placeholderImage:createImageWithColor(KButtonStateHighlightedColor)];
+    [self.clubLogoImageView setUserInteractionEnabled:YES];
+    UITapGestureRecognizer *logoGestRec = [[UITapGestureRecognizer alloc]initWithTarget:self
+                                                                             action:@selector(userUpdatePersonalClubLogoImageInfoEvent:)];
+    [self.clubLogoImageView addGestureRecognizer:logoGestRec];
     
     UIView *contentBGView = [[UIView alloc]init];
     [contentBGView setBackgroundColor:[UIColor whiteColor]];
-    [contentBGView setFrame:CGRectMake(0.0f, clubBgImageView.bottom + KBtnBackGroundTop, KProjectScreenWidth, KBtnBackGroudViewHeight)];
+    [contentBGView setFrame:CGRectMake(0.0f, self.clubBackgroundImageView.bottom + KBtnBackGroundTop, KProjectScreenWidth, KBtnBackGroudViewHeight)];
     [self.bgScrollView addSubview:contentBGView];
-    
-    
     
     UILabel *nameLabel = [[UILabel alloc]init];
     [nameLabel setBackgroundColor:[UIColor clearColor]];
@@ -120,10 +140,6 @@
     [nameLabel setFont:[UIFont boldSystemFontOfSize:22.0f]];
     [nameLabel setTextColor:KContentTextColor];
     [contentBGView addSubview:nameLabel];
-    
-
-   
-    
     
     CGFloat bottomFloat = nameLabel.bottom;
     if(!IsStringEmptyOrNull(self.clubInfor.clubAddress)){
@@ -136,6 +152,7 @@
         ///设置宽高限制。
         CGSize boundingSize = CGSizeMake((KProjectScreenWidth - KBtnContentLeftWidth*2), MAXFLOAT);
         ///设置属性
+       
         NSDictionary *attDic =@{NSFontAttributeName: KDefaultOperationButtonTitleFontOfSize};
         CGRect contentRect =  [self.clubInfor.clubAddress boundingRectWithSize:boundingSize options:NSStringDrawingUsesFontLeading|NSStringDrawingUsesLineFragmentOrigin attributes:attDic context:nil];
         NSLog(@"height is %.2lf,width is %.2lf",contentRect.size.height,contentRect.size.width);
@@ -173,7 +190,6 @@
     
     if(!IsStringEmptyOrNull(self.clubInfor.clubSalonContent)){
         
-        
         UILabel *sloganLabel = [[UILabel alloc]init];
         [sloganLabel setBackgroundColor:[UIColor clearColor]];
         [sloganLabel setFrame:CGRectMake(KBtnContentLeftWidth,dateTimeLabel.bottom,50.0f,25.0f)];
@@ -184,30 +200,37 @@
         
         UILabel *addressLabel = [[UILabel alloc]init];
         [addressLabel setBackgroundColor:[UIColor clearColor]];
-        [addressLabel setFrame:CGRectMake(KBtnContentLeftWidth,(sloganLabel.bottom-sloganLabel.height/2-8.0f),(KProjectScreenWidth - KBtnContentLeftWidth),KBtnForBtnCellNormalHeight*0.8)];
-        [addressLabel setText:[NSString stringWithFormat:@"\t\t%@",self.clubInfor.clubSalonContent]];
+        [addressLabel setFrame:CGRectMake(KBtnContentLeftWidth,(sloganLabel.bottom-sloganLabel.height/2-8.0f),(KProjectScreenWidth - KBtnContentLeftWidth*2),KBtnForBtnCellNormalHeight*0.8)];
+        [addressLabel setText:[NSString stringWithFormat:@"%@",self.clubInfor.clubSalonContent]];
         [addressLabel setTextAlignment:NSTextAlignmentLeft];
-        ///设置宽高限制。
-        CGSize boundingSize = CGSizeMake((KProjectScreenWidth - KBtnContentLeftWidth*2), MAXFLOAT);
-        ///设置属性
-        NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-        [paragraphStyle setLineSpacing:KInforLeftIntervalWidth/3];
-        NSDictionary *attDic =@{NSFontAttributeName: KDefaultOperationButtonTitleFontOfSize,
-                                NSParagraphStyleAttributeName:paragraphStyle,};
-        CGRect contentRect =  [[NSString stringWithFormat:@"\t\t%@",self.clubInfor.clubSalonContent] boundingRectWithSize:boundingSize options:NSStringDrawingUsesFontLeading|NSStringDrawingUsesLineFragmentOrigin attributes:attDic context:nil];
         [addressLabel setFont:KDefaultOperationButtonTitleFontOfSize];
         [addressLabel setNumberOfLines:0];
         [addressLabel setLineBreakMode:NSLineBreakByTruncatingHead];
-        [addressLabel setHeight:contentRect.size.height];
+        ///设置宽高限制。
+        CGSize boundingSize = CGSizeMake((KProjectScreenWidth - KBtnContentLeftWidth*2), MAXFLOAT);
+        //段落样式
+        NSMutableParagraphStyle *paraStyle = [[NSMutableParagraphStyle alloc] init];
+        //行间距
+        paraStyle.lineSpacing =5.0f;
+//        //首行文本缩进
+        paraStyle.firstLineHeadIndent = 50.0f;
+        NSDictionary *attDic =@{NSFontAttributeName: KDefaultOperationButtonTitleFontOfSize,
+                                NSParagraphStyleAttributeName:paraStyle,};
+        CGRect contentRect =  [addressLabel.text boundingRectWithSize:boundingSize options:NSStringDrawingUsesFontLeading|NSStringDrawingUsesLineFragmentOrigin attributes:attDic context:nil];
+        
+        [addressLabel setAttributedText:[[NSAttributedString alloc] initWithString:addressLabel.text attributes:attDic]];
         [addressLabel setTextColor:KContentTextColor];
         [contentBGView addSubview:addressLabel];
         
-//        UIDottedView *viewDotted = [[UIDottedView alloc]init];
-//        [viewDotted setFrame:CGRectMake(KBtnContentLeftWidth, addressLabel.bottom+KBtnContentLeftWidth,
-//                                        (KProjectScreenWidth -2*KBtnContentLeftWidth) ,
-//                                        1.0f)];
-//        [viewDotted setBackgroundColor:[UIColor clearColor]];
-//        [contentBGView addSubview:viewDotted];
+        [addressLabel setHeight:contentRect.size.height];
+
+        
+        UIDottedView *viewDotted = [[UIDottedView alloc]init];
+        [viewDotted setFrame:CGRectMake(KBtnContentLeftWidth, addressLabel.bottom+KBtnContentLeftWidth,
+                                        (KProjectScreenWidth -2*KBtnContentLeftWidth) ,
+                                        1.0f)];
+        [viewDotted setBackgroundColor:[UIColor clearColor]];
+        [contentBGView addSubview:viewDotted];
 //
         bottomFloat =addressLabel.bottom;
     }
@@ -219,6 +242,56 @@
     
     
     
+}
+
+
+- (void)userUpdatePersonalClubLogoImageInfoEvent:(UITapGestureRecognizer *)gestureRecognizer{
+    
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:@"是否现在申请结算" preferredStyle:UIAlertControllerStyleActionSheet];
+    [alertController addAction:([UIAlertAction actionWithTitle:@"相册" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        
+         NSLog(@"Logo相册");
+        NSLog(@"开始请求数据了呢");
+        
+        
+    }])];
+    [alertController addAction:([UIAlertAction actionWithTitle:@"相机" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        NSLog(@"Logo相机");
+    }])];
+    
+    [alertController addAction:([UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }])];
+    
+    [self presentViewController:alertController animated:YES completion:^{
+        
+    }];
+}
+
+- (void)userUpdatePersonalClubBackgroundImageInfoEvent:(UITapGestureRecognizer *)gestureRecognizer{
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:@"是否现在申请结算" preferredStyle:UIAlertControllerStyleActionSheet];
+    [alertController addAction:([UIAlertAction actionWithTitle:@"相册" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        
+        NSLog(@"背景图相册");
+        NSLog(@"开始请求数据了呢");
+        
+        
+    }])];
+    [alertController addAction:([UIAlertAction actionWithTitle:@"相机" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        NSLog(@"背景图相机");
+    }])];
+    
+    [alertController addAction:([UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }])];
+    
+    [self presentViewController:alertController animated:YES completion:^{
+        
+    }];
 }
 
 @end

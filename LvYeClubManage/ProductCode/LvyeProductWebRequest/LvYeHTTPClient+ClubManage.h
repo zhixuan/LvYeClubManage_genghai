@@ -47,7 +47,7 @@
 /**
  获取登录俱乐部被评论线路的全部评论详情信息
 
- @param clubId 俱乐部 ID
+ @param commentId 俱乐部 ID
  @param completionBlock 请求完成后返回的数据内容 Block
  @return 网络请求实例
  */

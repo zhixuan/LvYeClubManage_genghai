@@ -54,6 +54,11 @@
 }
 
 
++ (UIColor *)colorWithGradientColorImageWithDirection:(GradientColorStyle)style size:(CGSize)size startColor:(UIColor *)start endColor:(UIColor *)end{
+    UIImage *image = [self initWithGradientColorWithDirection:style size:size startColor:start endColor:end];
+    return [UIColor colorWithPatternImage:image];
+}
+
 - (UIImage *)thumbScaleImageWithPoint:(CGPoint)point size:(CGSize)size{
     CGImageRef cgRef = self.CGImage;
     CGImageRef imageRef = CGImageCreateWithImageInRect(cgRef, CGRectMake(point.x,point.y, size.width, size.height));

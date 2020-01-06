@@ -72,6 +72,7 @@
         UIColor* color = KTabBarBackGroundColor;
         if (color) {
             self.tabBar.barTintColor = color;
+//             self.tabBar.barTintColor = [UIColor clearColor];
         }
     }
     
@@ -202,8 +203,20 @@
         LvyeClubManageController *viewController = (LvyeClubManageController*)navigationController.topViewController;
         navigationController.tabBarItem = [self addButtonWithNormalImage:[FontAwesome imageWithIcon:viewController.clubModuleImage iconColor:KTabBarItemTitleNormalColor iconSize:KTabBarItemBtnSize]
                                                            selectedImage:[FontAwesome imageWithIcon:viewController.clubModuleImage iconColor:KTabBarItemTitleSelectedColor iconSize:KTabBarItemBtnSize]
+    
                                                                    title:viewController.clubModuleName];
+        
+       
+        
+ 
+        
     }
+//
+//    [[UITabBarItem appearance] setTitleTextAttributes:
+//     @{ NSFontAttributeName: kTableBarFontSize,
+//        NSForegroundColorAttributeName: KTabBarItemTitleSelectedColor}
+//                                             forState:UIControlStateSelected];
+    
 
 }
 
@@ -211,21 +224,76 @@
                              selectedImage:(UIImage*)selectedImage
                                      title:(NSString* )title
 {
-    UITabBarItem *tabBarItem = [[UITabBarItem alloc] initWithTitle:title image:normalImage selectedImage:selectedImage];
-     [tabBarItem setFinishedSelectedImage:selectedImage withFinishedUnselectedImage:normalImage];
-    [tabBarItem.selectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+//    IOS 7.0之前的写法内容。
+//    UITabBarItem *tabBarItem = [[UITabBarItem alloc] initWithTitle:title image:normalImage selectedImage:selectedImage];
+//     [tabBarItem setFinishedSelectedImage:selectedImage withFinishedUnselectedImage:normalImage];
+//    [tabBarItem.selectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+//
+    
+        UITabBarItem *tabBarItem = [[UITabBarItem alloc] initWithTitle:title image:normalImage selectedImage:[selectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+        
+
     
     
+    /// IOS 13.0之后要设置 tabBarItem 的内容字体颜色，否则将使用系统默认的颜色内容
+    [tabBarItem setTitleTextAttributes:@{ NSForegroundColorAttributeName :KTabBarItemTitleNormalColor}  forState:UIControlStateNormal];
+    [tabBarItem setTitleTextAttributes:@{ NSForegroundColorAttributeName :KTabBarItemTitleSelectedColor}  forState:UIControlStateHighlighted];
+
     return tabBarItem;
     
 }
 
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item{
 
+    if (@available(iOS 13.0, *)) {
+        
+    UITabBarAppearance *appearance = [UITabBarAppearance new];
+           appearance.stackedLayoutAppearance.selected.titleTextAttributes = @{ NSForegroundColorAttributeName :KTabBarItemTitleSelectedColor};
+        item.standardAppearance =appearance;
+        
+    }
     
+    NSLog(@"item name = %@", item.title);
+    NSInteger index = [self.tabBar.items indexOfObject:item];
+    
+    NSLog(@"item name = %ld",index);
+    [self animationWithIndex:index];
+    
+    
+//    CABasicAnimation*pulse = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+//    pulse.timingFunction= [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+//    pulse.duration = 0.2;
+//    pulse.repeatCount= 1;
+//    pulse.autoreverses= YES;
+//    pulse.fromValue= [NSNumber numberWithFloat:0.7];
+//    pulse.toValue= [NSNumber numberWithFloat:1.3];
+//    [[item layer]
+//     addAnimation:pulse forKey:nil];
+
 }
 
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController{
 //    NSLog(@"zhende");
 }
+
+- (void)animationWithIndex:(NSInteger) index {
+    NSMutableArray * tabbarbuttonArray = [NSMutableArray array];
+    
+//    NSLog(@"%@",self.tabBar.subviews);
+    for (UIView *tabBarButton in self.tabBar.subviews) {
+        if ([tabBarButton isKindOfClass:NSClassFromString(@"UITabBarButton")]) {
+            [tabbarbuttonArray addObject:tabBarButton];
+        }
+    }
+    CABasicAnimation*pulse = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+    pulse.timingFunction= [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    pulse.duration = 0.2;
+    pulse.repeatCount= 1;
+    pulse.autoreverses= YES;
+    pulse.fromValue= [NSNumber numberWithFloat:0.7];
+    pulse.toValue= [NSNumber numberWithFloat:1.3];
+    [[tabbarbuttonArray[index] layer]
+     addAnimation:pulse forKey:nil];
+}
+
 @end

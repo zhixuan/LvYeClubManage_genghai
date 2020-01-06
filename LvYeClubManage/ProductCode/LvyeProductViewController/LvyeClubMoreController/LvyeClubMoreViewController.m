@@ -46,6 +46,26 @@
     
     [self setMoreFunctionFrame];
     
+    
+    UIImage *setImage = [FontAwesome imageWithIcon:FMIconFontF001 iconColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"graduallyImg.png"]] iconSize:120.0f imageSize:CGSizeMake(120.0f, 120.0f)];
+    UIImageView * imageView = [[UIImageView alloc]init];
+    [imageView setBackgroundColor:[UIColor clearColor]];
+    [imageView setImage:setImage];
+    [imageView setFrame:CGRectMake(200.0f, 300, 60.0f, 60.0f)];
+    [self.view addSubview:imageView];
+    
+    UIImage *setFlagImage = [FontAwesome imageWithIcon:FMIconFontF001 iconColor:[UIColor redColor] iconSize:80.0f imageSize:CGSizeMake(80.0f, 80.0f)];
+    UIImageView * secondImageView = [[UIImageView alloc]init];
+    [secondImageView setBackgroundColor:[UIColor clearColor]];
+    [secondImageView setImage:setFlagImage];
+    [secondImageView setFrame:CGRectMake(200.0f, imageView.bottom+60.0f, 40.0f, 40.0f)];
+    [self.view addSubview:secondImageView];
+    
+    
+    
+    
+ 
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -60,6 +80,45 @@
     
     [self setRightNavButtonFA:FMIconFontF013 withFrame:CGRectMake(0.0f, 0.0f, 30.0f, 44.0f)
                  actionTarget:self action:@selector(setRightButtonEvent)];
+    
+    
+    UIImage *setImage = [FontAwesome imageWithIcon:FMIconFontF001 iconColor:[UIImage colorWithGradientColorImageWithDirection:GradientColorVerticalStyle size:CGSizeMake(1.0f, 40.0f) startColor:[UIColor yellowColor] endColor:[UIColor redColor] ] iconSize:40.0f imageSize:CGSizeMake(40.0f, 40.0f)];
+    UIImageView * imageView = [[UIImageView alloc]init];
+    [imageView setBackgroundColor:[UIColor clearColor]];
+    [imageView setImage:setImage];
+    [imageView setFrame:CGRectMake(100.0f, 300, 20.0f, 20.0f)];
+    [self.view addSubview:imageView];
+    
+    UIImage *setFlagImage = [FontAwesome imageWithIcon:FMIconFontF001 iconColor:[UIColor redColor] iconSize:80.0f imageSize:CGSizeMake(80.0f, 80.0f)];
+    UIImageView * secondImageView = [[UIImageView alloc]init];
+    [secondImageView setBackgroundColor:[UIColor clearColor]];
+    [secondImageView setImage:setFlagImage];
+    [secondImageView setFrame:CGRectMake(100.0f, imageView.bottom+60.0f, 40.0f, 40.0f)];
+    [self.view addSubview:secondImageView];
+    
+    
+    
+    
+     UIImage *setImage3 = [FontAwesome imageWithIcon:FMIconFontF1D7 iconColor:[UIImage colorWithGradientColorImageWithDirection:GradientColorDownwardDiagonalStyle size:CGSizeMake(1.0f, 80.0f) startColor:[UIColor yellowColor] endColor:[UIColor redColor] ] iconSize:60.0f imageSize:CGSizeMake(80.0f, 80.0f)];
+     UIImageView * imageView3 = [[UIImageView alloc]init];
+     [imageView3 setBackgroundColor:[UIColor clearColor]];
+     [imageView3 setImage:setImage3];
+     [imageView3 setFrame:CGRectMake(140.0f, 360, 40.0f, 40.0f)];
+     [self.view addSubview:imageView3];
+    
+    UIImage *setImage4 = [FontAwesome imageWithIcon:FMIconFontF1D7 iconColor:HUIRGBColor(85, 183,55, 1.0f) iconSize:60.0f imageSize:CGSizeMake(80.0f, 80.0f)];
+        UIImageView * imageView4 = [[UIImageView alloc]init];
+        [imageView4 setBackgroundColor:[UIColor clearColor]];
+        [imageView4 setImage:setImage4];
+        [imageView4 setFrame:CGRectMake(140.0f, 420, 40.0f, 40.0f)];
+        [self.view addSubview:imageView4];
+     
+     UIImage *setFlagImage1 = [FontAwesome imageWithIcon:FMIconFontF0FA iconColor:[UIColor redColor] iconSize:80.0f imageSize:CGSizeMake(80.0f, 80.0f)];
+     UIImageView * secondImageView2 = [[UIImageView alloc]init];
+     [secondImageView2 setBackgroundColor:[UIColor clearColor]];
+     [secondImageView2 setImage:setFlagImage1];
+     [secondImageView2 setFrame:CGRectMake(100.0f, secondImageView.bottom+60.0f, 40.0f, 40.0f)];
+     [self.view addSubview:secondImageView2];
 }
 
 - (void)setRightButtonEvent{
@@ -68,6 +127,7 @@
     [settingController setTitle:@"设置"];
     [settingController setHidesBottomBarWhenPushed:YES];
     [self.navigationController pushViewController:settingController animated:YES];
+    
 }
 
 

@@ -53,7 +53,8 @@
  */
 - (AFHTTPRequestOperation *)clubUserApplySettleOperationWithClubId:(NSString *)clubId
                                                             userId:(NSString *)userId
-                                                          orderNum:(NSString *)orderNumber
+                                                          billId:(NSString *)billIds
+                                                        orderCount:(NSInteger)count
                                                         completion:(WebAPIResponstComlitionBlock)completionBlock;
 
 

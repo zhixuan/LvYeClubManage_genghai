@@ -22,6 +22,7 @@
 
 @end
 
+extern CFAbsoluteTime startTime;
 @implementation AppDelegate
 
 
@@ -29,19 +30,33 @@
     // Override point for customization after application launch.
     
     
+    
+    double launchTime = (CFAbsoluteTimeGetCurrent() - startTime);
+    NSLog(@"launchTime is %lf ----- startTime is %f",launchTime,startTime);
 //    int x=3;
 //    int y= 10;
 //    x=y^0;
 //    NSLog(@"x is  %i, y is %i",x,y);
-//    
+//
     
-#if ZLG_DEBUG
-    printf("zhangliguangTEST");
-#endif
     
-#if ZLG_RELEASE
-    printf("zhangliguang_Release");
-#endif
+//    NSString *str1=@"zhixuan";
+//    NSString *str2=str1;
+//    NSLog(@"str1 is %@ str1P is %p  str2 is %@  ,str2P=%p",str1,str1,str2,str2);
+//    str2=@"newxuanxuan";
+//    NSLog(@"str1 is %@ str1P is %p  str2 is %@  ,str2P=%p",str1,str1,str2,str2);
+//
+//    NSLog(@"%ld",[@"67WTW1DO9H97OEQW670B14728AD9902AECBA32E22FA4F6BD3VXXW4QRSF07VDA4" length])
+//#if ZLG_DEBUG
+//    printf("zhangliguangTEST");
+//#endif
+//
+//#if ZLG_RELEASE
+//    printf("zhangliguang_Release");
+//#endif
+    
+    NSString *lowStr = [@"DYLD_PRINT_STATISTICS" lowercaseString];
+    NSLog(@"lowStr is %@",lowStr);
 
     ///初始化友盟统计
     [self setupUmengSDKInfor];
@@ -93,6 +108,8 @@
 [self clubUserAutoLogin];
 
     [self.window makeKeyAndVisible];
+    
+
     return YES;
 }
 
@@ -131,13 +148,50 @@
     
     NSLog(@"\n\n打印 deviceToken \n\n");
     
-    NSString *tokenStr =[[[[deviceToken description] stringByReplacingOccurrencesOfString: @"<" withString: @""]
-                          stringByReplacingOccurrencesOfString: @">" withString: @""]
-                         stringByReplacingOccurrencesOfString: @" " withString: @""];
-    if (!IsStringEmptyOrNull(tokenStr)) {
-        [KLvyeProductClubSettings setUserAPPDeviceTokenStr:tokenStr];
+    if (@available(iOS 13.0, *)) {
+        
+        if (![deviceToken isKindOfClass:[NSData class]]) {
+            //记录获取token失败的描述
+            return;
+        }
+        const unsigned *tokenBytes = (const unsigned *)[deviceToken bytes];
+        NSString *strToken = [NSString stringWithFormat:@"%08x%08x%08x%08x%08x%08x%08x%08x",
+                              ntohl(tokenBytes[0]), ntohl(tokenBytes[1]), ntohl(tokenBytes[2]),
+                              ntohl(tokenBytes[3]), ntohl(tokenBytes[4]), ntohl(tokenBytes[5]),
+                              ntohl(tokenBytes[6]), ntohl(tokenBytes[7])];
+        NSLog(@"deviceToken1:%@", strToken);
+//        NSDictionary *tokenDic = [deviceToken di ];
+        
+        
+        
+        
+        
+//        NSMutableString *deviceTokenString = [NSMutableString string];
+//             const char *bytes = deviceToken.bytes;
+//             NSInteger count = deviceToken.length;
+//             for (int i = 0; i < count; i++) {
+//                 [deviceTokenString appendFormat:@"%02x", bytes[i]&0x000000FF];
+//             }
+//
+//        NSLog(@"deviceToken1:%@"[NSString string]);
+        
+        if (!IsStringEmptyOrNull(strToken)) {
+            [KLvyeProductClubSettings setUserAPPDeviceTokenStr:strToken];
+        }
+        NSLog(@"%@",strToken);
+    }else{
+        NSString *tokenStr =[[[[deviceToken description] stringByReplacingOccurrencesOfString: @"<" withString: @""]
+                              stringByReplacingOccurrencesOfString: @">" withString: @""]
+                             stringByReplacingOccurrencesOfString: @" " withString: @""];
+        if (!IsStringEmptyOrNull(tokenStr)) {
+            [KLvyeProductClubSettings setUserAPPDeviceTokenStr:tokenStr];
+        }
+        NSLog(@"%@",tokenStr);
     }
-    NSLog(@"%@",tokenStr);
+    
+    
+    
+    
 }
 
 /// TODO： 获取推送信息内容

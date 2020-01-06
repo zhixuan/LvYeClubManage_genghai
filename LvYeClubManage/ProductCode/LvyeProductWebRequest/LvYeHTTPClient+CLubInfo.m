@@ -27,6 +27,25 @@
     return [self getPath:KURLClubBaseInfoURL parameters:param completion:completionBlock];
 }
 
+
+#pragma mark -
+#pragma mark -  修改俱乐部基本信息内容
+- (AFHTTPRequestOperation *)updateClubBasicInfoWithClubId:(NSString *)clubId slogan:(NSString *)content bgImage:(NSString *)bgUrl logo:(NSString *)logoUrl completion:(WebAPIResponstComlitionBlock)completionBlock{
+    
+    if (clubId ==nil || [clubId length] < 1) {
+        if (completionBlock) {
+            completionBlock([WebAPIResponse invalidArgumentsResonse]);
+        }
+        return nil;
+    }
+    
+    NSDictionary *param = @{KDataKeyClubId:clubId,
+                            @"slogan":content,
+                            @"bg_img_url":bgUrl,
+                            @"logo_img_url":logoUrl };
+    return [self postPath:KURLClubBaseInfoURL parameters:param completion:completionBlock];
+}
+
 #pragma mark -
 #pragma mark -  获取俱乐部全部领队基本信息内容
 - (AFHTTPRequestOperation *)clubAllLeaderInfoWithClubId:(NSString *)clubId

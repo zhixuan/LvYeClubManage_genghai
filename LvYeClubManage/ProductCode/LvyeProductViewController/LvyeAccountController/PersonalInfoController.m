@@ -28,7 +28,7 @@
 
 #import "LvYeHTTPClient+ClubUser.h"
 
-@interface PersonalInfoController ()<UIActionSheetDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate,UIAlertViewDelegate>
+@interface PersonalInfoController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 
 /*!
@@ -165,7 +165,7 @@
     
     
     
-    NSString *photoImageURL = [NSString stringWithFormat:@"%@%@",@"http://club.lvye.com",KLvyeClubCurrentUser.userPhotoImageURL];
+    NSString *photoImageURL = [NSString stringWithFormat:@"%@%@",KEY_RESPONSE_LVYE_CLUB_IMAGE_URL,KLvyeClubCurrentUser.userPhotoImageURL];
     
     NSString *urlStr =KLvyeClubCurrentUser.userPhotoImageURL;
     if([urlStr hasPrefix:@"/images"]){
@@ -323,37 +323,41 @@
 
 
 - (void)userChoosePersonalPhotoEvent:(UITapGestureRecognizer *)gestureRecognizer{
-    
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"选择头像" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"相册" otherButtonTitles:@"拍照", nil];
-    [actionSheet showInView:self.view];
-}
 
+    UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+    imagePickerController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+    imagePickerController.delegate = self;
+    imagePickerController.allowsEditing = NO;
 
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
-    NSLog(@"clickedButtonAtIndex:(NSInteger)buttonIndex is %ld",buttonIndex);
-    
-    if (buttonIndex != 2) {
+    UIAlertController *control = [UIAlertController alertControllerWithTitle:@"选择头像" message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *photoAction = [UIAlertAction actionWithTitle:@"相册" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
         
-        UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
-        imagePickerController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
-        imagePickerController.delegate = self;
-        imagePickerController.allowsEditing = NO;
-        
-        if (buttonIndex == 0) {
-            imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-            [imagePickerController setAllowsEditing:YES];
-
-        } else if (buttonIndex == 1) {
-                        imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
-
-        }
-        
+        imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        [imagePickerController setAllowsEditing:YES];
         LvyeBaseNavigationController *navg = (LvyeBaseNavigationController *)self.navigationController;
-//        [navg presentModalViewController:imagePickerController animated:YES];
         [navg presentViewController:imagePickerController animated:YES completion:^{
             
         }];
-    }
+    }];
+    UIAlertAction *cameraAction = [UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+         imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+        LvyeBaseNavigationController *navg = (LvyeBaseNavigationController *)self.navigationController;
+        [navg presentViewController:imagePickerController animated:YES completion:^{
+            
+        }];
+    }];
+    
+    UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    }];
+    [control addAction:photoAction];
+    [control addAction:cameraAction];
+    [control addAction:cancleAction];
+    
+    [self presentViewController:control animated:YES completion:^{
+        
+    }];
+    
+    
 }
 
 #pragma mark UIImagePickerControllerDelegate
@@ -390,66 +394,62 @@
     }];
 }
 
-//奋斗的小鸟
-
-
 - (void)userGoToBackOperation{
+    
     if(self.userIsEditInfoBool){
-        UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"您已修改信息，是否保存" message:@"直接退出后信息可能丢失" delegate: self cancelButtonTitle:@"不保存" otherButtonTitles:@"保存", nil];
-        [alertView show];
+        
+        UIAlertController *control = [UIAlertController alertControllerWithTitle:@"是否保存信息？" message:@"再次进入时已更新" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *saveAction = [UIAlertAction actionWithTitle:@"保存" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+            [self updateRequestOperationEvent];
+        }];
+        
+        UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:@"不保存" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            [self.navigationController popViewControllerAnimated:YES];
+        }];
+        [control addAction:saveAction];
+        [control addAction:cancleAction];
+        [self presentViewController:control animated:YES completion:^{
+            
+        }];
     }else{
         [self.navigationController popViewControllerAnimated:YES];
     }
 }
 
 
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    
-    
-    NSLog(@"buttonIndex is %ld",buttonIndex );
-    
-    if(buttonIndex == 0){
-        [self.navigationController popViewControllerAnimated:YES];
-    }else{
+- (void)updateRequestOperationEvent{
+    if (IsStringEmptyOrNull(self.userPersonalPhotoURL)) {
+        ShowImportErrorAlertView(@"请你上传图片");
         
-        if (IsStringEmptyOrNull(self.userPersonalPhotoURL)) {
-            ShowImportErrorAlertView(@"请你上传图片");
-            
-            return;
-        }
-
-        
-        NSDictionary *info = @{@"userName":self.userNameLabel.text,
-                               @"photoUrl":self.userPersonalPhotoURL,
-                               @"email":self.userEmailLabel.text,
-                               @"mobile":self.userMobileLabel.text
-                               };
-
-        
-        __weak __typeof(&*self)weakSelf = self;
-        [KShareHTTPLvyeHTTPClient clubUserEditPersonalInfWithClubId:KLvyeClubCurrentUser.clubId userId:KLvyeClubCurrentUser.userId info:info completion:^(WebAPIResponse *response) {
-            dispatch_async(dispatch_get_main_queue(), ^(void){
-
-                NSLog(@"response.responseObject is %@",response.responseObject);
-                if (response.code == WebAPIResponseCodeSuccess) {
-
-                    [KLvyeClubCurrentUser setUserPhotoImageURL:weakSelf.userPersonalPhotoURL];
-                    [KLvyeClubCurrentUser setUserName:weakSelf.userNameLabel.text];
-                    [KLvyeClubCurrentUser setUserMobile:weakSelf.userMobileLabel.text];
-                    [KLvyeClubCurrentUser setUserEmail:weakSelf.userEmailLabel.text];
-                    weakSelf.userIsEditInfoBool= NO;
-                    [weakSelf.navigationController popViewControllerAnimated:YES];
-
-                }else if(response.code == WebAPIResponseCodeFailed){
-                    ShowImportErrorAlertView(StringForKeyInUnserializedJSONDic(response.responseObject, KDataKeyMsg));
-                }
-
-            });
-        }];
-        
-        
-        
+        return;
     }
+    
+    NSDictionary *info = @{@"userName":self.userNameLabel.text,
+                           @"photoUrl":self.userPersonalPhotoURL,
+                           @"email":self.userEmailLabel.text,
+                           @"mobile":self.userMobileLabel.text
+                           };
+    
+    __weak __typeof(&*self)weakSelf = self;
+    [KShareHTTPLvyeHTTPClient clubUserEditPersonalInfWithClubId:KLvyeClubCurrentUser.clubId userId:KLvyeClubCurrentUser.userId info:info completion:^(WebAPIResponse *response) {
+        dispatch_async(dispatch_get_main_queue(), ^(void){
+            
+            NSLog(@"response.responseObject is %@",response.responseObject);
+            if (response.code == WebAPIResponseCodeSuccess) {
+                
+                [KLvyeClubCurrentUser setUserPhotoImageURL:weakSelf.userPersonalPhotoURL];
+                [KLvyeClubCurrentUser setUserName:weakSelf.userNameLabel.text];
+                [KLvyeClubCurrentUser setUserMobile:weakSelf.userMobileLabel.text];
+                [KLvyeClubCurrentUser setUserEmail:weakSelf.userEmailLabel.text];
+                weakSelf.userIsEditInfoBool= NO;
+                [weakSelf.navigationController popViewControllerAnimated:YES];
+                
+            }else if(response.code == WebAPIResponseCodeFailed){
+                ShowImportErrorAlertControl(StringForKeyInUnserializedJSONDic(response.responseObject, KDataKeyMsg),weakSelf);
+            }
+        });
+    }];
 }
 
 @end

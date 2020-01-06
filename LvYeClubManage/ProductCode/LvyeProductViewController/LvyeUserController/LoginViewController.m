@@ -327,27 +327,27 @@
     
     
     if(IsStringEmptyOrNull(self.userMobileField.text)){
-        ShowImportErrorAlertView(@"请输入手机号！");
+        ShowImportErrorAlertControl(@"请输入手机号！",self);
         return;
     }
     
     if(IsStringEmptyOrNull(self.userPasswrdField.text)){
-        ShowImportErrorAlertView(@"请输密码！");
+        ShowImportErrorAlertControl(@"请输密码！",self);
         return;
     }
     
     if(IsStringEmptyOrNull(self.userVerCodeField.text)){
-        ShowImportErrorAlertView(@"请输入验证码");
+        ShowImportErrorAlertControl(@"请输入验证码",self);
         return;
     }
     
     if(!IsNormalMobileNum(self.userMobileField.text)){
-        ShowImportErrorAlertView(@"请输入正确手机号！");
+        ShowImportErrorAlertControl(@"请输入正确手机号！",self);
         return;
     }
     
     if (![self.userVerCodeField.text isEqualToString:self.verCodeStr]) {
-        ShowImportErrorAlertView(@"验证码错误，请重新输入！");
+        ShowImportErrorAlertControl(@"验证码错误，请重新输入！",self);
         [self.codeImageView freshCodeContent];
         return;
     }
@@ -369,6 +369,11 @@
     NSLog(@"md5Password is %@",md5Password);
     [KShareHTTPLvyeHTTPClient userLoginWithUsrMobile:self.userMobileField.text password:userPasswordString completion:^(WebAPIResponse *response) {
         dispatch_async(dispatch_get_main_queue(), ^(void){
+            
+            NSLog(@"response.code is %ld",response.code);
+            
+            NSLog(@"response.code is %@",response.responseObject);
+            NSLog(@"description is %@",response.description);
             if (response.code == WebAPIResponseCodeSuccess) {
                 
                 [KLvyeProductClubSettings setClubLoginUserPassword:userPasswordString];
@@ -384,7 +389,7 @@
                     
                 }
             }else{
-                ShowImportErrorAlertView(@"请稍后重试！");
+                ShowImportErrorAlertControl(@"请稍后重试！",weakSelf);
             }
             
         });

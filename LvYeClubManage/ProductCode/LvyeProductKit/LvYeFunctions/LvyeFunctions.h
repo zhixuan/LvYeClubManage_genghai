@@ -68,7 +68,8 @@ extern "C" {
      @param errorString *errorString 错误提示信息
      @See 返回一个对话框，且无标题，仅有错误提示内容和一个确定操作按键
      */
-    extern void ShowImportErrorAlertView(NSString *errorString);
+    extern void ShowImportErrorAlertView(NSString *errorString)NS_CLASS_DEPRECATED_IOS(4_0, 9_0, "AlertView 被弃用，故该方法被弃用，请使用 ShowImportErrorAlertControl(NSString *errorString,id target) ");
+    extern void ShowImportErrorAlertControl(NSString *errorString,id target);
 #pragma mark - RandString
     ///生成固定位数的随机字符串
     extern NSString* generateRandStringWithBity(int numberCount);

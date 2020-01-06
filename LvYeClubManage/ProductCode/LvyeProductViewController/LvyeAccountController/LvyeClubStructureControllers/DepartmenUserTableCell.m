@@ -78,7 +78,7 @@
     NSString *userMobileStr = StringForKeyInUnserializedJSONDic(dataSource, @"userMobile");
     
     BOOL isLock = BoolForKeyInUnserializedJSONDic(dataSource, @"IsLock");
-    NSString *userContentStr = [NSString stringWithFormat:@"%@\t%@",userNameStr,userMobileStr];
+    NSString *userContentStr = [NSString stringWithFormat:@"%@\a\t%@",userNameStr,userMobileStr];
     
     NSDictionary *attribtDic = @{};
     if(isLock){

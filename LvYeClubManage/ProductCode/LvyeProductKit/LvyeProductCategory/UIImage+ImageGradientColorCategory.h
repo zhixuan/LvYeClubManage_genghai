@@ -32,4 +32,9 @@ typedef NS_ENUM(NSUInteger,GradientColorStyle) {
 
 - (UIImage *)thumbScaleImageWithPoint:(CGPoint)point size:(CGSize)size;
 
++ (UIColor *)colorWithGradientColorImageWithDirection :(GradientColorStyle)style
+size:(CGSize)size
+startColor:(UIColor *)start
+endColor:(UIColor *)end;
+
 @end
