@@ -76,16 +76,7 @@ extern CFAbsoluteTime startTime;
         tabBarController.selectedIndex = 0;
         [self.window setRootViewController:tabBarController];
     }else{
-        LoginViewController * viewController = [[LoginViewController alloc] init];
-        [viewController settingNavTitle:@"登录" color:KButtonStateNormalColor];
-        LvyeBaseNavigationController *navController = [[LvyeBaseNavigationController alloc]initWithRootViewController:viewController];
-        [self.window setRootViewController:navController];
-        
-        viewController.block = ^(WebAPIResponseCode code) {
-            LvyeBaseTabBarController *tabBarController = [[LvyeBaseTabBarController alloc]init];
-            tabBarController.selectedIndex = 0;
-            [self.window setRootViewController:tabBarController];
-        };
+        [self userPersonalLoginOperationAtAppDelegate];
     }
     
     
@@ -109,6 +100,7 @@ extern CFAbsoluteTime startTime;
      */
 [self clubUserAutoLogin];
 
+    [self initShortcutItems];
     [self.window makeKeyAndVisible];
     
 
@@ -225,6 +217,86 @@ extern CFAbsoluteTime startTime;
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center openSettingsForNotification:(UNNotification *)notification API_AVAILABLE(ios(10.0)){
     
     NSLog(@"%@%@",@"开启推送操作， ",@"操作处理");
+}
+
+-(void)initShortcutItems{
+    if([self.window respondsToSelector:@selector(traitCollection)] &&
+        [self.window.rootViewController.traitCollection respondsToSelector:@selector(forceTouchCapability)]){
+        //判断是否支持3dtouch
+    if(self.window.rootViewController.traitCollection.forceTouchCapability==UIForceTouchCapabilityAvailable){
+            
+            ///信息判断若 若信息已经超过4个，则不再追加
+            if ([UIApplication sharedApplication].shortcutItems.count >= 4)
+                return;
+            
+            NSMutableArray *shortcutItemsArray = [NSMutableArray new];
+        
+        
+        UIApplicationShortcutItem * item2 = [[UIApplicationShortcutItem alloc] initWithType:@"lvye.club.oderReturnM" localizedTitle:@"退款管理" localizedSubtitle:@"活动退款订单" icon:[UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypeDate] userInfo:nil];
+        
+        [shortcutItemsArray addObject:item2];
+        ///定义具体Item 内容
+        UIApplicationShortcutItem * item = [[UIApplicationShortcutItem alloc] initWithType:@"lvye.club.orderM" localizedTitle:@"订单管理" localizedSubtitle:@"全部订单列表" icon:[UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypeDate] userInfo:nil];
+        [shortcutItemsArray addObject:item];
+        
+         
+        [[UIApplication sharedApplication] setShortcutItems:shortcutItemsArray];
+            
+            
+        }
+        NSLog(@"3D Touch Operation  Can Do Somthing");
+    }else{
+        NSLog(@"3D Touch Operation None Done");
+    }
+}
+//performActionForShortcutItem
+
+- (void)application:(UIApplication *)application performActionForShortcutItem:(nonnull UIApplicationShortcutItem *)shortcutItem completionHandler:(nonnull void (^)(BOOL))completionHandler{
+    
+    NSLog(@"shortcutItem type is %@",shortcutItem.type  );
+    
+    if(!IsStringEmptyOrNull(shortcutItem.type)){
+        
+        NSLog(@"user is Login %d",KLvyeClubCurrentUser.userIsLogin);
+        
+        
+        ///若用户为登录状态，才有该用户的缓存数据内容
+        if (KLvyeClubCurrentUser.userIsLogin) {
+            ///退款管理信息界面
+            if ([shortcutItem.type isEqualToString:@"lvye.club.oderReturnM"]) {
+                
+                if([self.window.rootViewController isKindOfClass:[LvyeBaseTabBarController class]]){
+                    NSLog(@"shortcutItem`s name is lvye.club.oderReturnM 该信息是准确的");
+                    [(LvyeBaseTabBarController *)self.window.rootViewController setSelectedIndex:2];
+                }
+                
+            }///订单管理界面
+            else if ([shortcutItem.type isEqualToString:@"lvye.club.orderM"]) {
+                NSLog(@"shortcutItem`s name is lvye.club.orderM");
+            }
+        }///信息登录
+        else{
+            [self userPersonalLoginOperationAtAppDelegate];
+        }
+        
+        
+        
+    }
+}
+
+///用户登录操作
+/// \ref 用户信息内容为空情况下，进行该操作
+- (void)userPersonalLoginOperationAtAppDelegate{
+    LoginViewController * viewController = [[LoginViewController alloc] init];
+    [viewController settingNavTitle:@"登录" color:KButtonStateNormalColor];
+    LvyeBaseNavigationController *navController = [[LvyeBaseNavigationController alloc]initWithRootViewController:viewController];
+    [self.window setRootViewController:navController];
+    
+    viewController.block = ^(WebAPIResponseCode code) {
+        LvyeBaseTabBarController *tabBarController = [[LvyeBaseTabBarController alloc]init];
+        tabBarController.selectedIndex = 0;
+        [self.window setRootViewController:tabBarController];
+    };
 }
 
 @end
