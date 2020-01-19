@@ -62,6 +62,6 @@
                             KDataKeyOrderNumber:orderNum,};
     
     http://localhost:8999/clubOrder/itemOrderInfo?clubID=1784&orderNumber=1784s157y102257316
-    return [self getPath:KURLClubOrderItemOrderDetail parameters:param completion:completionBlock];
+    return [self getPath:KLvyeShareLvyeWebAPIURL.clubOrderAPI.clubOrderListDetailURL parameters:param completion:completionBlock];
 }
 @end

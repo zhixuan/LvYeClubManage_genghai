@@ -199,6 +199,7 @@
 		18FC1A6E210571D300CBC6FC /* LvyeClubOrderController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FC1A6D210571D300CBC6FC /* LvyeClubOrderController.m */; };
 		18FC1A722105CE1100CBC6FC /* LvyeProductSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FC1A712105CE1100CBC6FC /* LvyeProductSettings.m */; };
 		18FDB464223631C100361460 /* ClubOrderBaiscCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FDB463223631C100361460 /* ClubOrderBaiscCell.m */; };
+		7B39942323C9B20500FA3F45 /* LvyeWebAPIURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B39942223C9B20500FA3F45 /* LvyeWebAPIURL.m */; };
 		7BFB992F23BE3AA6000FF952 /* graduallyImg.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BFB992E23BE3AA6000FF952 /* graduallyImg.png */; };
 /* End PBXBuildFile section */
 
@@ -586,6 +587,8 @@
 		18FC1A712105CE1100CBC6FC /* LvyeProductSettings.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LvyeProductSettings.m; sourceTree = "<group>"; };
 		18FDB462223631C100361460 /* ClubOrderBaiscCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClubOrderBaiscCell.h; sourceTree = "<group>"; };
 		18FDB463223631C100361460 /* ClubOrderBaiscCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClubOrderBaiscCell.m; sourceTree = "<group>"; };
+		7B39942123C9B20500FA3F45 /* LvyeWebAPIURL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LvyeWebAPIURL.h; sourceTree = "<group>"; };
+		7B39942223C9B20500FA3F45 /* LvyeWebAPIURL.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LvyeWebAPIURL.m; sourceTree = "<group>"; };
 		7BFB992E23BE3AA6000FF952 /* graduallyImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = graduallyImg.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -943,6 +946,8 @@
 				182F28DB21E47218008DA403 /* LvYeHTTPClient+ClubInsurances.m */,
 				180DBB8E22644FEB006791B6 /* LvYeHTTPClient+ClubTourStatistics.h */,
 				180DBB8F22644FEB006791B6 /* LvYeHTTPClient+ClubTourStatistics.m */,
+				7B39942123C9B20500FA3F45 /* LvyeWebAPIURL.h */,
+				7B39942223C9B20500FA3F45 /* LvyeWebAPIURL.m */,
 			);
 			path = LvyeProductWebRequest;
 			sourceTree = "<group>";
@@ -1687,6 +1692,7 @@
 				18361D4C20F250480084DE0F /* main.m in Sources */,
 				18702FD0212124B600BABA96 /* ClubCommentViewController.m in Sources */,
 				180289262249C40F002CB435 /* QNDnspodEnterprise.m in Sources */,
+				7B39942323C9B20500FA3F45 /* LvyeWebAPIURL.m in Sources */,
 				184E49D62122B65E00F5CFBA /* DataPage.m in Sources */,
 				18CBEBB02137E54D0013AFC9 /* ClubDepartmentInfo.m in Sources */,
 				180288E82249B4C3002CB435 /* QNUploadManager.m in Sources */,
